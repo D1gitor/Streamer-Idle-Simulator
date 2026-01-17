@@ -1,0 +1,1103 @@
+<!doctype html>
+<html lang="no">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Streamer Idle Simulator</title>
+  <meta name="description" content="A clean, modern incremental game about becoming a streaming legend." />
+  <style>
+    :root{
+      --bg1:#0b1020;
+      --bg2:#090b16;
+      --card:#0f1733cc;
+      --card2:#0f1733aa;
+      --text:#eaf0ff;
+      --muted:#a8b3d6;
+      --line:#26335f;
+      --good:#7CFFB2;
+      --warn:#FFDE7C;
+      --bad:#FF7C9C;
+      --accent:#7aa7ff;
+      --accent2:#a97cff;
+      --shadow: 0 18px 50px rgba(0,0,0,.35);
+      --radius: 18px;
+    }
+
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      min-height:100vh;
+      background:
+        radial-gradient(900px 500px at 20% 10%, rgba(122,167,255,.22), transparent 60%),
+        radial-gradient(900px 500px at 80% 20%, rgba(169,124,255,.18), transparent 60%),
+        radial-gradient(700px 450px at 50% 85%, rgba(124,255,178,.10), transparent 60%),
+        linear-gradient(180deg, var(--bg1), var(--bg2));
+    }
+
+    .wrap{
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 22px 18px 40px;
+    }
+
+    header{
+      display:flex;
+      gap:14px;
+      align-items:center;
+      justify-content:space-between;
+      flex-wrap:wrap;
+      margin-bottom:16px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+    .logo{
+      width:42px;
+      height:42px;
+      border-radius: 14px;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(255,255,255,.22), transparent 55%),
+        linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 14px 30px rgba(122,167,255,.18);
+      border:1px solid rgba(255,255,255,.10);
+    }
+    h1{
+      font-size:18px;
+      margin:0;
+      letter-spacing:.2px;
+    }
+    .sub{
+      margin:2px 0 0;
+      color:var(--muted);
+      font-size:12px;
+    }
+
+    .top-actions{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+
+    button{
+      border:0;
+      cursor:pointer;
+      color:var(--text);
+      font-weight:650;
+      letter-spacing:.2px;
+      background: rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.12);
+      border-radius: 14px;
+      padding: 10px 12px;
+      transition: transform .05s ease, background .2s ease, border .2s ease, opacity .2s ease;
+      box-shadow: 0 10px 20px rgba(0,0,0,.18);
+    }
+    button:hover{ background: rgba(255,255,255,.10); border-color: rgba(255,255,255,.18); }
+    button:active{ transform: translateY(1px); }
+    button:disabled{ opacity:.55; cursor:not-allowed; }
+
+    .btn-primary{
+      background: linear-gradient(135deg, rgba(122,167,255,.95), rgba(169,124,255,.90));
+      border: 1px solid rgba(255,255,255,.18);
+    }
+    .btn-primary:hover{ filter: brightness(1.02); }
+
+    .btn-good{
+      background: linear-gradient(135deg, rgba(124,255,178,.20), rgba(122,167,255,.15));
+      border: 1px solid rgba(124,255,178,.25);
+    }
+    .btn-bad{
+      background: linear-gradient(135deg, rgba(255,124,156,.18), rgba(255,222,124,.08));
+      border: 1px solid rgba(255,124,156,.22);
+    }
+
+    .grid{
+      display:grid;
+      gap:14px;
+      grid-template-columns: 1.2fr .9fr;
+      align-items:start;
+    }
+    @media (max-width: 900px){
+      .grid{ grid-template-columns: 1fr; }
+    }
+
+    .card{
+      background: linear-gradient(180deg, var(--card), var(--card2));
+      border:1px solid rgba(255,255,255,.10);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 14px;
+      overflow:hidden;
+      position:relative;
+    }
+    .card:before{
+      content:"";
+      position:absolute;
+      inset:-1px;
+      background: radial-gradient(600px 180px at 30% 0%, rgba(122,167,255,.12), transparent 60%);
+      pointer-events:none;
+    }
+
+    .section-title{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom:10px;
+    }
+    .section-title h2{
+      margin:0;
+      font-size:14px;
+      color:var(--text);
+      letter-spacing:.3px;
+    }
+    .pill{
+      font-size:12px;
+      color:var(--muted);
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      padding: 6px 10px;
+      border-radius: 999px;
+      display:flex;
+      gap:8px;
+      align-items:center;
+      white-space:nowrap;
+    }
+
+    .stats{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap:10px;
+      margin-bottom:10px;
+    }
+    @media (max-width: 520px){
+      .stats{ grid-template-columns: 1fr; }
+    }
+
+    .stat{
+      padding: 12px;
+      border-radius: 16px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(10,16,34,.35);
+      position:relative;
+      overflow:hidden;
+    }
+    .stat .label{ font-size:12px; color:var(--muted); }
+    .stat .value{ font-size:22px; font-weight:800; margin-top:4px; letter-spacing:.2px; }
+    .stat .subline{ font-size:12px; color:var(--muted); margin-top:6px; }
+
+    .big-action{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:10px;
+      margin-top:8px;
+    }
+
+    .clicker{
+      padding: 14px;
+      border-radius: 18px;
+      border:1px solid rgba(255,255,255,.14);
+      background:
+        radial-gradient(600px 200px at 30% 30%, rgba(255,255,255,.10), transparent 60%),
+        linear-gradient(135deg, rgba(122,167,255,.20), rgba(169,124,255,.14));
+      box-shadow: 0 18px 40px rgba(0,0,0,.25);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+    }
+    .clicker .left{
+      display:flex;
+      flex-direction:column;
+      gap:4px;
+    }
+    .clicker .title{ font-weight:850; font-size:15px; }
+    .clicker .desc{ color:var(--muted); font-size:12px; line-height:1.25; }
+    .clicker .right{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+
+    .shop{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+    .shop-item{
+      padding: 12px;
+      border-radius: 16px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(10,16,34,.35);
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      align-items:center;
+    }
+    .shop-item .meta{
+      display:flex;
+      flex-direction:column;
+      gap:4px;
+      min-width:0;
+    }
+    .shop-item .name{
+      font-weight:850;
+      font-size:13px;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .shop-item .note{
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.25;
+    }
+    .shop-item .right{
+      display:flex;
+      gap:8px;
+      align-items:center;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .price{
+      font-size:12px;
+      color:var(--muted);
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      padding: 6px 10px;
+      border-radius: 999px;
+      white-space:nowrap;
+    }
+
+    .two-col{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:14px;
+    }
+
+    .log{
+      max-height: 240px;
+      overflow:auto;
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+      padding-right:4px;
+    }
+    .log .entry{
+      font-size:12px;
+      color:var(--muted);
+      padding: 10px 10px;
+      border-radius: 14px;
+      border:1px solid rgba(255,255,255,.08);
+      background: rgba(10,16,34,.28);
+    }
+    .log .entry strong{ color: var(--text); font-weight:800; }
+
+    .adbox{
+      border-radius: 16px;
+      border:1px dashed rgba(255,255,255,.18);
+      background: rgba(255,255,255,.05);
+      padding: 12px;
+      color: var(--muted);
+      font-size: 12px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+    }
+
+    .toast{
+      position: fixed;
+      left: 50%;
+      bottom: 18px;
+      transform: translateX(-50%);
+      background: rgba(15,23,51,.92);
+      border:1px solid rgba(255,255,255,.12);
+      border-radius: 999px;
+      padding: 10px 14px;
+      box-shadow: 0 16px 40px rgba(0,0,0,.35);
+      color: var(--text);
+      font-size: 13px;
+      display:none;
+      gap:8px;
+      align-items:center;
+      max-width: min(760px, calc(100vw - 20px));
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      z-index: 50;
+    }
+    .toast.show{ display:flex; }
+
+    a{ color: var(--accent); text-decoration:none; }
+    a:hover{ text-decoration:underline; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <h1>Streamer Idle Simulator</h1>
+          <div class="sub">Klikk deg til legende-status. Oppgrader riggen. Farm views mens du er borte.</div>
+        </div>
+      </div>
+<div class="top-actions">
+  <button id="btnDaily">🎁 Daily</button>
+  <button id="btnHelp">Hjelp</button>
+  <button id="btnSave">Lagre</button>
+  <button id="btnReset" class="btn-bad">Reset</button>
+</div>
+
+
+    </header>
+
+    <div class="grid">
+      <!-- LEFT -->
+      <div class="card">
+        <div class="section-title">
+          <h2>Status</h2>
+          <div class="pill" id="pillRate">0 /s</div>
+        </div>
+
+        <div class="stats">
+          <div class="stat">
+            <div class="label">Views</div>
+            <div class="value" id="views">0</div>
+            <div class="subline" id="vps">+0 per sekund</div>
+          </div>
+          <div class="stat">
+            <div class="label">Subs</div>
+            <div class="value" id="subs">0</div>
+            <div class="subline" id="sps">+0 per sekund</div>
+          </div>
+          <div class="stat">
+            <div class="label">Penger</div>
+            <div class="value" id="money">0</div>
+            <div class="subline" id="mps">+0 per sekund</div>
+          </div>
+        </div>
+
+        <div class="clicker">
+          <div class="left">
+            <div class="title">Gå live 🎥</div>
+            <div class="desc">Klikk for en burst av views. (Se for deg at chatten spammer “W”)</div>
+          </div>
+          <div class="right">
+            <button id="btnClick" class="btn-primary">+ Views</button>
+            <div class="pill" id="pillClick">Klikk: +1</div>
+          </div>
+        </div>
+
+        <div class="big-action">
+          <div class="adbox">
+            <div>
+              <strong>Rewarded boost</strong><br/>
+              Se en “ad” → <span style="color:var(--good);font-weight:800">x2 inntekt</span> i 30 sek.
+            </div>
+            <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:flex-end">
+              <button id="btnReward" class="btn-good">Watch Ad → x2</button>
+              <span class="pill" id="pillBoost">Ingen boost</span>
+            </div>
+          </div>
+
+          <div class="adbox">
+            <div>
+              <strong>Banner ad</strong><br/>
+              Plassholder i MVP. Bytt ut med AdSense når du er klar.
+            </div>
+            <button id="btnHowAds">Hvordan legge inn Ads?</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT -->
+      <div class="two-col">
+        <div class="card">
+          <div class="section-title">
+            <h2>Butikk</h2>
+            <div class="pill">Oppgrader → mer per sekund</div>
+          </div>
+          <div class="shop" id="shop"></div>
+        </div>
+
+        <div class="card">
+          <div class="section-title">
+            <h2>Achievements</h2>
+            <div class="pill" id="pillAch">0 / 8</div>
+          </div>
+          <div class="log" id="achList"></div>
+        </div>
+
+        <div class="card">
+          <div class="section-title">
+            <h2>Logg</h2>
+            <div class="pill" id="pillOffline">Offline: 0</div>
+          </div>
+          <div class="log" id="log"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- First-time Help Modal -->
+<div id="helpOverlay" style="position:fixed; inset:0; display:none; place-items:center; padding:16px; background:rgba(0,0,0,.55); z-index:60;">
+  <div style="width:min(560px, calc(100vw - 24px)); border-radius:22px; padding:16px; border:1px solid rgba(255,255,255,.12); background:rgba(15,23,51,.92); box-shadow:0 18px 50px rgba(0,0,0,.45); position:relative;">
+    <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:12px;">
+      <div>
+        <div style="font-weight:900; font-size:16px; letter-spacing:.2px;">Velkommen! 🎥</div>
+        <div style="color:rgba(234,240,255,.75); font-size:12px; margin-top:4px; line-height:1.35;">
+          20 sek guide så du kommer i gang.
+        </div>
+      </div>
+      <button id="btnCloseHelp" style="border-radius:14px; padding:8px 10px;">✕</button>
+    </div>
+
+    <div style="margin-top:12px; display:grid; gap:10px;">
+      <div style="border:1px solid rgba(255,255,255,.10); background:rgba(10,16,34,.35); border-radius:18px; padding:12px;">
+        <div style="font-weight:850; font-size:13px;">1) Klikk <span style="color:var(--accent); font-weight:900;">Gå live</span></div>
+        <div style="color:rgba(234,240,255,.70); font-size:12px; margin-top:4px;">Du får views, litt subs og litt penger med en gang.</div>
+      </div>
+
+      <div style="border:1px solid rgba(255,255,255,.10); background:rgba(10,16,34,.35); border-radius:18px; padding:12px;">
+        <div style="font-weight:850; font-size:13px;">2) Kjøp oppgraderinger i <span style="color:var(--accent); font-weight:900;">Butikk</span></div>
+        <div style="color:rgba(234,240,255,.70); font-size:12px; margin-top:4px;">Oppgrader → mer per sekund. Målet er at tallene går av seg selv.</div>
+      </div>
+
+      <div style="border:1px solid rgba(255,255,255,.10); background:rgba(10,16,34,.35); border-radius:18px; padding:12px;">
+        <div style="font-weight:850; font-size:13px;">3) Boost (valgfritt) ⚡</div>
+        <div style="color:rgba(234,240,255,.70); font-size:12px; margin-top:4px;">“Watch Ad → x2” gir x2 inntekt i 30 sek. (Du bestemmer.)</div>
+      </div>
+
+      <div style="display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end; margin-top:4px;">
+        <button id="btnHelpPlay" class="btn-primary" style="border-radius:14px; padding:10px 12px;">OK, la oss spille</button>
+      </div>
+
+      <!-- START BONUS TEKST (HER) -->
+<div style="color:rgba(234,240,255,.65); font-size:12px; margin-top:6px;">
+  🎁 Start bonus: +100 views og +10 penger
+</div>
+
+      <div style="color:rgba(234,240,255,.55); font-size:11px; margin-top:2px;">
+        Tips: Space = klikk (begrenset). Spillet lagrer automatisk.
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <div class="toast" id="toast">Toast</div>
+
+<script>
+(() => {
+  // ---------- Helpers ----------
+  const $ = (id) => document.getElementById(id);
+  const fmt = (n) => {
+    n = Math.floor(n);
+    if (n < 1000) return String(n);
+    const units = ["K","M","B","T"];
+    let u = -1;
+    let x = n;
+    while (x >= 1000 && u < units.length - 1) { x /= 1000; u++; }
+    const s = (x >= 100 ? x.toFixed(0) : x >= 10 ? x.toFixed(1) : x.toFixed(2));
+    return s.replace(/\.0+$/,"") + units[u];
+  };
+  const now = () => Date.now();
+
+  function toast(msg){
+    const el = $("toast");
+    el.textContent = msg;
+    el.classList.add("show");
+    clearTimeout(toast._t);
+    toast._t = setTimeout(()=> el.classList.remove("show"), 2200);
+  }
+
+  function log(msg){
+    const el = $("log");
+    const div = document.createElement("div");
+    div.className = "entry";
+    div.innerHTML = msg;
+    el.prepend(div);
+    // keep it snappy
+    while (el.children.length > 25) el.removeChild(el.lastChild);
+  }
+
+  // ---------- Game Data ----------
+  const DEFAULT = {
+    views: 0,
+    subs: 0,
+    money: 0,
+
+    clickPower: 1,
+
+    upgrades: {
+      pc: 0,
+      net: 0,
+      overlay: 0,
+      mods: 0,
+      sponsor: 0,
+      editor: 0
+    },
+
+    boostUntil: 0,   // timestamp
+    lastTick: now(), // for offline calc
+    lastSave: now(),
+
+    achievements: {}, // id => true
+  };
+
+  const STORAGE_KEY = "streamer_idle_v1";
+
+  // ---------- Help / First-time modal ----------
+const HELP_KEY = "streamer_idle_seen_help_v1";
+const START_BONUS_KEY = "streamer_idle_start_bonus_v1";
+const DAILY_BONUS_KEY = "streamer_idle_daily_bonus_date";
+const DAILY_BONUS_MULT = 1.2;
+const DAILY_BONUS_TIME = 10 * 60 * 1000; // 10 min
+
+
+function openHelp(){
+  const o = document.getElementById("helpOverlay");
+  if(!o) return;
+  o.style.display = "grid";
+}
+function closeHelp(){
+  const o = document.getElementById("helpOverlay");
+  if(!o) return;
+  o.style.display = "none";
+  localStorage.setItem(HELP_KEY, "1");
+}
+
+document.getElementById("btnHelp")?.addEventListener("click", openHelp);
+document.getElementById("btnCloseHelp")?.addEventListener("click", closeHelp);
+document.getElementById("btnHelpPlay")?.addEventListener("click", () => {
+  giveStartBonus();
+  closeHelp();
+});
+
+
+function getTodayKey(){
+  const d = new Date();
+  return `${d.getFullYear()}-${d.getMonth()+1}-${d.getDate()}`;
+}
+
+function canClaimDailyBonus(){
+  return localStorage.getItem(DAILY_BONUS_KEY) !== getTodayKey();
+}
+
+
+// Close if clicking outside the modal
+document.getElementById("helpOverlay")?.addEventListener("click", (e) => {
+  if (e.target && e.target.id === "helpOverlay") closeHelp();
+});
+
+function giveStartBonus(){
+  if (localStorage.getItem(START_BONUS_KEY)) return;
+
+  S.views += 100;
+  S.money += 10;
+
+  localStorage.setItem(START_BONUS_KEY, "1");
+
+  toast("🎁 Start bonus: +100 views, +10 penger!");
+  log("🎁 <strong>Start bonus</strong> — +100 views, +10 penger");
+  render(true);
+}
+
+
+function claimDailyBonus(){
+  if (!canClaimDailyBonus()) {
+    toast("Du har allerede hentet dagens bonus 🎁");
+    return;
+  }
+
+  // legg på boost oppå evt rewarded boost
+  S.boostUntil = Math.max(S.boostUntil || 0, Date.now()) + DAILY_BONUS_TIME;
+  S._dailyBoostMult = DAILY_BONUS_MULT;
+
+  localStorage.setItem(DAILY_BONUS_KEY, getTodayKey());
+
+  toast("🎁 Daily bonus! +20% inntekt i 10 min");
+  log("🎁 <strong>Daily bonus</strong> — +20% inntekt i 10 min");
+  render();
+}
+
+
+
+  const UPGRADE_DEFS = [
+    {
+      id: "pc",
+      name: "Bedre PC",
+      desc: "Mer views per sekund. (GPU går BRRR)",
+      baseCost: 50,
+      costMult: 1.25,
+      effect: (lvl) => ({ vps: 0.6 * lvl })
+    },
+    {
+      id: "net",
+      name: "Raskere nett",
+      desc: "Stabil stream → flere subs per sekund.",
+      baseCost: 120,
+      costMult: 1.28,
+      effect: (lvl) => ({ sps: 0.06 * lvl })
+    },
+    {
+      id: "overlay",
+      name: "Pro overlay",
+      desc: "Mer klikking-verdi (chat blir imponert).",
+      baseCost: 90,
+      costMult: 1.26,
+      effect: (lvl) => ({ click: 0.4 * lvl })
+    },
+    {
+      id: "mods",
+      name: "Chat mods",
+      desc: "Færre trolls → mer penger per sekund.",
+      baseCost: 220,
+      costMult: 1.30,
+      effect: (lvl) => ({ mps: 0.14 * lvl })
+    },
+    {
+      id: "sponsor",
+      name: "Sponsor deal",
+      desc: "Subs → penger (litt per sekund).",
+      baseCost: 500,
+      costMult: 1.32,
+      effect: (lvl) => ({ subToMoney: 0.012 * lvl })
+    },
+    {
+      id: "editor",
+      name: "Video editor",
+      desc: "Views → subs (litt per sekund).",
+      baseCost: 650,
+      costMult: 1.34,
+      effect: (lvl) => ({ viewToSubs: 0.0018 * lvl })
+    },
+  ];
+
+  const ACH = [
+    { id:"v_1k",   title:"Første 1K views",        check:(s)=>s.views>=1000,     reward:"+5% clickPower", apply:(s)=> s.clickPower *= 1.05 },
+    { id:"s_50",   title:"50 subs",                check:(s)=>s.subs>=50,        reward:"+5% penger/s",   apply:(s)=> s._permMoneyMult = (s._permMoneyMult||1)*1.05 },
+    { id:"m_1k",   title:"Tjent 1K penger",        check:(s)=>s.money>=1000,    reward:"+5% views/s",    apply:(s)=> s._permViewMult  = (s._permViewMult||1)*1.05 },
+    { id:"pc_10",  title:"PC lvl 10",              check:(s)=>s.upgrades.pc>=10,reward:"+10% clickPower", apply:(s)=> s.clickPower *= 1.10 },
+    { id:"net_10", title:"Nett lvl 10",            check:(s)=>s.upgrades.net>=10,reward:"+10% subs/s",    apply:(s)=> s._permSubMult   = (s._permSubMult||1)*1.10 },
+    { id:"mods_10",title:"Mods lvl 10",            check:(s)=>s.upgrades.mods>=10,reward:"+10% penger/s", apply:(s)=> s._permMoneyMult = (s._permMoneyMult||1)*1.10 },
+    { id:"boost",  title:"Bruk boost én gang",     check:(s)=> s._usedBoost===true,reward:"+3% alt/s",     apply:(s)=> { s._permViewMult=(s._permViewMult||1)*1.03; s._permSubMult=(s._permSubMult||1)*1.03; s._permMoneyMult=(s._permMoneyMult||1)*1.03; } },
+    { id:"v_1m",   title:"1M views (legend)",      check:(s)=>s.views>=1_000_000,reward:"+20% clickPower",apply:(s)=> s.clickPower *= 1.20 },
+  ];
+
+  // ---------- State ----------
+  let S = load();
+
+  function load(){
+    try{
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if(!raw) return structuredClone(DEFAULT);
+      const obj = JSON.parse(raw);
+      // merge defaults
+      const s = structuredClone(DEFAULT);
+      Object.assign(s, obj);
+      s.upgrades = Object.assign(structuredClone(DEFAULT.upgrades), obj.upgrades || {});
+      s.achievements = Object.assign({}, obj.achievements || {});
+      s.lastTick = obj.lastTick || now();
+      return s;
+    }catch(e){
+      return structuredClone(DEFAULT);
+    }
+  }
+
+  function save(){
+    S.lastSave = now();
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(S));
+    toast("Lagret ✅");
+  }
+
+  function hardReset(){
+    localStorage.removeItem(STORAGE_KEY);
+    S = structuredClone(DEFAULT);
+    buildShop();
+    buildAchievements();
+    render(true);
+    toast("Reset gjort.");
+    log("🔁 <strong>Reset</strong> — tilbake til null (men du kan bygge opp igjen fort).");
+  }
+
+  // ---------- Economy ----------
+  function calcRates(){
+  const lvl = (id) => S.upgrades[id] || 0;
+
+  // base from upgrades
+  let vps = 0;
+  let sps = 0;
+  let mps = 0;
+  let subToMoney = 0;
+  let viewToSubs = 0;
+
+  for (const u of UPGRADE_DEFS){
+    const L = lvl(u.id);
+    const eff = u.effect(L);
+    vps += eff.vps || 0;
+    sps += eff.sps || 0;
+    mps += eff.mps || 0;
+    subToMoney += eff.subToMoney || 0;
+    viewToSubs += eff.viewToSubs || 0;
+  }
+
+  // perms from achievements
+  const viewMult  = S._permViewMult  || 1;
+  const subMult   = S._permSubMult   || 1;
+  const moneyMult = S._permMoneyMult || 1;
+
+  vps *= viewMult;
+  sps *= subMult;
+  mps *= moneyMult;
+
+  // Boost (rewarded ad) multiplies all rates
+  const boosted = now() < (S.boostUntil || 0);
+  const boostMult = boosted ? 2 : 1;
+
+  // Daily bonus multiplier
+  const dailyMult = S._dailyBoostMult || 1;
+
+  return {
+    vps: vps * boostMult * dailyMult,
+    sps: sps * boostMult * dailyMult,
+    mps: mps * boostMult * dailyMult,
+    subToMoney: subToMoney * boostMult * dailyMult,
+    viewToSubs: viewToSubs * boostMult * dailyMult,
+    boosted
+  };
+}
+
+
+
+  function upgradeCost(def){
+    const L = S.upgrades[def.id] || 0;
+    return Math.floor(def.baseCost * Math.pow(def.costMult, L));
+  }
+
+  function canAfford(cost){ return S.money >= cost; }
+
+  function buyUpgrade(id){
+    const def = UPGRADE_DEFS.find(u=>u.id===id);
+    if(!def) return;
+    const cost = upgradeCost(def);
+    if(!canAfford(cost)){
+      toast("Ikke nok penger.");
+      return;
+    }
+    S.money -= cost;
+    S.upgrades[id] = (S.upgrades[id] || 0) + 1;
+    toast(`${def.name} +1`);
+    log(`🛒 Kjøpte <strong>${def.name}</strong> (lvl ${S.upgrades[id]})`);
+    render();
+  }
+
+  function click(){
+    const rates = calcRates();
+    const overlayLvl = S.upgrades.overlay || 0;
+    const clickBonus = overlayLvl * 0.4; // from upgrade def (also shown in pill)
+    const perClick = (S.clickPower || 1) + clickBonus;
+
+    // boost doesn't change per click by default (holder det fair), men vi lar det påvirke litt:
+    const mult = rates.boosted ? 1.25 : 1; // click feels better during boost
+    S.views += perClick * mult;
+
+    // tiny conversion from views to subs on click (feel-good)
+    S.subs += (perClick * 0.01) * mult;
+
+    // and a tiny money drip on click (so money starts early)
+    S.money += (perClick * 0.02) * mult;
+
+    render();
+  }
+
+  // ---------- Offline & Ticking ----------
+  function applyOffline(){
+    const tNow = now();
+    const elapsedMs = Math.max(0, tNow - (S.lastTick || tNow));
+    const elapsedSec = Math.min(12 * 3600, Math.floor(elapsedMs / 1000)); // cap 12 hours
+    if(elapsedSec <= 2) return;
+
+    const r = calcRates();
+    // income over offline time
+    const gainedViews = r.vps * elapsedSec;
+    const gainedSubs  = r.sps * elapsedSec;
+    const gainedMoney = r.mps * elapsedSec;
+
+    // passive conversions
+    const extraSubsFromViews = r.viewToSubs * S.views * (elapsedSec/60); // scaled per minute-ish
+    const extraMoneyFromSubs = r.subToMoney * S.subs  * (elapsedSec/60);
+
+    S.views += gainedViews;
+    S.subs  += gainedSubs + extraSubsFromViews;
+    S.money += gainedMoney + extraMoneyFromSubs;
+
+    $("pillOffline").textContent = `Offline: ${elapsedSec}s`;
+    log(`🕒 Offline i <strong>${elapsedSec}s</strong> → +${fmt(gainedViews)} views, +${fmt(gainedSubs)} subs, +${fmt(gainedMoney)} penger`);
+  }
+
+  function tick(dt){
+    const r = calcRates();
+
+    // base rates
+    S.views += r.vps * dt;
+    S.subs  += r.sps * dt;
+    S.money += r.mps * dt;
+
+    // soft conversions based on current totals (feel like growth)
+    // keep these small so it doesn't explode too fast
+    S.subs  += r.viewToSubs * S.views * (dt/60);
+    S.money += r.subToMoney * S.subs  * (dt/60);
+
+    checkAchievements();
+  }
+
+  let lastFrame = now();
+  function loop(){
+    const t = now();
+    const dt = Math.min(0.2, (t - lastFrame) / 1000); // cap dt for stability
+    lastFrame = t;
+
+    tick(dt);
+    render(false);
+
+    // autosave every ~20s
+    if (t - (S.lastSave || 0) > 20000){
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(S));
+      S.lastSave = t;
+    }
+
+    if (S._dailyBoostMult && Date.now() > (S.boostUntil || 0)) {
+  delete S._dailyBoostMult;
+}
+
+
+    requestAnimationFrame(loop);
+  }
+
+  // ---------- Achievements ----------
+  function buildAchievements(){
+    const el = $("achList");
+    el.innerHTML = "";
+    for (const a of ACH){
+      const div = document.createElement("div");
+      div.className = "entry";
+      div.id = "ach_" + a.id;
+      div.innerHTML = `🏆 <strong>${a.title}</strong><br/><span style="color:var(--muted)">${a.reward}</span>`;
+      el.appendChild(div);
+    }
+  }
+
+  function checkAchievements(){
+    let changed = false;
+    for (const a of ACH){
+      if (S.achievements[a.id]) continue;
+      if (a.check(S)){
+        S.achievements[a.id] = true;
+        // apply reward
+        try{ a.apply(S); }catch(e){}
+        changed = true;
+        toast(`Achievement: ${a.title}`);
+        log(`🏆 Unlock: <strong>${a.title}</strong> — ${a.reward}`);
+      }
+    }
+    if(changed) render();
+  }
+
+  // ---------- UI ----------
+  function buildShop(){
+    const el = $("shop");
+    el.innerHTML = "";
+    for (const def of UPGRADE_DEFS){
+      const row = document.createElement("div");
+      row.className = "shop-item";
+      row.id = "row_" + def.id;
+
+      const meta = document.createElement("div");
+      meta.className = "meta";
+
+      const name = document.createElement("div");
+      name.className = "name";
+      name.textContent = def.name;
+
+      const note = document.createElement("div");
+      note.className = "note";
+      note.textContent = def.desc;
+
+      meta.appendChild(name);
+      meta.appendChild(note);
+
+      const right = document.createElement("div");
+      right.className = "right";
+
+      const price = document.createElement("div");
+      price.className = "price";
+      price.id = "price_" + def.id;
+
+      const lvl = document.createElement("div");
+      lvl.className = "pill";
+      lvl.id = "lvl_" + def.id;
+      lvl.textContent = "lvl 0";
+
+      const btn = document.createElement("button");
+      btn.textContent = "Kjøp";
+      btn.className = "btn-primary";
+      btn.onclick = () => buyUpgrade(def.id);
+
+      right.appendChild(price);
+      right.appendChild(lvl);
+      right.appendChild(btn);
+
+      row.appendChild(meta);
+      row.appendChild(right);
+
+      el.appendChild(row);
+    }
+  }
+
+  function render(force){
+    // numbers
+    $("views").textContent = fmt(S.views);
+    $("subs").textContent  = fmt(S.subs);
+    $("money").textContent = fmt(S.money);
+
+    const r = calcRates();
+    $("vps").textContent = `+${fmt(r.vps)} per sekund`;
+    $("sps").textContent = `+${fmt(r.sps)} per sekund`;
+    $("mps").textContent = `+${fmt(r.mps)} per sekund`;
+
+    $("pillRate").textContent = `V ${fmt(r.vps)}/s · S ${fmt(r.sps)}/s · $ ${fmt(r.mps)}/s`;
+
+    const overlayLvl = S.upgrades.overlay || 0;
+    $("pillClick").textContent = `Klikk: +${( (S.clickPower||1) + overlayLvl*0.4 ).toFixed(1).replace(/\.0$/,"")}`;
+
+    // boost pill
+    if (r.boosted){
+      const left = Math.max(0, Math.ceil((S.boostUntil - now())/1000));
+      $("pillBoost").textContent = `x2 aktiv (${left}s)`;
+    }else{
+      $("pillBoost").textContent = "Ingen boost";
+    }
+
+    // shop costs + levels
+    for (const def of UPGRADE_DEFS){
+      const cost = upgradeCost(def);
+      $("price_"+def.id).textContent = `Pris: ${fmt(cost)}`;
+      $("lvl_"+def.id).textContent = `lvl ${S.upgrades[def.id] || 0}`;
+      const can = canAfford(cost);
+      // disable buy if can't afford
+      const row = $("row_"+def.id);
+      const btn = row.querySelector("button");
+      btn.disabled = !can;
+    }
+
+    // achievements visual
+    let unlocked = 0;
+    for (const a of ACH){
+      const got = !!S.achievements[a.id];
+      const el = $("ach_"+a.id);
+      if (!el) continue;
+      if (got){
+        unlocked++;
+        el.style.borderColor = "rgba(124,255,178,.22)";
+        el.style.background = "rgba(124,255,178,.06)";
+        el.style.color = "var(--text)";
+      }else{
+        el.style.borderColor = "rgba(255,255,255,.08)";
+        el.style.background = "rgba(10,16,34,.28)";
+        el.style.color = "var(--muted)";
+      }
+    }
+    $("pillAch").textContent = `${unlocked} / ${ACH.length}`;
+
+    // lastTick update for offline
+    S.lastTick = now();
+    if(force) localStorage.setItem(STORAGE_KEY, JSON.stringify(S));
+  }
+
+  // ---------- Rewarded Ad (Placeholder) ----------
+  function rewardBoost(){
+    // MVP: we simulate a rewarded ad
+    // Later: replace with real rewarded ad SDK if/when you use one.
+    if (now() < (S.boostUntil || 0)){
+      toast("Boost er allerede aktiv.");
+      return;
+    }
+    S._usedBoost = true;
+    S.boostUntil = now() + 30_000;
+    toast("Boost aktiv! x2 i 30 sek ⚡");
+    log(`⚡ <strong>Boost</strong> aktiv — x2 inntekt i 30 sek.`);
+    render();
+  }
+
+  // ---------- Ads Help ----------
+  function showAdsHelp(){
+    const msg =
+`MVP-tips:
+• Banner: legg en <div id="banner"></div> i bunnen og fyll med AdSense-script (fra AdSense-kontoen din).
+• Rewarded: i web kan du starte med “simulert” (som nå), eller bytte til en tredjeparts løsning når du har trafikk.
+
+Viktig: AdSense-oppsett og regler kan endre seg, så følg alltid de offisielle instruksene fra Google for implementasjon og policy.`;
+    alert(msg);
+  }
+
+  // ---------- Events ----------
+  $("btnClick").addEventListener("click", click);
+  $("btnDaily")?.addEventListener("click", claimDailyBonus);
+  $("btnSave").addEventListener("click", () => {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(S));
+    toast("Lagret ✅");
+  });
+  $("btnReset").addEventListener("click", () => {
+    const ok = confirm("Reset alt? (Dette kan ikke angres)");
+    if(ok) hardReset();
+  });
+  $("btnReward").addEventListener("click", rewardBoost);
+  $("btnHowAds").addEventListener("click", showAdsHelp);
+
+let lastSpaceClick = 0;
+const SPACE_COOLDOWN = 160;
+
+window.addEventListener("keydown", (e) => {
+  if (e.code !== "Space") return;
+
+  const tag = document.activeElement?.tagName;
+  if (tag === "INPUT" || tag === "TEXTAREA") return;
+
+  e.preventDefault();
+
+  const t = Date.now();
+  if (t - lastSpaceClick < SPACE_COOLDOWN) return;
+
+  lastSpaceClick = t;
+  click();
+});
+
+
+
+  // ---------- Init ----------
+  buildShop();
+  buildAchievements();
+  applyOffline();
+  render(true);
+  checkAchievements();
+  loop();
+
+  // Save on tab close
+  window.addEventListener("beforeunload", ()=>{
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(S));
+  });
+})();
+</script>
+</body>
+</html>
