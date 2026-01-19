@@ -36,60 +36,30 @@
         linear-gradient(180deg, var(--bg1), var(--bg2));
     }
 
-    .wrap{
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 22px 18px 40px;
-    }
+    .wrap{ max-width: 1100px; margin: 0 auto; padding: 22px 18px 40px; }
 
     header{
-      display:flex;
-      gap:14px;
-      align-items:center;
-      justify-content:space-between;
-      flex-wrap:wrap;
-      margin-bottom:16px;
+      display:flex; gap:14px; align-items:center; justify-content:space-between;
+      flex-wrap:wrap; margin-bottom:16px;
     }
 
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:12px;
-    }
+    .brand{ display:flex; align-items:center; gap:12px; }
     .logo{
-      width:42px;
-      height:42px;
-      border-radius: 14px;
+      width:42px; height:42px; border-radius:14px;
       background:
         radial-gradient(circle at 30% 30%, rgba(255,255,255,.22), transparent 55%),
         linear-gradient(135deg, var(--accent), var(--accent2));
       box-shadow: 0 14px 30px rgba(122,167,255,.18);
       border:1px solid rgba(255,255,255,.10);
     }
-    h1{
-      font-size:18px;
-      margin:0;
-      letter-spacing:.2px;
-    }
-    .sub{
-      margin:2px 0 0;
-      color:var(--muted);
-      font-size:12px;
-    }
+    h1{ font-size:18px; margin:0; letter-spacing:.2px; }
+    .sub{ margin:2px 0 0; color:var(--muted); font-size:12px; }
 
-    .top-actions{
-      display:flex;
-      gap:10px;
-      align-items:center;
-      flex-wrap:wrap;
-    }
+    .top-actions{ display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
 
     button{
-      border:0;
-      cursor:pointer;
-      color:var(--text);
-      font-weight:650;
-      letter-spacing:.2px;
+      border:0; cursor:pointer; color:var(--text);
+      font-weight:650; letter-spacing:.2px;
       background: rgba(255,255,255,.08);
       border:1px solid rgba(255,255,255,.12);
       border-radius: 14px;
@@ -117,14 +87,11 @@
     }
 
     .grid{
-      display:grid;
-      gap:14px;
+      display:grid; gap:14px;
       grid-template-columns: 1.2fr .9fr;
       align-items:start;
     }
-    @media (max-width: 900px){
-      .grid{ grid-template-columns: 1fr; }
-    }
+    @media (max-width: 900px){ .grid{ grid-template-columns: 1fr; } }
 
     .card{
       background: linear-gradient(180deg, var(--card), var(--card2));
@@ -144,157 +111,77 @@
     }
 
     .section-title{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      margin-bottom:10px;
+      display:flex; align-items:center; justify-content:space-between;
+      gap:12px; margin-bottom:10px;
     }
-    .section-title h2{
-      margin:0;
-      font-size:14px;
-      color:var(--text);
-      letter-spacing:.3px;
-    }
+    .section-title h2{ margin:0; font-size:14px; color:var(--text); letter-spacing:.3px; }
     .pill{
-      font-size:12px;
-      color:var(--muted);
+      font-size:12px; color:var(--muted);
       border:1px solid rgba(255,255,255,.12);
       background: rgba(255,255,255,.06);
-      padding: 6px 10px;
-      border-radius: 999px;
-      display:flex;
-      gap:8px;
-      align-items:center;
-      white-space:nowrap;
+      padding: 6px 10px; border-radius: 999px;
+      display:flex; gap:8px; align-items:center; white-space:nowrap;
     }
 
-    .stats{
-      display:grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap:10px;
-      margin-bottom:10px;
-    }
-    @media (max-width: 520px){
-      .stats{ grid-template-columns: 1fr; }
-    }
+    .stats{ display:grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap:10px; margin-bottom:10px; }
+    @media (max-width: 520px){ .stats{ grid-template-columns: 1fr; } }
 
     .stat{
-      padding: 12px;
-      border-radius: 16px;
+      padding: 12px; border-radius: 16px;
       border:1px solid rgba(255,255,255,.10);
       background: rgba(10,16,34,.35);
-      position:relative;
-      overflow:hidden;
+      position:relative; overflow:hidden;
     }
     .stat .label{ font-size:12px; color:var(--muted); }
     .stat .value{ font-size:22px; font-weight:800; margin-top:4px; letter-spacing:.2px; }
     .stat .subline{ font-size:12px; color:var(--muted); margin-top:6px; }
 
-    .big-action{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap:10px;
-      margin-top:8px;
-    }
+    .big-action{ display:grid; grid-template-columns: 1fr; gap:10px; margin-top:8px; }
 
     .clicker{
-      padding: 14px;
-      border-radius: 18px;
+      padding: 14px; border-radius: 18px;
       border:1px solid rgba(255,255,255,.14);
       background:
         radial-gradient(600px 200px at 30% 30%, rgba(255,255,255,.10), transparent 60%),
         linear-gradient(135deg, rgba(122,167,255,.20), rgba(169,124,255,.14));
       box-shadow: 0 18px 40px rgba(0,0,0,.25);
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:14px;
+      display:flex; align-items:center; justify-content:space-between; gap:14px;
     }
-    .clicker .left{
-      display:flex;
-      flex-direction:column;
-      gap:4px;
-    }
+    .clicker .left{ display:flex; flex-direction:column; gap:4px; }
     .clicker .title{ font-weight:850; font-size:15px; }
     .clicker .desc{ color:var(--muted); font-size:12px; line-height:1.25; }
-    .clicker .right{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      flex-wrap:wrap;
-      justify-content:flex-end;
-    }
+    .clicker .right{ display:flex; align-items:center; gap:10px; flex-wrap:wrap; justify-content:flex-end; }
 
-    .shop{
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-    }
+    .shop{ display:flex; flex-direction:column; gap:10px; }
     .shop-item{
-      padding: 12px;
-      border-radius: 16px;
+      padding: 12px; border-radius: 16px;
       border:1px solid rgba(255,255,255,.10);
       background: rgba(10,16,34,.35);
-      display:flex;
-      justify-content:space-between;
-      gap:10px;
-      align-items:center;
+      display:flex; justify-content:space-between; gap:10px; align-items:center;
     }
-    .shop-item .meta{
-      display:flex;
-      flex-direction:column;
-      gap:4px;
-      min-width:0;
-    }
-    .shop-item .name{
-      font-weight:850;
-      font-size:13px;
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
-    }
-    .shop-item .note{
-      color:var(--muted);
-      font-size:12px;
-      line-height:1.25;
-    }
-    .shop-item .right{
-      display:flex;
-      gap:8px;
-      align-items:center;
-      flex-wrap:wrap;
-      justify-content:flex-end;
-    }
+    .shop-item .meta{ display:flex; flex-direction:column; gap:4px; min-width:0; }
+    .shop-item .name{ font-weight:850; font-size:13px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+    .shop-item .note{ color:var(--muted); font-size:12px; line-height:1.25; }
+    .shop-item .right{ display:flex; gap:8px; align-items:center; flex-wrap:wrap; justify-content:flex-end; }
     .price{
-      font-size:12px;
-      color:var(--muted);
+      font-size:12px; color:var(--muted);
       border:1px solid rgba(255,255,255,.12);
       background: rgba(255,255,255,.06);
-      padding: 6px 10px;
-      border-radius: 999px;
+      padding: 6px 10px; border-radius: 999px;
       white-space:nowrap;
     }
 
-    .two-col{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap:14px;
-    }
+    .two-col{ display:grid; grid-template-columns: 1fr; gap:14px; }
 
     .log{
       max-height: 240px;
       overflow:auto;
-      display:flex;
-      flex-direction:column;
-      gap:8px;
+      display:flex; flex-direction:column; gap:8px;
       padding-right:4px;
     }
     .log .entry{
-      font-size:12px;
-      color:var(--muted);
-      padding: 10px 10px;
-      border-radius: 14px;
+      font-size:12px; color:var(--muted);
+      padding: 10px 10px; border-radius: 14px;
       border:1px solid rgba(255,255,255,.08);
       background: rgba(10,16,34,.28);
     }
@@ -307,57 +194,41 @@
       padding: 12px;
       color: var(--muted);
       font-size: 12px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
+      display:flex; align-items:center; justify-content:space-between;
       gap:10px;
     }
 
-    /* --- Premium modal (fade + scale) --- */
-.modal-overlay{
-  position:fixed;
-  inset:0;
-  display:none;            /* skjult som default */
-  place-items:center;
-  padding:16px;
-  background:rgba(0,0,0,.55);
-  z-index:70;
+    /* --- Modal (fade + scale) --- */
+    .modal-overlay{
+      position:fixed; inset:0;
+      display:none;
+      place-items:center;
+      padding:16px;
+      background:rgba(0,0,0,.55);
+      z-index:70;
+      opacity:0;
+      transition: opacity .18s ease;
+    }
+    .modal-overlay.show{ display:grid; }
+    .modal-overlay.open{ opacity:1; }
 
-  opacity:0;
-  transition: opacity .18s ease;
-}
+    .modal-card{
+      width:min(680px, calc(100vw - 24px));
+      border-radius:22px;
+      padding:16px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(15,23,51,.92);
+      box-shadow:0 18px 50px rgba(0,0,0,.45);
+      position:relative;
 
-.modal-overlay.show{
-  display:grid;
-}
-
-.modal-overlay.open{
-  opacity:1;
-}
-
-.modal-card{
-  width:min(680px, calc(100vw - 24px));
-  border-radius:22px;
-  padding:16px;
-  border:1px solid rgba(255,255,255,.12);
-  background:rgba(15,23,51,.92);
-  box-shadow:0 18px 50px rgba(0,0,0,.45);
-  position:relative;
-
-  transform: translateY(8px) scale(.98);
-  opacity:0;
-  transition: transform .18s ease, opacity .18s ease;
-}
-
-
-.modal-overlay.open .modal-card{
-  transform: translateY(0) scale(1);
-  opacity:1;
-}
-
-/* --- Streamer Era Update: Event Toast --- */
-#eventToast.show{ display:flex !important; }
-
+      transform: translateY(8px) scale(.98);
+      opacity:0;
+      transition: transform .18s ease, opacity .18s ease;
+    }
+    .modal-overlay.open .modal-card{
+      transform: translateY(0) scale(1);
+      opacity:1;
+    }
 
     .toast{
       position: fixed;
@@ -382,6 +253,10 @@
     }
     .toast.show{ display:flex; }
 
+    /* Event toast */
+    #eventToast{ display:none; }
+    #eventToast.show{ display:flex !important; }
+
     a{ color: var(--accent); text-decoration:none; }
     a:hover{ text-decoration:underline; }
   </style>
@@ -392,21 +267,20 @@
       <div class="brand">
         <div class="logo" aria-hidden="true"></div>
         <div>
-<h1 id="uiTitle">Streamer Idle Simulator</h1>
-<div class="sub" id="uiSubtitle">Click your way to legend status. Upgrade your setup. Farm views while offline.</div>
-
+          <h1 id="uiTitle">Streamer Idle Simulator</h1>
+          <div class="sub" id="uiSubtitle">Click your way to legend status. Upgrade your setup. Farm views while offline.</div>
         </div>
       </div>
-<div class="top-actions">
-  <button id="btnPrestige">✨ Prestige</button>
-  <button id="btnDaily">🎁 Daily</button>
-  <button id="btnLB">🏆 Leaderboard</button>
-  <button id="btnHelp">Help</button>
-  <button id="btnSave">Save</button>
-  <button id="btnReset" class="btn-bad">Reset</button>
-</div>
 
-
+      <div class="top-actions">
+        <button id="btnPrestige">✨ Prestige</button>
+        <button id="btnDaily">🎁 Daily</button>
+        <button id="btnLB">🏆 Leaderboard</button>
+        <button id="btnSeason">📅 Season</button>
+        <button id="btnHelp">Help</button>
+        <button id="btnSave">Save</button>
+        <button id="btnReset" class="btn-bad">Reset</button>
+      </div>
     </header>
 
     <div class="grid">
@@ -497,216 +371,256 @@
     </div>
   </div>
 
-  <!-- First-time Help Modal -->
-<div id="helpOverlay" style="position:fixed; inset:0; display:none; place-items:center; padding:16px; background:rgba(0,0,0,.55); z-index:60;">
-  <div style="width:min(560px, calc(100vw - 24px)); border-radius:22px; padding:16px; border:1px solid rgba(255,255,255,.12); background:rgba(15,23,51,.92); box-shadow:0 18px 50px rgba(0,0,0,.45); position:relative;">
-    <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:12px;">
-      <div>
-        <div style="font-weight:900; font-size:16px; letter-spacing:.2px;">Welcome! 🎥</div>
-        <div style="color:rgba(234,240,255,.75); font-size:12px; margin-top:4px; line-height:1.35;">
-          A 20-second guide to get you started.
+  <!-- Help Modal -->
+  <div id="helpOverlay" style="position:fixed; inset:0; display:none; place-items:center; padding:16px; background:rgba(0,0,0,.55); z-index:60;">
+    <div style="width:min(560px, calc(100vw - 24px)); border-radius:22px; padding:16px; border:1px solid rgba(255,255,255,.12); background:rgba(15,23,51,.92); box-shadow:0 18px 50px rgba(0,0,0,.45); position:relative;">
+      <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:12px;">
+        <div>
+          <div style="font-weight:900; font-size:16px; letter-spacing:.2px;">Welcome! 🎥</div>
+          <div style="color:rgba(234,240,255,.75); font-size:12px; margin-top:4px; line-height:1.35;">
+            A 20-second guide to get you started.
+          </div>
         </div>
-      </div>
-      <button id="btnCloseHelp" style="border-radius:14px; padding:8px 10px;">✕</button>
-    </div>
-
-    <div style="margin-top:12px; display:grid; gap:10px;">
-      <div style="border:1px solid rgba(255,255,255,.10); background:rgba(10,16,34,.35); border-radius:18px; padding:12px;">
-        <div style="font-weight:850; font-size:13px;">1) Click <span style="color:var(--accent); font-weight:900;">Go live</span></div>
-        <div style="color:rgba(234,240,255,.70); font-size:12px; margin-top:4px;">You instantly get views, some subs, and some money.</div>
+        <button id="btnCloseHelp" style="border-radius:14px; padding:8px 10px;">✕</button>
       </div>
 
-      <div style="border:1px solid rgba(255,255,255,.10); background:rgba(10,16,34,.35); border-radius:18px; padding:12px;">
-        <div style="font-weight:850; font-size:13px;">2) Buy upgrades in the <span style="color:var(--accent); font-weight:900;">Shop</span></div>
-        <div style="color:rgba(234,240,255,.70); font-size:12px; margin-top:4px;">Upgrades → more per second. The goal is to make numbers grow on their own.</div>
-      </div>
-
-      <div style="border:1px solid rgba(255,255,255,.10); background:rgba(10,16,34,.35); border-radius:18px; padding:12px;">
-        <div style="font-weight:850; font-size:13px;">3) Boost (optional) ⚡</div>
-        <div style="color:rgba(234,240,255,.70); font-size:12px; margin-top:4px;">“Watch Ad → x2” gives x2 income for 30 seconds. (Your choice.)</div>
-      </div>
-
-      <div style="display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end; margin-top:4px;">
-        <button id="btnHelpPlay" class="btn-primary" style="border-radius:14px; padding:10px 12px;">OK, let’s play</button>
-        
-      </div>
-
-      <!-- START BONUS TEKST (HER) -->
-<div style="color:rgba(234,240,255,.65); font-size:12px; margin-top:6px;">
-  🎁 Starter bonus: +100 views and +10 money
-</div>
-
-      <div style="color:rgba(234,240,255,.55); font-size:11px; margin-top:2px;">
-        Tip: Space = click (limited). The game autosaves.
-
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Ads Help Modal -->
-<div id="adsOverlay" class="modal-overlay">
-  <div class="modal-card">
-    <div style="display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:10px;">
-  <div style="font-weight:900; font-size:16px;">Ads / Monetization</div>
-  <button id="btnCloseAds" class="btn-bad" style="padding:8px 10px;">✕</button>
-</div>
-
-    <div style="text-align:right; font-size:11px; color:var(--muted); margin-top:8px;">
-  Press ESC to close
-</div>
-
-
-    <div style="margin-top:12px; display:grid; gap:10px;">
-      <div style="border:1px solid rgba(255,255,255,.10); background:rgba(10,16,34,.35); border-radius:18px; padding:12px;">
-        <div style="font-weight:850; font-size:13px;">1) Banner-spot (placeholder)</div>
-
-        <pre style="margin:10px 0 0; padding:10px; border-radius:14px; border:1px solid rgba(255,255,255,.10); background:rgba(0,0,0,.25); overflow:auto; font-size:12px; color:rgba(234,240,255,.85);"><code id="bannerSnippet">&lt;div id="banner-ad"&gt;Banner plassholder&lt;/div&gt;</code></pre>
-
-        <div style="display:flex; gap:10px; justify-content:flex-end; margin-top:10px;">
-          <button id="btnCopyBanner" class="btn-primary" style="border-radius:14px; padding:10px 12px;">Kopier snippet</button>
+      <div style="margin-top:12px; display:grid; gap:10px;">
+        <div style="border:1px solid rgba(255,255,255,.10); background:rgba(10,16,34,.35); border-radius:18px; padding:12px;">
+          <div style="font-weight:850; font-size:13px;">1) Click <span style="color:var(--accent); font-weight:900;">Go live</span></div>
+          <div style="color:rgba(234,240,255,.70); font-size:12px; margin-top:4px;">You instantly get views, some subs, and some money.</div>
         </div>
-      </div>
 
-      <div style="border:1px solid rgba(255,255,255,.10); background:rgba(10,16,34,.35); border-radius:18px; padding:12px;">
-        <div style="font-weight:850; font-size:13px;">2) AdSense (example)</div>
+        <div style="border:1px solid rgba(255,255,255,.10); background:rgba(10,16,34,.35); border-radius:18px; padding:12px;">
+          <div style="font-weight:850; font-size:13px;">2) Buy upgrades in the <span style="color:var(--accent); font-weight:900;">Shop</span></div>
+          <div style="color:rgba(234,240,255,.70); font-size:12px; margin-top:4px;">Upgrades → more per second. The goal is to make numbers grow on their own.</div>
+        </div>
 
-        <pre style="margin:10px 0 0; padding:10px; border-radius:14px; border:1px solid rgba(255,255,255,.10); background:rgba(0,0,0,.25); overflow:auto; font-size:12px; color:rgba(234,240,255,.85);"><code id="adsenseSnippet">&lt;!-- Lim inn din ekte AdSense-kode her --&gt;</code></pre>
+        <div style="border:1px solid rgba(255,255,255,.10); background:rgba(10,16,34,.35); border-radius:18px; padding:12px;">
+          <div style="font-weight:850; font-size:13px;">3) Boost (optional) ⚡</div>
+          <div style="color:rgba(234,240,255,.70); font-size:12px; margin-top:4px;">“Watch Ad → x2” gives x2 income for 30 seconds. (Your choice.)</div>
+        </div>
 
-        <div style="display:flex; gap:10px; justify-content:flex-end; margin-top:10px;">
-          <button id="btnCopyAdsense" class="btn-primary" style="border-radius:14px; padding:10px 12px;">Kopier eksempel</button>
+        <div style="display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end; margin-top:4px;">
+          <button id="btnHelpPlay" class="btn-primary" style="border-radius:14px; padding:10px 12px;">OK, let’s play</button>
+        </div>
+
+        <div style="color:rgba(234,240,255,.65); font-size:12px; margin-top:6px;">
+          🎁 Starter bonus: +100 views and +10 money
+        </div>
+
+        <div style="color:rgba(234,240,255,.55); font-size:11px; margin-top:2px;">
+          Tip: Space = click (limited). The game autosaves.
         </div>
       </div>
     </div>
   </div>
-</div>
 
-<!-- Leaderboard Modal -->
-<div id="lbOverlay" class="modal-overlay">
-  <div class="modal-card">
-    <div style="display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:10px;">
-      <div style="font-weight:900; font-size:16px;">🏆 Leaderboard</div>
-      <button id="btnCloseLB" class="btn-bad" style="padding:8px 10px;">✕</button>
+  <!-- Ads Help Modal -->
+  <div id="adsOverlay" class="modal-overlay">
+    <div class="modal-card">
+      <div style="display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:10px;">
+        <div style="font-weight:900; font-size:16px;">Ads / Monetization</div>
+        <button id="btnCloseAds" class="btn-bad" style="padding:8px 10px;">✕</button>
+      </div>
+
+      <div style="text-align:right; font-size:11px; color:var(--muted); margin-top:8px;">
+        Press ESC to close
+      </div>
+
+      <div style="margin-top:12px; display:grid; gap:10px;">
+        <div style="border:1px solid rgba(255,255,255,.10); background:rgba(10,16,34,.35); border-radius:18px; padding:12px;">
+          <div style="font-weight:850; font-size:13px;">1) Banner spot (placeholder)</div>
+          <pre style="margin:10px 0 0; padding:10px; border-radius:14px; border:1px solid rgba(255,255,255,.10); background:rgba(0,0,0,.25); overflow:auto; font-size:12px; color:rgba(234,240,255,.85);"><code id="bannerSnippet">&lt;div id="banner-ad"&gt;Banner placeholder&lt;/div&gt;</code></pre>
+          <div style="display:flex; gap:10px; justify-content:flex-end; margin-top:10px;">
+            <button id="btnCopyBanner" class="btn-primary" style="border-radius:14px; padding:10px 12px;">Copy snippet</button>
+          </div>
+        </div>
+
+        <div style="border:1px solid rgba(255,255,255,.10); background:rgba(10,16,34,.35); border-radius:18px; padding:12px;">
+          <div style="font-weight:850; font-size:13px;">2) AdSense (example)</div>
+          <pre style="margin:10px 0 0; padding:10px; border-radius:14px; border:1px solid rgba(255,255,255,.10); background:rgba(0,0,0,.25); overflow:auto; font-size:12px; color:rgba(234,240,255,.85);"><code id="adsenseSnippet">&lt;!-- Paste your real AdSense code here --&gt;</code></pre>
+          <div style="display:flex; gap:10px; justify-content:flex-end; margin-top:10px;">
+            <button id="btnCopyAdsense" class="btn-primary" style="border-radius:14px; padding:10px 12px;">Copy example</button>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 
-    <div style="color:rgba(234,240,255,.70); font-size:12px; line-height:1.35; margin-bottom:12px;">
-      Submit your score to join the leaderboard, or check your rank.
-    </div>
+  <!-- Leaderboard Modal -->
+  <div id="lbOverlay" class="modal-overlay">
+    <div class="modal-card">
+      <div style="display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:10px;">
+        <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
+          <div style="font-weight:900; font-size:16px;">🏆 Leaderboard</div>
+          <button id="btnLBAllTime" class="btn-primary" style="padding:7px 10px; border-radius:999px;">All-time</button>
+          <button id="btnLBWeekly" style="padding:7px 10px; border-radius:999px;">Weekly</button>
+        </div>
+        <button id="btnCloseLB" class="btn-bad" style="padding:8px 10px;">✕</button>
+      </div>
 
-    <div style="display:grid; gap:10px;">
-      <!-- Views -->
-      <div style="border:1px solid rgba(255,255,255,.10); background:rgba(10,16,34,.35); border-radius:18px; padding:12px;">
-        <div style="display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap;">
-          <div>
-            <div style="font-weight:850; font-size:13px;">👀 Views</div>
-            <div style="color:rgba(234,240,255,.65); font-size:12px; margin-top:2px;">
-               Your current score: <span id="lbMyViews">0</span>
-              <div id="lbRankViews" style="color:rgba(234,240,255,.65); font-size:12px; margin-top:4px;"></div>
+      <div style="color:rgba(234,240,255,.70); font-size:12px; line-height:1.35; margin-bottom:12px;">
+        Submit your score to join the leaderboard, or check your rank.
+      </div>
 
+      <div style="display:grid; gap:10px;">
+        <!-- Views -->
+        <div style="border:1px solid rgba(255,255,255,.10); background:rgba(10,16,34,.35); border-radius:18px; padding:12px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap;">
+            <div>
+              <div style="font-weight:850; font-size:13px;">👀 Views</div>
+              <div style="color:rgba(234,240,255,.65); font-size:12px; margin-top:2px;">
+                Your current score: <span id="lbMyViews">0</span>
+                <div id="lbRankViews" style="color:rgba(234,240,255,.65); font-size:12px; margin-top:4px;"></div>
+              </div>
+            </div>
+            <div style="display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end;">
+              <button id="btnLBSubmitViews" class="btn-primary" style="border-radius:14px;">Submit score</button>
+              <button id="btnLBMyRankViews" style="border-radius:14px;">Check rank</button>
+              <button id="btnLBTopViews" style="border-radius:14px;">Top 10</button>
             </div>
           </div>
-          <div style="display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end;">
-            <button id="btnLBSubmitViews" class="btn-primary" style="border-radius:14px;">Submit score</button>
-            <button id="btnLBMyRankViews" style="border-radius:14px;">Check rank</button>
-            <button id="btnLBTopViews" style="border-radius:14px;">Top 10</button>
-            <button id="btnLBTopViewsWeekly" style="border-radius:14px;">Weekly Top 10</button>
-
-          </div>
-        </div>
           <div style="margin-top:10px; display:none;" id="lbTopViewsWrap">
-    <div class="log" style="max-height:160px;" id="lbTopViews"></div>
-  </div>
-</div>
-
-      <!-- Prestige -->
-      <div style="border:1px solid rgba(255,255,255,.10); background:rgba(10,16,34,.35); border-radius:18px; padding:12px;">
-        <div style="display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap;">
-          <div>
-            <div style="font-weight:850; font-size:13px;">✨ Prestige</div>
-            <div style="color:rgba(234,240,255,.65); font-size:12px; margin-top:2px;">
-              Your current SP: <span id="lbMyPrestige">0</span>
-              <div id="lbRankPrestige" style="color:rgba(234,240,255,.65); font-size:12px; margin-top:4px;"></div>
-
-            </div>
-          </div>
-          <div style="display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end;">
-            <button id="btnLBSubmitPrestige" class="btn-primary" style="border-radius:14px;">Submit score</button>
-            <button id="btnLBMyRankPrestige" style="border-radius:14px;">Check rank</button>
-            <button id="btnLBTopPrestige" style="border-radius:14px;">Top 10</button>
-            <button id="btnLBTopPrestigeWeekly" style="border-radius:14px;">Weekly Top 10</button>
+            <div class="log" style="max-height:160px;" id="lbTopViews"></div>
           </div>
         </div>
-        <div style="margin-top:10px; display:none;" id="lbTopPrestigeWrap">
-  <div class="log" style="max-height:160px;" id="lbTopPrestige"></div>
-</div>
-      </div>
 
-      <!-- Speedrun -->
-      <div style="border:1px solid rgba(255,255,255,.10); background:rgba(10,16,34,.35); border-radius:18px; padding:12px;">
-        <div style="display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap;">
-          <div>
-            <div style="font-weight:850; font-size:13px;">⏱️ Speedrun</div>
-            <div style="color:rgba(234,240,255,.65); font-size:12px; margin-top:2px;">
-              Goal is 1M views. Submit your time when you reach it.
-              <div id="lbRankSpeedrun" style="color:rgba(234,240,255,.65); font-size:12px; margin-top:4px;"></div>
-
+        <!-- Prestige -->
+        <div style="border:1px solid rgba(255,255,255,.10); background:rgba(10,16,34,.35); border-radius:18px; padding:12px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap;">
+            <div>
+              <div style="font-weight:850; font-size:13px;">✨ Prestige</div>
+              <div style="color:rgba(234,240,255,.65); font-size:12px; margin-top:2px;">
+                Your current SP: <span id="lbMyPrestige">0</span>
+                <div id="lbRankPrestige" style="color:rgba(234,240,255,.65); font-size:12px; margin-top:4px;"></div>
+              </div>
+            </div>
+            <div style="display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end;">
+              <button id="btnLBSubmitPrestige" class="btn-primary" style="border-radius:14px;">Submit score</button>
+              <button id="btnLBMyRankPrestige" style="border-radius:14px;">Check rank</button>
+              <button id="btnLBTopPrestige" style="border-radius:14px;">Top 10</button>
             </div>
           </div>
-          <div style="display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end;">
-            <button id="btnLBSubmitSpeedrun" class="btn-primary" style="border-radius:14px;">Submit score</button>
-            <button id="btnLBMyRankSpeedrun" style="border-radius:14px;">Check rank</button>
-            <button id="btnLBTopSpeedrun" style="border-radius:14px;">Top 10</button>
-            <button id="btnLBTopSpeedrunWeekly" style="border-radius:14px;">Weekly Top 10</button>
+          <div style="margin-top:10px; display:none;" id="lbTopPrestigeWrap">
+            <div class="log" style="max-height:160px;" id="lbTopPrestige"></div>
           </div>
         </div>
-        <!-- LIM INN DENNE BLOKKEN HER -->
-<div style="margin-top:10px; display:none;" id="lbTopSpeedrunWrap">
-  <div class="log" style="max-height:160px;" id="lbTopSpeedrun"></div>
-</div>
 
+        <!-- Speedrun -->
+        <div style="border:1px solid rgba(255,255,255,.10); background:rgba(10,16,34,.35); border-radius:18px; padding:12px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap;">
+            <div>
+              <div style="font-weight:850; font-size:13px;">⏱️ Speedrun</div>
+              <div style="color:rgba(234,240,255,.65); font-size:12px; margin-top:2px;">
+                Goal is 1M views. Submit your time when you reach it.
+                <div id="lbRankSpeedrun" style="color:rgba(234,240,255,.65); font-size:12px; margin-top:4px;"></div>
+              </div>
+            </div>
+            <div style="display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end;">
+              <button id="btnLBSubmitSpeedrun" class="btn-primary" style="border-radius:14px;">Submit score</button>
+              <button id="btnLBMyRankSpeedrun" style="border-radius:14px;">Check rank</button>
+              <button id="btnLBTopSpeedrun" style="border-radius:14px;">Top 10</button>
+            </div>
+          </div>
+          <div style="margin-top:10px; display:none;" id="lbTopSpeedrunWrap">
+            <div class="log" style="max-height:160px;" id="lbTopSpeedrun"></div>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align:right; font-size:11px; color:var(--muted); margin-top:10px;">
+        Press ESC to close
       </div>
     </div>
+  </div>
 
-    <div style="text-align:right; font-size:11px; color:var(--muted); margin-top:10px;">
-      Press ESC to close
+  <!-- Season Modal -->
+  <div id="seasonOverlay" class="modal-overlay">
+    <div class="modal-card">
+      <div style="display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:10px;">
+        <div style="font-weight:900; font-size:16px;">📅 Streamer Era — Season</div>
+        <button id="btnCloseSeason" class="btn-bad" style="padding:8px 10px;">✕</button>
+      </div>
+
+      <div style="display:grid; gap:10px;">
+        <!-- Daily streak -->
+        <div style="border:1px solid rgba(255,255,255,.10); background:rgba(10,16,34,.35); border-radius:18px; padding:12px;">
+          <div style="display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; align-items:center;">
+            <div>
+              <div style="font-weight:850;">🔥 Daily Streak</div>
+              <div style="color:rgba(234,240,255,.70); font-size:12px; margin-top:2px;" id="seasonDailyText">Streak: 0 days</div>
+              <div style="color:rgba(234,240,255,.60); font-size:12px; margin-top:4px;" id="seasonDailyNext">Next reward: ...</div>
+            </div>
+            <div style="display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end;">
+              <button id="btnSeasonClaimDaily" class="btn-primary" style="border-radius:14px;">Claim Daily</button>
+            </div>
+          </div>
+
+          <div style="margin-top:10px; color:rgba(234,240,255,.55); font-size:12px;">
+            Tip: Missing a day resets streak back to Day 1.
+          </div>
+        </div>
+
+        <!-- Comeback bonus -->
+        <div style="border:1px solid rgba(255,255,255,.10); background:rgba(10,16,34,.35); border-radius:18px; padding:12px;">
+          <div style="display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; align-items:center;">
+            <div>
+              <div style="font-weight:850;">🎁 Comeback Bonus</div>
+              <div style="color:rgba(234,240,255,.70); font-size:12px; margin-top:2px;" id="seasonComebackText">No comeback bonus right now.</div>
+              <div style="color:rgba(234,240,255,.60); font-size:12px; margin-top:4px;" id="seasonComebackReward"></div>
+            </div>
+            <div style="display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end;">
+              <button id="btnSeasonClaimComeback" class="btn-good" style="border-radius:14px;">Claim</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Weekly info -->
+        <div style="border:1px solid rgba(255,255,255,.10); background:rgba(10,16,34,.35); border-radius:18px; padding:12px;">
+          <div style="font-weight:850;">🏁 Weekly Competition</div>
+          <div style="color:rgba(234,240,255,.70); font-size:12px; margin-top:4px;" id="seasonWeekText">
+            Weekly leaderboards reset every Monday (UTC).
+          </div>
+          <div style="color:rgba(234,240,255,.55); font-size:12px; margin-top:6px;">
+            Open Leaderboard → switch to “Weekly” to compete this week.
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align:right; font-size:11px; color:var(--muted); margin-top:10px;">
+        Press ESC to close
+      </div>
     </div>
   </div>
-</div>
 
-<!-- Event Popup -->
-<div id="eventToast" style="
-  position:fixed; left:50%; top:18px; transform:translateX(-50%);
-  display:none; align-items:flex-start; gap:10px;
-  background: rgba(15,23,51,.92);
-  border:1px solid rgba(255,255,255,.12);
-  border-radius: 18px;
-  padding: 12px 14px;
-  box-shadow: 0 18px 50px rgba(0,0,0,.45);
-  color: var(--text);
-  max-width:min(720px, calc(100vw - 20px));
-  z-index: 80;
-">
-  <div style="font-size:18px; line-height:1;">📣</div>
-  <div style="min-width:0">
-    <div id="eventTitle" style="font-weight:900; font-size:13px; margin-bottom:2px;">Event</div>
-    <div id="eventBody" style="color:rgba(234,240,255,.75); font-size:12px; line-height:1.35;">
-      Event text...
-    </div>
-    <div id="eventFooter" style="margin-top:6px; font-size:11px; color:rgba(234,240,255,.55);">
-      Active...
+  <!-- Event Popup -->
+  <div id="eventToast" style="
+    position:fixed; left:50%; top:18px; transform:translateX(-50%);
+    align-items:flex-start; gap:10px;
+    background: rgba(15,23,51,.92);
+    border:1px solid rgba(255,255,255,.12);
+    border-radius: 18px;
+    padding: 12px 14px;
+    box-shadow: 0 18px 50px rgba(0,0,0,.45);
+    color: var(--text);
+    max-width:min(720px, calc(100vw - 20px));
+    z-index: 80;
+  ">
+    <div style="font-size:18px; line-height:1;">📣</div>
+    <div style="min-width:0">
+      <div id="eventTitle" style="font-weight:900; font-size:13px; margin-bottom:2px;">Event</div>
+      <div id="eventBody" style="color:rgba(234,240,255,.75); font-size:12px; line-height:1.35;">Event text...</div>
+      <div id="eventFooter" style="margin-top:6px; font-size:11px; color:rgba(234,240,255,.55);">Active...</div>
     </div>
   </div>
-</div>
-
-
 
   <div class="toast" id="toast">Toast</div>
 
 <script>
 (() => {
-  
   // ---------- Helpers ----------
   const $ = (id) => document.getElementById(id);
+  const now = () => Date.now();
   const fmt = (n) => {
     n = Math.floor(n);
     if (n < 1000) return String(n);
@@ -717,7 +631,6 @@
     const s = (x >= 100 ? x.toFixed(0) : x >= 10 ? x.toFixed(1) : x.toFixed(2));
     return s.replace(/\.0+$/,"") + units[u];
   };
-  const now = () => Date.now();
 
   function toast(msg){
     const el = $("toast");
@@ -733,820 +646,546 @@
     div.className = "entry";
     div.innerHTML = msg;
     el.prepend(div);
-    // keep it snappy
     while (el.children.length > 25) el.removeChild(el.lastChild);
   }
+
+  // ---------- Storage ----------
+  const STORAGE_KEY = "streamer_idle_v1";
+  const HELP_KEY = "streamer_idle_seen_help_v1";
+  const START_BONUS_KEY = "streamer_idle_start_bonus_v1";
+
+  // Prestige
+  const PRESTIGE_KEY = "streamer_idle_prestige_v1";
+  const PRESTIGE_UNLOCK_VIEWS = 50_000;
+
+  // Daily Streak / Comeback
+  const STREAK_KEY = "streamer_idle_daily_streak_v1";
+  const STREAK_LAST_KEY = "streamer_idle_daily_last_utc_v1";
+  const COMEBACK_LAST_SEEN = "streamer_idle_last_seen_v1";
+  const COMEBACK_CLAIM_KEY = "streamer_idle_comeback_claimed_utc_v1";
 
   // ---------- Game Data ----------
   const DEFAULT = {
     views: 0,
     subs: 0,
     money: 0,
-
     clickPower: 1,
-
-    upgrades: {
-      pc: 0,
-      net: 0,
-      overlay: 0,
-      mods: 0,
-      sponsor: 0,
-      editor: 0
-    },
-
-    boostUntil: 0,   // timestamp
-    lastTick: now(), // for offline calc
+    upgrades: { pc:0, net:0, overlay:0, mods:0, sponsor:0, editor:0 },
+    boostUntil: 0,
+    lastTick: now(),
     lastSave: now(),
-
-    achievements: {}, // id => true
+    achievements: {},
   };
 
-  const STORAGE_KEY = "streamer_idle_v1";
+  // ---------- Leaderboard ----------
+  const LB_BASE = "https://oqgrbukmdzcdtszxcnqr.supabase.co/functions/v1";
+  const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9xZ3JidWttZHpjZHRzenhjbnFyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg2NzUxNTIsImV4cCI6MjA4NDI1MTE1Mn0.WjO-b4GwOCwTSbD-b0Rcvau9vdb2HuBTpuuAIXVm-wc";
+  let LB_WEEKLY_MODE = false; // all-time vs weekly
 
-  // ---------- Help / First-time modal ----------
-const HELP_KEY = "streamer_idle_seen_help_v1";
-const START_BONUS_KEY = "streamer_idle_start_bonus_v1";
-const DAILY_BONUS_KEY = "streamer_idle_daily_bonus_date";
-// ---------- Prestige ----------
-const PRESTIGE_KEY = "streamer_idle_prestige_v1";
-const PRESTIGE_UNLOCK_VIEWS = 50_000; // når knappen låses opp
-
-const DAILY_BONUS_MULT = 1.2;
-const DAILY_BONUS_TIME = 10 * 60 * 1000; // 10 min
-
-// ===== Daily Streak =====
-const DAILY_STREAK_KEY = "streamer_idle_daily_streak_v1"; // { streak:number, lastClaim:"YYYY-MM-DD" }
-
-function ymd(d = new Date()){
-  const y = d.getFullYear();
-  const m = String(d.getMonth()+1).padStart(2,"0");
-  const da = String(d.getDate()).padStart(2,"0");
-  return `${y}-${m}-${da}`;
-}
-
-function ymdToDate(s){
-  const [y,m,d] = s.split("-").map(Number);
-  return new Date(y, (m||1)-1, d||1);
-}
-
-function addDays(date, n){
-  const d = new Date(date);
-  d.setDate(d.getDate()+n);
-  return d;
-}
-
-function loadDailyStreak(){
-  try{
-    return JSON.parse(localStorage.getItem(DAILY_STREAK_KEY) || '{"streak":0,"lastClaim":""}');
-  }catch{
-    return { streak:0, lastClaim:"" };
-  }
-}
-function saveDailyStreak(v){
-  localStorage.setItem(DAILY_STREAK_KEY, JSON.stringify(v));
-}
-
-function dailyStreakInfo(){
-  const st = loadDailyStreak();
-  const today = ymd();
-  if(!st.lastClaim) return { streak: st.streak || 0, canClaim: true, status: "Ready" };
-
-  const last = ymdToDate(st.lastClaim);
-  const yesterday = ymd(addDays(new Date(), -1));
-
-  if(st.lastClaim === today) return { streak: st.streak, canClaim:false, status:"Claimed" };
-  if(st.lastClaim === yesterday) return { streak: st.streak, canClaim:true, status:"Continue" };
-
-  // missed a day -> streak breaks
-  return { streak: 0, canClaim:true, status:"Reset" };
-}
-
-// Reward scaling (enkelt men effektivt)
-function dailyStreakMult(streak){
-  // 1: 1.20x, 2: 1.22x ... cap på 1.50x
-  const mult = 1.20 + Math.min(0.30, (Math.max(0, streak-1) * 0.02));
-  return Number(mult.toFixed(2));
-}
-
-function dailyStreakMinutes(streak){
-  // 10 min base + litt mer, cap 20 min
-  return Math.min(20, 10 + Math.floor(Math.max(0, streak-1) / 2));
-}
-
-
-// ===============================
-// Streamer Era Update (v1.1)
-// Random Events + Comeback bonus
-// ===============================
-
-const EVENT_KEY = "streamer_idle_event_state_v1";
-const COMEBACK_KEY = "streamer_idle_last_seen_v1";
-
-function getEventToastEls(){
-  return {
-    box: document.getElementById("eventToast"),
-    title: document.getElementById("eventTitle"),
-    body: document.getElementById("eventBody"),
-    footer: document.getElementById("eventFooter"),
-  };
-}
-
-function showEventToast(title, body, footer){
-  const els = getEventToastEls();
-  if(!els.box) return;
-  els.title.textContent = title;
-  els.body.textContent = body;
-  els.footer.textContent = footer || "";
-  els.box.classList.add("show");
-  clearTimeout(showEventToast._t);
-  showEventToast._t = setTimeout(()=> els.box.classList.remove("show"), 5200);
-}
-
-// Active timed modifiers stored in S
-function getActiveMults(){
-  const t = Date.now();
-  const m = {
-    v: 1,
-    s: 1,
-    money: 1,
-    click: 1,
-  };
-
-  if(S._eventUntil && t < S._eventUntil){
-    m.v *= (S._eventVMult || 1);
-    m.s *= (S._eventSMult || 1);
-    m.money *= (S._eventMMult || 1);
-    m.click *= (S._eventClickMult || 1);
-  }
-  return m;
-}
-
-function setTimedEvent(mods, ms, title, body){
-  S._eventUntil = Date.now() + ms;
-  S._eventVMult = mods.v ?? 1;
-  S._eventSMult = mods.s ?? 1;
-  S._eventMMult = mods.money ?? 1;
-  S._eventClickMult = mods.click ?? 1;
-
-  const secs = Math.ceil(ms/1000);
-  showEventToast(title, body, `Active for ${secs}s`);
-  log(`📣 <strong>${title}</strong> — ${body} <span style="color:rgba(234,240,255,.55)">(for ${secs}s)</span>`);
-}
-
-function clearTimedEventIfEnded(){
-  if(S._eventUntil && Date.now() > S._eventUntil){
-    delete S._eventUntil;
-    delete S._eventVMult;
-    delete S._eventSMult;
-    delete S._eventMMult;
-    delete S._eventClickMult;
-  }
-}
-
-// Random Event Pool (positive + negative)
-const EVENTS = [
-  // Positive
-  () => setTimedEvent({v: 2.2}, 20_000, "Raid Incoming!", "A big streamer raids you. Views go wild!"),
-  () => setTimedEvent({click: 1.6}, 25_000, "Chat Hype!", "Chat spams W. Your clicks are stronger."),
-  () => { S.money += 120; toast("💸 Sponsor Tip: +$120"); log("💸 <strong>Sponsor Tip</strong> — +$120"); },
-  () => setTimedEvent({money: 2.0}, 18_000, "Sponsored Segment", "Money gain is doubled for a bit."),
-  () => { S.views += 3500; toast("🔥 Viral Clip: +3.5K views"); log("🔥 <strong>Viral Clip</strong> — +3.5K views"); },
-
-  // Negative / Mixed
-  () => setTimedEvent({v: 0.7}, 22_000, "Stream Lag", "Dropped frames... views per second reduced."),
-  () => { S.subs = Math.max(0, S.subs - 12); toast("😬 Chat Drama: -12 subs"); log("😬 <strong>Chat Drama</strong> — -12 subs"); },
-  () => setTimedEvent({money: 0.6}, 25_000, "Chargeback Wave", "Refunds hit. Money gain reduced."),
-  () => { S.money = Math.max(0, S.money - 80); toast("🧾 Unexpected Bill: -$80"); log("🧾 <strong>Unexpected Bill</strong> — -$80"); },
-  () => setTimedEvent({s: 1.8, v: 0.85}, 20_000, "Community Night", "More subs, slightly fewer views."),
-];
-
-// When to trigger next event
-function scheduleNextEvent(){
-  const min = 2 * 60 * 1000; // 2 min
-  const max = 6 * 60 * 1000; // 6 min
-  const nextIn = Math.floor(min + Math.random() * (max - min));
-  S._nextEventAt = Date.now() + nextIn;
-}
-
-function maybeTriggerEvent(){
-  if(!S._nextEventAt) scheduleNextEvent();
-  if(Date.now() < S._nextEventAt) return;
-
-  // 75% chance to trigger, else delay (keeps it unpredictable)
-  if(Math.random() < 0.75){
-    const pick = EVENTS[Math.floor(Math.random() * EVENTS.length)];
-    try{ pick(); }catch(e){}
+  async function lbGet(type){
+    const weekly = LB_WEEKLY_MODE ? "&weekly=1" : "";
+    const res = await fetch(`${LB_BASE}/get-leaderboard?type=${encodeURIComponent(type)}${weekly}`, {
+      headers: { apikey: SUPABASE_ANON_KEY, Authorization: `Bearer ${SUPABASE_ANON_KEY}` }
+    });
+    const json = await res.json();
+    if(!json.ok) throw new Error(json.error || "LB error");
+    return json.data;
   }
 
-  scheduleNextEvent();
-}
-
-// Comeback bonus if away for a while
-function applyComebackBonus(){
-  const lastSeen = Number(localStorage.getItem(COMEBACK_KEY) || "0");
-  const now = Date.now();
-  localStorage.setItem(COMEBACK_KEY, String(now));
-
-  if(!lastSeen) return;
-
-  const awayMs = now - lastSeen;
-  if(awayMs < 15 * 60 * 1000) return; // only if away 15+ min
-
-const awayMin = awayMs / 60000;
-
-let duration = 60_000;
-if(awayMin >= 60) duration = 90_000;
-if(awayMin >= 360) duration = 120_000;
-
-S.boostUntil = Math.max(S.boostUntil || 0, now) + duration;
-
-toast(`👋 Welcome back! x2 income for ${Math.round(duration/1000)}s`);
-log(`👋 <strong>Welcome back</strong> — x2 income for ${Math.round(duration/1000)}s`);
-
-}
-
-
-
-function openHelp(){
-  const o = document.getElementById("helpOverlay");
-  if(!o) return;
-  o.style.display = "grid";
-}
-function closeHelp(){
-  const o = document.getElementById("helpOverlay");
-  if(!o) return;
-  o.style.display = "none";
-  localStorage.setItem(HELP_KEY, "1");
-}
-
-document.getElementById("btnHelp")?.addEventListener("click", openHelp);
-document.getElementById("btnCloseHelp")?.addEventListener("click", closeHelp);
-document.getElementById("btnHelpPlay")?.addEventListener("click", () => {
-  giveStartBonus();
-  closeHelp();
-});
-
-const LB_BASE = "https://oqgrbukmdzcdtszxcnqr.supabase.co/functions/v1";
-const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9xZ3JidWttZHpjZHRzenhjbnFyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg2NzUxNTIsImV4cCI6MjA4NDI1MTE1Mn0.WjO-b4GwOCwTSbD-b0Rcvau9vdb2HuBTpuuAIXVm-wc";
-
-async function lbGet(type){
-  const res = await fetch(`${LB_BASE}/get-leaderboard?type=${encodeURIComponent(type)}`, {
-    headers: {
-      apikey: SUPABASE_ANON_KEY,
-      Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
-    }
-  });
-  const json = await res.json();
-  if(!json.ok) throw new Error(json.error || "LB error");
-  return json.data;
-}
-
-
-async function lbSubmit(type, payload){
-  const res = await fetch(`${LB_BASE}/submit-score`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      apikey: SUPABASE_ANON_KEY,
-      Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
-    },
-    body: JSON.stringify({ type, ...payload }),
-  });
-
-  const json = await res.json();
-
-  if(!res.ok || !json.ok){
-    throw new Error(json.error || `HTTP ${res.status}`);
+  async function lbGetRank(type, name){
+    const res = await fetch(`${LB_BASE}/get-rank`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        apikey: SUPABASE_ANON_KEY,
+        Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
+      },
+      body: JSON.stringify({ type, name, weekly: LB_WEEKLY_MODE }),
+    });
+    const json = await res.json();
+    if(!res.ok || !json.ok) throw new Error(json.error || `HTTP ${res.status}`);
+    return json;
   }
-  return true;
-}
 
+  async function lbSubmit(type, payload){
+    const res = await fetch(`${LB_BASE}/submit-score`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        apikey: SUPABASE_ANON_KEY,
+        Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
+      },
+      body: JSON.stringify({ type, ...payload }),
+    });
 
-// Format speedrun ms -> mm:ss
-function fmtTime(ms){
-  const s = Math.floor(ms/1000);
-  const mm = String(Math.floor(s/60)).padStart(2,"0");
-  const ss = String(s%60).padStart(2,"0");
-  return `${mm}:${ss}`;
-}
+    const json = await res.json();
+    if(!res.ok || !json.ok) throw new Error(json.error || `HTTP ${res.status}`);
+    return true;
+  }
 
-const LB_NAME_KEY = "streamer_idle_lb_name_v1";
+  // name prompt
+  const LB_NAME_KEY = "streamer_idle_lb_name_v1";
+  async function promptName(){
+    const saved = localStorage.getItem(LB_NAME_KEY) || "";
+    const name = prompt("Name (2-18 chars):", saved);
+    if(!name) return null;
+    const cleaned = name.trim().slice(0,18);
+    if(cleaned.length < 2) return null;
+    localStorage.setItem(LB_NAME_KEY, cleaned);
+    return cleaned;
+  }
 
-async function promptName(){
-  const saved = localStorage.getItem(LB_NAME_KEY) || "";
-  const name = prompt("Navn (2-18 tegn):", saved);
-  if(!name) return null;
+  // submit handlers
+  async function submitViews(){
+    const name = await promptName();
+    if(!name) return;
+    await lbSubmit("views", { name, score: Math.floor(S.views || 0) });
+    toast("Submitted to Views leaderboard ✅");
+  }
+  async function submitPrestige(){
+    const name = await promptName();
+    if(!name) return;
+    const p = loadPrestige();
+    await lbSubmit("prestige", { name, score: Math.floor(p.sp || 0) });
+    toast("Submitted to Prestige leaderboard ✅");
+  }
+  function fmtTime(ms){
+    const s = Math.floor(ms/1000);
+    const mm = String(Math.floor(s/60)).padStart(2,"0");
+    const ss = String(s%60).padStart(2,"0");
+    return `${mm}:${ss}`;
+  }
+  async function submitSpeedrun(){
+    const name = await promptName();
+    if(!name) return;
+    if(!S.runStart) { toast("Start a run first (missing runStart)."); return; }
+    if((S.views||0) < 1_000_000){ toast("You must reach 1M views first!"); return; }
+    const timeMs = Date.now() - S.runStart;
+    await lbSubmit("speedrun", { name, timeMs });
+    toast("Submitted to Speedrun leaderboard ✅");
+  }
 
-  const cleaned = name.trim().slice(0,18);
-  if(cleaned.length < 2) return null;
+  function setRankLine(type, text){
+    const map = { views:"lbRankViews", prestige:"lbRankPrestige", speedrun:"lbRankSpeedrun" };
+    const el = document.getElementById(map[type]);
+    if(el) el.textContent = text || "";
+  }
 
-  localStorage.setItem(LB_NAME_KEY, cleaned);
-  return cleaned;
-}
+  async function showMyRank(type){
+    const name = await promptName();
+    if(!name) return;
 
-// --- Leaderboard cooldown (anti-spam) ---
-// --- Leaderboard GLOBAL cooldown (anti-spam) ---
-const LB_COOLDOWN_MS = 30_000; // 30 sek
-const LB_CD_KEY = "streamer_idle_lb_global_cd";
-let _lbCdInterval = null;
-
-function lbSetCooldown(){
-  localStorage.setItem(LB_CD_KEY, String(Date.now()));
-}
-
-function lbMsLeft(){
-  const raw = localStorage.getItem(LB_CD_KEY);
-  const last = raw ? Number(raw) : 0;
-  return Math.max(0, (last + LB_COOLDOWN_MS) - Date.now());
-}
-
-function lbCanSend(){
-  return lbMsLeft() === 0;
-}
-
-function lbUpdateCooldownUI(){
-  const ids = [
-    "btnLBSubmitViews",
-    "btnLBSubmitPrestige",
-    "btnLBSubmitSpeedrun",
-  ];
-
-  const left = lbMsLeft();
-
-  for(const id of ids){
-    const btn = document.getElementById(id);
-    if(!btn) continue;
-
-    if(left > 0){
-      const s = Math.ceil(left / 1000);
-      btn.disabled = true;
-      btn.textContent = `Vent ${s}s`;
-      btn.title = "You can submit again when the cooldown ends.";
-    }else{
-      btn.disabled = false;
-      btn.textContent = "Submit score";
-      btn.title = "";
+    try{
+      const r = await lbGetRank(type, name);
+      if(!r.found){
+        setRankLine(type, "No score found for you yet (submit first) 🙂");
+        toast("No score found for you yet (submit first) 🙂");
+        return;
+      }
+      const msg = `You are #${r.rank} of ${r.total} (name: ${name}) ✅`;
+      setRankLine(type, msg);
+      toast(msg);
+      toggleTop(type); // auto-open top list
+    }catch(err){
+      const msg = String(err?.message || err);
+      setRankLine(type, "Could not fetch rank: " + msg);
+      toast(msg);
     }
   }
-}
 
-function lbStartCooldownTicker(){
-  lbStopCooldownTicker();
-  lbUpdateCooldownUI();
-  _lbCdInterval = setInterval(lbUpdateCooldownUI, 250);
-}
-
-function lbStopCooldownTicker(){
-  if(_lbCdInterval){
-    clearInterval(_lbCdInterval);
-    _lbCdInterval = null;
-  }
-}
-
-
-
-// Views submit
-async function submitViews(){
-  const name = await promptName();
-  if(!name) return;
-  await lbSubmit("views", { name, score: Math.floor(S.views || 0) });
-  toast("Submitted to Views leaderboard ✅");
-}
-
-
-// Prestige submit (SP)
-async function submitPrestige(){
-  const name = await promptName();
-  if(!name) return;
-  const p = loadPrestige();
-  await lbSubmit("prestige", { name, score: Math.floor(p.sp || 0) });
-  toast("Submitted to Prestige leaderboard ✅");
-}
-
-
-// Speedrun submit (tid til 1M)
-async function submitSpeedrun(){
-  const name = await promptName();
-  if(!name) return;
-  // Du må ha en start-timer i spillet. Lett løsning:
-  // Sett S.runStart = Date.now() når første klikk skjer / når du trykker "OK la oss spille".
-  if(!S.runStart) { toast("Start a run first (missing runStart)."); return; }
-  if((S.views||0) < 1_000_000){ toast("You must reach 1M views first!"); return; }
-  const timeMs = Date.now() - S.runStart;
-  await lbSubmit("speedrun", { name, timeMs });
-  toast("Submitted to Speedrun leaderboard ✅");
-}
-
-
-function getTodayKey(){
-  const d = new Date();
-  return `${d.getFullYear()}-${d.getMonth()+1}-${d.getDate()}`;
-}
-
-function canClaimDailyBonus(){
-  return localStorage.getItem(DAILY_BONUS_KEY) !== getTodayKey();
-}
-
-async function lbGetRank(type, name){
-  const res = await fetch(`${LB_BASE}/get-rank`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      apikey: SUPABASE_ANON_KEY,
-      Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
-    },
-    body: JSON.stringify({ type, name }),
-  });
-
-  const json = await res.json();
-  if(!res.ok || !json.ok) throw new Error(json.error || `HTTP ${res.status}`);
-  return json;
-}
-
-
-
-// ---------- Prestige helpers ----------
-function loadPrestige(){
-  try{
-    return JSON.parse(localStorage.getItem(PRESTIGE_KEY) || '{"sp":0,"totalPrestiges":0}');
-  }catch(e){
-    return { sp:0, totalPrestiges:0 };
-  }
-}
-
-function savePrestige(p){
-  localStorage.setItem(PRESTIGE_KEY, JSON.stringify(p));
-}
-
-function calcPrestigeGain(){
-  return Math.floor(Math.sqrt((S.views || 0) / 1000));
-}
-
-function prestigeMult(){
-  const p = loadPrestige();
-  return 1 + (p.sp * 0.05);
-}
-
-function canPrestige(){
-  return (S.views || 0) >= PRESTIGE_UNLOCK_VIEWS;
-}
-
-function doPrestige(){
-  if(!canPrestige()){
-    toast(`You need ${fmt(PRESTIGE_UNLOCK_VIEWS)} views to Prestige.`);
-    return;
-  }
-
-  const gain = calcPrestigeGain();
-  if(gain <= 0){
-    toast("No SP yet. Play a bit more!");
-    return;
-  }
-
-  const ok = confirm(`Prestige now?\n\nYou get: +${gain} SP\nThis resets views/subs/money and upgrades.`);
-  if(!ok) return;
-
-  const p = loadPrestige();
-  p.sp += gain;
-  p.totalPrestiges += 1;
-  savePrestige(p);
-
-  S.views = 0;
-  S.subs = 0;
-  S.money = 0;
-  S.upgrades = structuredClone(DEFAULT.upgrades);
-  S.boostUntil = 0;
-  delete S._dailyBoostMult;
-
-  toast(`✨ Prestige! +${gain} SP (total ${p.sp})`);
-  log(`✨ <strong>Prestige</strong> — +${gain} SP (total ${p.sp})`);
-
-  buildShop();
-  render(true);
-}
-
-function openAdsOverlay(){
-  const o = document.getElementById("adsOverlay");
-  if(!o) return;
-
-  o.classList.add("show");
-  // neste "frame" for å trigge transition
-  requestAnimationFrame(() => o.classList.add("open"));
-}
-
-function closeAdsOverlay(){
-  const o = document.getElementById("adsOverlay");
-  if(!o) return;
-
-  o.classList.remove("open");
-  // vent til animasjonen er ferdig før display:none
-  setTimeout(() => o.classList.remove("show"), 180);
-}
-
-function openLBOverlay(){
-  const o = document.getElementById("lbOverlay");
-  if(!o) return;
-  o.classList.add("show");
-  requestAnimationFrame(() => o.classList.add("open"));
-  refreshLBMyScores();
-  lbStartCooldownTicker();
-  setRankLine("views", "");
-  setRankLine("prestige", "");
-  setRankLine("speedrun", "");
-
-}
-
-function closeLBOverlay(){
-  lbStopCooldownTicker();
-  const o = document.getElementById("lbOverlay");
-  if(!o) return;
-  o.classList.remove("open");
-  setTimeout(() => o.classList.remove("show"), 180);
-}
-
-// Oppdater teksten i modalen med spillerens nåværende stats
-function refreshLBMyScores(){
-  const v = document.getElementById("lbMyViews");
-  if(v) v.textContent = fmt(S.views || 0);
-
-  const p = loadPrestige();
-  const sp = document.getElementById("lbMyPrestige");
-  if(sp) sp.textContent = fmt(p.sp || 0);
-}
-
-function renderTopList(containerId, rows, type){
-  const el = document.getElementById(containerId);
-  if(!el) return;
-
-  el.innerHTML = "";
-
-  if(!rows || rows.length === 0){
-    const empty = document.createElement("div");
-    empty.className = "entry";
-    empty.textContent = "No entries yet 🙂";
-    el.appendChild(empty);
-    return;
-  }
-
-  rows.slice(0,10).forEach((r, i) => {
-    const div = document.createElement("div");
-    div.className = "entry";
-
-    // plukk riktig tall uansett feltnavn
-    let val = 0;
-
-    if(type === "speedrun" || type === "speedrun_weekly"){
-      const t = Number(r.timeMs ?? r.time_ms_bigint ?? r.time_ms ?? r.times ?? r.ms ?? 0);
-      val = t;
-      div.innerHTML = `<strong>#${i+1} ${r.name || "?"}</strong><br/><span style="color:var(--muted)">${fmtTime(val)}</span>`;
-    } else {
-      const s = Number(r.score_bigint ?? r.score ?? r.value ?? r.points ?? r.best_score ?? r.views ?? r.sp ?? 0);
-      val = s;
-      div.innerHTML = `<strong>#${i+1} ${r.name || "?"}</strong><br/><span style="color:var(--muted)">${fmt(val)}</span>`;
-    }
-
-    el.appendChild(div);
-  });
-}
-
-
-async function toggleTop(type){
-  const map = {
-    views:   { wrap:"lbTopViewsWrap",   list:"lbTopViews",   mode:"score" },
-    prestige:{ wrap:"lbTopPrestigeWrap",list:"lbTopPrestige",mode:"score" },
-    speedrun:{ wrap:"lbTopSpeedrunWrap",list:"lbTopSpeedrun",mode:"speedrun" },
-    views_weekly:   { wrap:"lbTopViewsWrap",   list:"lbTopViews",   mode:"score" },
-    prestige_weekly:{ wrap:"lbTopPrestigeWrap",list:"lbTopPrestige",mode:"score" },
-    speedrun_weekly:{ wrap:"lbTopSpeedrunWrap",list:"lbTopSpeedrun",mode:"speedrun" },
-
-  };
-
-  const m = map[type];
-  const wrap = document.getElementById(m.wrap);
-  if(!wrap) return;
-
-  const isOpen = wrap.style.display !== "none";
-  if(isOpen){
-    wrap.style.display = "none";
-    return;
-  }
-
-  // åpne + last
-  wrap.style.display = "block";
-  try{
-    const data = await lbGet(type); // du har allerede lbGet(type)
-    console.log("LB data for", type, data?.[0], data);
-    renderTopList(m.list, data, type);
-  }catch(err){
-    toast(String(err?.message || err));
-  }
-}
-
-
-
-
-document.getElementById("btnCloseAds")?.addEventListener("click", closeAdsOverlay);
-document.getElementById("adsOverlay")?.addEventListener("click", (e) => {
-  if (e.target && e.target.id === "adsOverlay") closeAdsOverlay();
-});
-
-document.getElementById("btnCopyBanner")?.addEventListener("click", async () => {
-  const code = document.getElementById("bannerSnippet")?.textContent || "";
-  try { await navigator.clipboard.writeText(code); toast("Copied ✅"); }
-  catch { toast("Could not copy (browser restriction)"); }
-});
-
-document.getElementById("btnCopyAdsense")?.addEventListener("click", async () => {
-  const code = document.getElementById("adsenseSnippet")?.textContent || "";
-  try { await navigator.clipboard.writeText(code); toast("Copied ✅"); }
-  catch { toast("Could not copy (browser restriction)"); }
-});
-
-async function showMyRank(type){
-  const name = await promptName();
-  if(!name) return;
-
-  const r = await lbGetRank(type, name);
-  if(!r.found){
-    toast("No score found yet (submit first) 🙂");
-    return;
-  }
-
-  toast(`You are #${r.rank} of ${r.total} ✅`);
-
-  // Bonus: åpne topplista automatisk når de sjekker rank
-  toggleTop(type);
-}
-
-function setRankLine(type, text){
-  const map = {
-    views: "lbRankViews",
-    prestige: "lbRankPrestige",
-    speedrun: "lbRankSpeedrun",
-  };
-  const el = document.getElementById(map[type]);
-  if(el) el.textContent = text || "";
-}
-
-async function showMyRank(type){
-  const name = await promptName();
-  if(!name) return;
-
-  try{
-    const r = await lbGetRank(type, name);
-
-    if(!r.found){
-      setRankLine(type, "No scores found for you yet (send first) 🙂");
-      toast("No scores found for you yet (send first) 🙂");
+  function renderTopList(containerId, rows, type){
+    const el = document.getElementById(containerId);
+    if(!el) return;
+    el.innerHTML = "";
+
+    if(!rows || rows.length === 0){
+      const empty = document.createElement("div");
+      empty.className = "entry";
+      empty.textContent = "No entries yet 🙂";
+      el.appendChild(empty);
       return;
     }
 
-    const msg = `You are #${r.rank} of ${r.total} (name: ${name}) ✅`;
-    setRankLine(type, msg);
-    toast(msg);
+    rows.slice(0,10).forEach((r, i) => {
+      const div = document.createElement("div");
+      div.className = "entry";
 
-  }catch(err){
-    const msg = String(err?.message || err);
-    setRankLine(type, "Could not fetch rank: " + msg);
-    toast(msg);
-  }
-}
-
-
-
-
-// Close if clicking outside the modal
-document.getElementById("helpOverlay")?.addEventListener("click", (e) => {
-  if (e.target && e.target.id === "helpOverlay") closeHelp();
-});
-
-function giveStartBonus(){
-  if (localStorage.getItem(START_BONUS_KEY)) return;
-
-  S.views += 100;
-  S.money += 10;
-
-  localStorage.setItem(START_BONUS_KEY, "1");
-
-  toast("🎁 Starter bonus: +100 views, +10 money!");
-  log("🎁 <strong>Starter bonus</strong> — +100 views, +10 money");
-  render(true);
-}
-
-
-function claimDailyBonus(){
-  const info = dailyStreakInfo();
-  if(!info.canClaim){
-    toast("You already claimed today’s bonus 🎁");
-    return;
+      if(type === "speedrun"){
+        const t = Number(r.time_ms ?? r.timeMs ?? 0);
+        div.innerHTML = `<strong>#${i+1} ${r.name || "?"}</strong><br/><span style="color:var(--muted)">${fmtTime(t)}</span>`;
+      }else if(type === "prestige"){
+        const s = Number(r.score_int ?? r.score ?? r.score_bigint ?? 0);
+        div.innerHTML = `<strong>#${i+1} ${r.name || "?"}</strong><br/><span style="color:var(--muted)">${fmt(s)}</span>`;
+      }else{
+        const s = Number(r.score_bigint ?? r.score ?? 0);
+        div.innerHTML = `<strong>#${i+1} ${r.name || "?"}</strong><br/><span style="color:var(--muted)">${fmt(s)}</span>`;
+      }
+      el.appendChild(div);
+    });
   }
 
-  // oppdater streak
-  const st = loadDailyStreak();
-  const today = ymd();
-  const yesterday = ymd(addDays(new Date(), -1));
+  async function toggleTop(type){
+    const map = {
+      views:   { wrap:"lbTopViewsWrap",   list:"lbTopViews" },
+      prestige:{ wrap:"lbTopPrestigeWrap",list:"lbTopPrestige" },
+      speedrun:{ wrap:"lbTopSpeedrunWrap",list:"lbTopSpeedrun" },
+    };
 
-  let newStreak = 1;
-  if(st.lastClaim === yesterday) newStreak = (st.streak || 0) + 1;
-  else newStreak = 1;
+    const m = map[type];
+    const wrap = document.getElementById(m.wrap);
+    if(!wrap) return;
 
-  st.streak = newStreak;
-  st.lastClaim = today;
-  saveDailyStreak(st);
+    const isOpen = wrap.style.display !== "none";
+    if(isOpen){ wrap.style.display = "none"; return; }
 
-  // reward basert på streak
-  const mult = dailyStreakMult(newStreak);
-  const minutes = dailyStreakMinutes(newStreak);
-  const ms = minutes * 60 * 1000;
+    wrap.style.display = "block";
+    try{
+      const data = await lbGet(type);
+      renderTopList(m.list, data, type);
+    }catch(err){
+      toast(String(err?.message || err));
+    }
+  }
 
-  S.boostUntil = Math.max(S.boostUntil || 0, Date.now()) + ms;
-  S._dailyBoostMult = mult;
+  function updateLBModeButtons(){
+    const a = document.getElementById("btnLBAllTime");
+    const w = document.getElementById("btnLBWeekly");
+    if(!a || !w) return;
 
-  localStorage.setItem(DAILY_BONUS_KEY, today);
+    if(LB_WEEKLY_MODE){
+      w.classList.add("btn-primary");
+      a.classList.remove("btn-primary");
+    }else{
+      a.classList.add("btn-primary");
+      w.classList.remove("btn-primary");
+    }
+  }
 
-  toast(`🎁 Daily Streak ${newStreak}x! +${Math.round((mult-1)*100)}% income for ${minutes} min`);
-  log(`🎁 <strong>Daily Streak</strong> — Streak ${newStreak}x, +${Math.round((mult-1)*100)}% for ${minutes} min`);
-  render();
-}
+  // Cooldown UI (client-side)
+  const LB_COOLDOWN_MS = 30_000;
+  const LB_CD_KEY = "streamer_idle_lb_global_cd";
+  let _lbCdInterval = null;
+  function lbSetCooldown(){ localStorage.setItem(LB_CD_KEY, String(Date.now())); }
+  function lbMsLeft(){
+    const raw = localStorage.getItem(LB_CD_KEY);
+    const last = raw ? Number(raw) : 0;
+    return Math.max(0, (last + LB_COOLDOWN_MS) - Date.now());
+  }
+  function lbCanSend(){ return lbMsLeft() === 0; }
+  function lbUpdateCooldownUI(){
+    const ids = ["btnLBSubmitViews","btnLBSubmitPrestige","btnLBSubmitSpeedrun"];
+    const left = lbMsLeft();
+    for(const id of ids){
+      const btn = document.getElementById(id);
+      if(!btn) continue;
+      if(left > 0){
+        const s = Math.ceil(left/1000);
+        btn.disabled = true;
+        btn.textContent = `Wait ${s}s`;
+      }else{
+        btn.disabled = false;
+        btn.textContent = "Submit score";
+      }
+    }
+  }
+  function lbStartCooldownTicker(){
+    lbStopCooldownTicker();
+    lbUpdateCooldownUI();
+    _lbCdInterval = setInterval(lbUpdateCooldownUI, 250);
+  }
+  function lbStopCooldownTicker(){
+    if(_lbCdInterval){ clearInterval(_lbCdInterval); _lbCdInterval = null; }
+  }
 
+  // ---------- Daily Streak / Comeback ----------
+  const STREAK_REWARDS = [
+    { mult: 1.10, time: 5 * 60 * 1000, money: 0 },     // Day 1
+    { mult: 1.15, time: 5 * 60 * 1000, money: 50 },    // Day 2
+    { mult: 1.20, time: 7 * 60 * 1000, money: 150 },   // Day 3
+    { mult: 1.25, time: 7 * 60 * 1000, money: 250 },   // Day 4
+    { mult: 1.30, time: 10 * 60 * 1000, money: 500 },  // Day 5
+    { mult: 1.35, time: 10 * 60 * 1000, money: 750 },  // Day 6
+    { mult: 1.50, time: 12 * 60 * 1000, money: 1500 }, // Day 7
+  ];
 
+  function todayKeyUTC(){
+    const d = new Date();
+    return `${d.getUTCFullYear()}-${String(d.getUTCMonth()+1).padStart(2,"0")}-${String(d.getUTCDate()).padStart(2,"0")}`;
+  }
 
+  function loadStreak(){
+    const streak = Number(localStorage.getItem(STREAK_KEY) || "0");
+    const last = localStorage.getItem(STREAK_LAST_KEY) || "";
+    return { streak, last };
+  }
+  function setStreak(streak, last){
+    localStorage.setItem(STREAK_KEY, String(streak));
+    localStorage.setItem(STREAK_LAST_KEY, last);
+  }
+  function canClaimDailyStreak(){
+    const { last } = loadStreak();
+    return last !== todayKeyUTC();
+  }
 
+  function applyBoost(mult, timeMs){
+    S.boostUntil = Math.max(S.boostUntil || 0, Date.now()) + timeMs;
+    S._dailyBoostMult = mult;
+  }
 
+  function claimDailyStreak(){
+    if(!canClaimDailyStreak()){
+      toast("Daily already claimed today ✅");
+      return;
+    }
+
+    const { streak, last } = loadStreak();
+    const today = todayKeyUTC();
+
+    const y = new Date();
+    y.setUTCDate(y.getUTCDate() - 1);
+    const yesterdayKey = `${y.getUTCFullYear()}-${String(y.getUTCMonth()+1).padStart(2,"0")}-${String(y.getUTCDate()).padStart(2,"0")}`;
+
+    let newStreak = 1;
+    if(last === yesterdayKey){
+      newStreak = Math.min(7, (streak || 0) + 1);
+    }
+
+    const reward = STREAK_REWARDS[newStreak - 1];
+    applyBoost(reward.mult, reward.time);
+    if(reward.money) S.money += reward.money;
+
+    setStreak(newStreak, today);
+
+    toast(`🔥 Daily claimed! Streak: ${newStreak}/7`);
+    log(`🔥 <strong>Daily Streak</strong> — Day ${newStreak}/7 (+${Math.round((reward.mult-1)*100)}% for ${Math.round(reward.time/60000)}m${reward.money?`, +${reward.money} money`:``})`);
+
+    render(true);
+    updateDailyButtonUI();
+    updateSeasonUI();
+  }
+
+  function updateDailyButtonUI(){
+    const btn = document.getElementById("btnDaily");
+    if(!btn) return;
+    const { streak } = loadStreak();
+    if(canClaimDailyStreak()){
+      btn.disabled = false;
+      btn.textContent = `🎁 Daily (Streak ${streak || 0})`;
+    }else{
+      btn.disabled = true;
+      btn.textContent = `⏳ Daily used (Streak ${streak || 0})`;
+    }
+  }
+
+  // Comeback rules
+  const COMEBACK_MIN_HOURS = 18;         // away >= 18h
+  const COMEBACK_MULT = 1.35;            // +35%
+  const COMEBACK_TIME = 12 * 60 * 1000;  // 12 min
+  const COMEBACK_MONEY = 500;            // extra money
+
+  function msToPretty(ms){
+    const s = Math.floor(ms/1000);
+    const h = Math.floor(s/3600);
+    const m = Math.floor((s%3600)/60);
+    const d = Math.floor(h/24);
+    if(d>0) return `${d}d ${h%24}h`;
+    if(h>0) return `${h}h ${m}m`;
+    return `${m}m`;
+  }
+
+  function getAwayMs(){
+    const lastSeen = Number(localStorage.getItem(COMEBACK_LAST_SEEN) || "0");
+    if(!lastSeen) return 0;
+    return Math.max(0, Date.now() - lastSeen);
+  }
+
+  function canClaimComeback(){
+    const awayMs = getAwayMs();
+    const minMs = COMEBACK_MIN_HOURS * 3600 * 1000;
+    const claimedToday = localStorage.getItem(COMEBACK_CLAIM_KEY) === todayKeyUTC();
+    return awayMs >= minMs && !claimedToday;
+  }
+
+  function claimComeback(){
+    if(!canClaimComeback()){
+      toast("No comeback bonus right now 🙂");
+      return;
+    }
+    applyBoost(COMEBACK_MULT, COMEBACK_TIME);
+    S.money += COMEBACK_MONEY;
+    localStorage.setItem(COMEBACK_CLAIM_KEY, todayKeyUTC());
+
+    toast("🎁 Comeback bonus claimed!");
+    log(`🎁 <strong>Comeback Bonus</strong> — +35% for 12m, +${COMEBACK_MONEY} money`);
+    render(true);
+    updateSeasonUI();
+  }
+
+  // Mark last seen ONLY on hide/unload (NOT every frame)
+  function markLastSeen(){
+    localStorage.setItem(COMEBACK_LAST_SEEN, String(Date.now()));
+  }
+  window.addEventListener("beforeunload", markLastSeen);
+  document.addEventListener("visibilitychange", () => {
+    if(document.visibilityState === "hidden") markLastSeen();
+  });
+
+  // ---------- Season modal ----------
+  function openSeasonOverlay(){
+    const o = document.getElementById("seasonOverlay");
+    if(!o) return;
+    o.classList.add("show");
+    requestAnimationFrame(()=> o.classList.add("open"));
+    updateSeasonUI();
+  }
+  function closeSeasonOverlay(){
+    const o = document.getElementById("seasonOverlay");
+    if(!o) return;
+    o.classList.remove("open");
+    setTimeout(()=> o.classList.remove("show"), 180);
+  }
+
+  function updateSeasonUI(){
+    const { streak } = loadStreak();
+    const dailyText = document.getElementById("seasonDailyText");
+    const dailyNext = document.getElementById("seasonDailyNext");
+    const dailyBtn  = document.getElementById("btnSeasonClaimDaily");
+
+    if(dailyText) dailyText.textContent = `Streak: ${streak || 0} days`;
+    const nextDay = canClaimDailyStreak() ? Math.min(7, (streak||0)+1) : Math.min(7, (streak||0));
+    const rw = STREAK_REWARDS[Math.max(0, nextDay-1)];
+    if(dailyNext) dailyNext.textContent = `Reward: +${Math.round((rw.mult-1)*100)}% income for ${Math.round(rw.time/60000)} min${rw.money?` + ${rw.money} money`:``}`;
+
+    if(dailyBtn){
+      dailyBtn.disabled = !canClaimDailyStreak();
+      dailyBtn.textContent = canClaimDailyStreak() ? "Claim Daily" : "Claimed";
+    }
+
+    const awayMs = getAwayMs();
+    const cText = document.getElementById("seasonComebackText");
+    const cReward = document.getElementById("seasonComebackReward");
+    const cBtn = document.getElementById("btnSeasonClaimComeback");
+
+    if(canClaimComeback()){
+      if(cText) cText.textContent = `You were away: ${msToPretty(awayMs)} — comeback available!`;
+      if(cReward) cReward.textContent = `Reward: +35% income for 12 min + ${COMEBACK_MONEY} money`;
+      if(cBtn){ cBtn.disabled = false; cBtn.textContent = "Claim"; }
+    }else{
+      if(cText) cText.textContent = awayMs ? `You were away: ${msToPretty(awayMs)} — no bonus yet.` : "No comeback bonus right now.";
+      if(cReward) cReward.textContent = `Comeback unlocks after ${COMEBACK_MIN_HOURS}h away.`;
+      if(cBtn){ cBtn.disabled = true; cBtn.textContent = "Claim"; }
+    }
+
+    const w = document.getElementById("seasonWeekText");
+    if(w) w.textContent = "Weekly leaderboards reset every Monday (UTC).";
+  }
+
+  // ---------- Random Events ----------
+  function getEventToastEls(){
+    return { box:$("eventToast"), title:$("eventTitle"), body:$("eventBody"), footer:$("eventFooter") };
+  }
+  function showEventToast(title, body, footer){
+    const els = getEventToastEls();
+    if(!els.box) return;
+    els.title.textContent = title;
+    els.body.textContent = body;
+    els.footer.textContent = footer || "";
+    els.box.classList.add("show");
+    clearTimeout(showEventToast._t);
+    showEventToast._t = setTimeout(()=> els.box.classList.remove("show"), 5200);
+  }
+
+  function getActiveMults(){
+    const t = Date.now();
+    const m = { v:1, s:1, money:1, click:1 };
+    if(S._eventUntil && t < S._eventUntil){
+      m.v *= (S._eventVMult || 1);
+      m.s *= (S._eventSMult || 1);
+      m.money *= (S._eventMMult || 1);
+      m.click *= (S._eventClickMult || 1);
+    }
+    return m;
+  }
+
+  function setTimedEvent(mods, ms, title, body){
+    S._eventUntil = Date.now() + ms;
+    S._eventVMult = mods.v ?? 1;
+    S._eventSMult = mods.s ?? 1;
+    S._eventMMult = mods.money ?? 1;
+    S._eventClickMult = mods.click ?? 1;
+
+    const secs = Math.ceil(ms/1000);
+    showEventToast(title, body, `Active for ${secs}s`);
+    log(`📣 <strong>${title}</strong> — ${body} <span style="color:rgba(234,240,255,.55)">(for ${secs}s)</span>`);
+  }
+
+  function clearTimedEventIfEnded(){
+    if(S._eventUntil && Date.now() > S._eventUntil){
+      delete S._eventUntil; delete S._eventVMult; delete S._eventSMult; delete S._eventMMult; delete S._eventClickMult;
+    }
+  }
+
+  const EVENTS = [
+    () => setTimedEvent({v: 2.2}, 20_000, "Raid Incoming!", "A big streamer raids you. Views go wild!"),
+    () => setTimedEvent({click: 1.6}, 25_000, "Chat Hype!", "Chat spams W. Your clicks are stronger."),
+    () => { S.money += 120; toast("💸 Sponsor Tip: +$120"); log("💸 <strong>Sponsor Tip</strong> — +$120"); },
+    () => setTimedEvent({money: 2.0}, 18_000, "Sponsored Segment", "Money gain is doubled for a bit."),
+    () => { S.views += 3500; toast("🔥 Viral Clip: +3.5K views"); log("🔥 <strong>Viral Clip</strong> — +3.5K views"); },
+
+    () => setTimedEvent({v: 0.7}, 22_000, "Stream Lag", "Dropped frames... views per second reduced."),
+    () => { S.subs = Math.max(0, S.subs - 12); toast("😬 Chat Drama: -12 subs"); log("😬 <strong>Chat Drama</strong> — -12 subs"); },
+    () => setTimedEvent({money: 0.6}, 25_000, "Chargeback Wave", "Refunds hit. Money gain reduced."),
+    () => { S.money = Math.max(0, S.money - 80); toast("🧾 Unexpected Bill: -$80"); log("🧾 <strong>Unexpected Bill</strong> — -$80"); },
+    () => setTimedEvent({s: 1.8, v: 0.85}, 20_000, "Community Night", "More subs, slightly fewer views."),
+  ];
+
+  function scheduleNextEvent(){
+    const min = 2 * 60 * 1000;
+    const max = 6 * 60 * 1000;
+    const nextIn = Math.floor(min + Math.random() * (max - min));
+    S._nextEventAt = Date.now() + nextIn;
+  }
+  function maybeTriggerEvent(){
+    if(!S._nextEventAt) scheduleNextEvent();
+    if(Date.now() < S._nextEventAt) return;
+
+    if(Math.random() < 0.75){
+      const pick = EVENTS[Math.floor(Math.random() * EVENTS.length)];
+      try{ pick(); }catch(e){}
+    }
+    scheduleNextEvent();
+  }
+
+  // ---------- Upgrades / Achievements ----------
   const UPGRADE_DEFS = [
-    {
-      id: "pc",
-      name: "Better PC",
-      desc: "More views per second. (GPU goes BRRR)",
-      baseCost: 50,
-      costMult: 1.25,
-      effect: (lvl) => ({ vps: 0.6 * lvl })
-    },
-    {
-      id: "net",
-      name: "Faster internet",
-      desc: "Stable stream → more subs per second.",
-      baseCost: 120,
-      costMult: 1.28,
-      effect: (lvl) => ({ sps: 0.06 * lvl })
-    },
-    {
-      id: "overlay",
-      name: "Pro overlay",
-      desc: "More click value (chat is impressed).",
-      baseCost: 90,
-      costMult: 1.26,
-      effect: (lvl) => ({ click: 0.4 * lvl })
-    },
-    {
-      id: "mods",
-      name: "Chat mods",
-      desc: "Fewer trolls → more money per second.",
-      baseCost: 220,
-      costMult: 1.30,
-      effect: (lvl) => ({ mps: 0.14 * lvl })
-    },
-    {
-      id: "sponsor",
-      name: "Sponsor deal",
-      desc: "Subs → money (a bit per second).",
-      baseCost: 500,
-      costMult: 1.32,
-      effect: (lvl) => ({ subToMoney: 0.012 * lvl })
-    },
-    {
-      id: "editor",
-      name: "Video editor",
-      desc: "Views → subs (a bit per second).",
-      baseCost: 650,
-      costMult: 1.34,
-      effect: (lvl) => ({ viewToSubs: 0.0018 * lvl })
-    },
+    { id:"pc",      name:"Better PC",        desc:"More views per second. (GPU goes BRRR)", baseCost:50,  costMult:1.25, effect:(lvl)=>({ vps:0.6*lvl }) },
+    { id:"net",     name:"Faster internet",  desc:"Stable stream → more subs per second.",  baseCost:120, costMult:1.28, effect:(lvl)=>({ sps:0.06*lvl }) },
+    { id:"overlay", name:"Pro overlay",      desc:"More click value (chat is impressed).", baseCost:90,  costMult:1.26, effect:(lvl)=>({ click:0.4*lvl }) },
+    { id:"mods",    name:"Chat mods",        desc:"Fewer trolls → more money per second.", baseCost:220, costMult:1.30, effect:(lvl)=>({ mps:0.14*lvl }) },
+    { id:"sponsor", name:"Sponsor deal",     desc:"Subs → money (a bit per second).",      baseCost:500, costMult:1.32, effect:(lvl)=>({ subToMoney:0.012*lvl }) },
+    { id:"editor",  name:"Video editor",     desc:"Views → subs (a bit per second).",      baseCost:650, costMult:1.34, effect:(lvl)=>({ viewToSubs:0.0018*lvl }) },
   ];
 
   const ACH = [
-    { id:"v_1k",   title:"First 1k views",        check:(s)=>s.views>=1000,     reward:"+5% clickPower", apply:(s)=> s.clickPower *= 1.05 },
-    { id:"s_50",   title:"50 subs",                check:(s)=>s.subs>=50,        reward:"+5% money/s",   apply:(s)=> s._permMoneyMult = (s._permMoneyMult||1)*1.05 },
-    { id:"m_1k",   title:"Earn 1K money",        check:(s)=>s.money>=1000,    reward:"+5% views/s",    apply:(s)=> s._permViewMult  = (s._permViewMult||1)*1.05 },
-    { id:"pc_10",  title:"PC lvl 10",              check:(s)=>s.upgrades.pc>=10,reward:"+10% clickPower", apply:(s)=> s.clickPower *= 1.10 },
-    { id:"net_10", title:"Internet lvl 10",            check:(s)=>s.upgrades.net>=10,reward:"+10% subs/s",    apply:(s)=> s._permSubMult   = (s._permSubMult||1)*1.10 },
-    { id:"mods_10",title:"Mods lvl 10",            check:(s)=>s.upgrades.mods>=10,reward:"+10% money/s", apply:(s)=> s._permMoneyMult = (s._permMoneyMult||1)*1.10 },
-    { id:"boost",  title:"Use boost once",     check:(s)=> s._usedBoost===true,reward:"+3% all/s",     apply:(s)=> { s._permViewMult=(s._permViewMult||1)*1.03; s._permSubMult=(s._permSubMult||1)*1.03; s._permMoneyMult=(s._permMoneyMult||1)*1.03; } },
-    { id:"v_1m",   title:"1M views (legend)",      check:(s)=>s.views>=1_000_000,reward:"+20% clickPower",apply:(s)=> s.clickPower *= 1.20 },
+    { id:"v_1k",   title:"First 1k views",         check:(s)=>s.views>=1000,      reward:"+5% clickPower", apply:(s)=> s.clickPower *= 1.05 },
+    { id:"s_50",   title:"50 subs",                check:(s)=>s.subs>=50,         reward:"+5% money/s",    apply:(s)=> s._permMoneyMult = (s._permMoneyMult||1)*1.05 },
+    { id:"m_1k",   title:"Earn 1K money",          check:(s)=>s.money>=1000,      reward:"+5% views/s",    apply:(s)=> s._permViewMult  = (s._permViewMult||1)*1.05 },
+    { id:"pc_10",  title:"PC lvl 10",              check:(s)=>s.upgrades.pc>=10,  reward:"+10% clickPower",apply:(s)=> s.clickPower *= 1.10 },
+    { id:"net_10", title:"Internet lvl 10",        check:(s)=>s.upgrades.net>=10, reward:"+10% subs/s",    apply:(s)=> s._permSubMult   = (s._permSubMult||1)*1.10 },
+    { id:"mods_10",title:"Mods lvl 10",            check:(s)=>s.upgrades.mods>=10,reward:"+10% money/s",   apply:(s)=> s._permMoneyMult = (s._permMoneyMult||1)*1.10 },
+    { id:"boost",  title:"Use boost once",         check:(s)=> s._usedBoost===true,reward:"+3% all/s",     apply:(s)=> { s._permViewMult=(s._permViewMult||1)*1.03; s._permSubMult=(s._permSubMult||1)*1.03; s._permMoneyMult=(s._permMoneyMult||1)*1.03; } },
+    { id:"v_1m",   title:"1M views (legend)",      check:(s)=>s.views>=1_000_000, reward:"+20% clickPower",apply:(s)=> s.clickPower *= 1.20 },
   ];
 
   // ---------- State ----------
-let S = load();
-window.S = S;
-
-
+  let S = load();
+  window.S = S;
 
   function load(){
     try{
       const raw = localStorage.getItem(STORAGE_KEY);
       if(!raw) return structuredClone(DEFAULT);
       const obj = JSON.parse(raw);
-      // merge defaults
       const s = structuredClone(DEFAULT);
       Object.assign(s, obj);
       s.upgrades = Object.assign(structuredClone(DEFAULT.upgrades), obj.upgrades || {});
@@ -1556,12 +1195,6 @@ window.S = S;
     }catch(e){
       return structuredClone(DEFAULT);
     }
-  }
-
-  function save(){
-    S.lastSave = now();
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(S));
-    toast("Lagret ✅");
   }
 
   function hardReset(){
@@ -1574,83 +1207,53 @@ window.S = S;
     log("🔁 <strong>Reset</strong> — back to zero (but you can rebuild fast).");
   }
 
-  // ---------- Economy ----------
-  function calcRates(){
-  const lvl = (id) => S.upgrades[id] || 0;
+  // ---------- Prestige ----------
+  function loadPrestige(){
+    try{ return JSON.parse(localStorage.getItem(PRESTIGE_KEY) || '{"sp":0,"totalPrestiges":0}'); }
+    catch{ return { sp:0, totalPrestiges:0 }; }
+  }
+  function savePrestige(p){ localStorage.setItem(PRESTIGE_KEY, JSON.stringify(p)); }
+  function calcPrestigeGain(){ return Math.floor(Math.sqrt((S.views || 0) / 1000)); }
+  function prestigeMult(){ const p = loadPrestige(); return 1 + (p.sp * 0.05); }
+  function canPrestige(){ return (S.views || 0) >= PRESTIGE_UNLOCK_VIEWS; }
 
-  // base from upgrades
-  let vps = 0;
-  let sps = 0;
-  let mps = 0;
-  let subToMoney = 0;
-  let viewToSubs = 0;
+  function doPrestige(){
+    if(!canPrestige()){ toast(`You need ${fmt(PRESTIGE_UNLOCK_VIEWS)} views to Prestige.`); return; }
+    const gain = calcPrestigeGain();
+    if(gain <= 0){ toast("No SP yet. Play a bit more!"); return; }
 
-  for (const u of UPGRADE_DEFS){
-    const L = lvl(u.id);
-    const eff = u.effect(L);
-    vps += eff.vps || 0;
-    sps += eff.sps || 0;
-    mps += eff.mps || 0;
-    subToMoney += eff.subToMoney || 0;
-    viewToSubs += eff.viewToSubs || 0;
+    const ok = confirm(`Prestige now?\n\nYou get: +${gain} SP\nThis resets views/subs/money and upgrades.`);
+    if(!ok) return;
+
+    const p = loadPrestige();
+    p.sp += gain;
+    p.totalPrestiges += 1;
+    savePrestige(p);
+
+    S.views = 0; S.subs = 0; S.money = 0;
+    S.upgrades = structuredClone(DEFAULT.upgrades);
+    S.boostUntil = 0;
+    delete S._dailyBoostMult;
+
+    toast(`✨ Prestige! +${gain} SP (total ${p.sp})`);
+    log(`✨ <strong>Prestige</strong> — +${gain} SP (total ${p.sp})`);
+
+    buildShop();
+    render(true);
   }
 
-  // perms from achievements
-  const viewMult  = S._permViewMult  || 1;
-  const subMult   = S._permSubMult   || 1;
-  const moneyMult = S._permMoneyMult || 1;
-
-  vps *= viewMult;
-  sps *= subMult;
-  mps *= moneyMult;
-
-  // Boost (rewarded ad) multiplies all rates
-  const boosted = now() < (S.boostUntil || 0);
-  const boostMult = boosted ? 2 : 1;
-
-  // Daily bonus multiplier
-  const dailyMult = S._dailyBoostMult || 1;
-  const pMult = prestigeMult();
-vps *= pMult;
-sps *= pMult;
-mps *= pMult;
-subToMoney *= pMult;
-viewToSubs *= pMult;
-  
-
-  const ev = getActiveMults();
-  vps *= ev.v;
-  sps *= ev.s;
-  mps *= ev.money;
-
-
-  return {
-    vps: vps * boostMult * dailyMult,
-    sps: sps * boostMult * dailyMult,
-    mps: mps * boostMult * dailyMult,
-    subToMoney: subToMoney * boostMult * dailyMult,
-    viewToSubs: viewToSubs * boostMult * dailyMult,
-    boosted
-  };
-}
-
-
-
+  // ---------- Economy ----------
   function upgradeCost(def){
     const L = S.upgrades[def.id] || 0;
     return Math.floor(def.baseCost * Math.pow(def.costMult, L));
   }
-
   function canAfford(cost){ return S.money >= cost; }
 
   function buyUpgrade(id){
     const def = UPGRADE_DEFS.find(u=>u.id===id);
     if(!def) return;
     const cost = upgradeCost(def);
-    if(!canAfford(cost)){
-      toast("Not enough money.");
-      return;
-    }
+    if(!canAfford(cost)){ toast("Not enough money."); return; }
     S.money -= cost;
     S.upgrades[id] = (S.upgrades[id] || 0) + 1;
     toast(`${def.name} +1`);
@@ -1658,45 +1261,82 @@ viewToSubs *= pMult;
     render();
   }
 
-  function click(){
-    const rates = calcRates();
-    const overlayLvl = S.upgrades.overlay || 0;
-    const clickBonus = overlayLvl * 0.4; // from upgrade def (also shown in pill)
-    const perClick = (S.clickPower || 1) + clickBonus;
+  function calcRates(){
+    const lvl = (id) => S.upgrades[id] || 0;
+
+    let vps = 0, sps = 0, mps = 0, subToMoney = 0, viewToSubs = 0;
+    for (const u of UPGRADE_DEFS){
+      const L = lvl(u.id);
+      const eff = u.effect(L);
+      vps += eff.vps || 0;
+      sps += eff.sps || 0;
+      mps += eff.mps || 0;
+      subToMoney += eff.subToMoney || 0;
+      viewToSubs += eff.viewToSubs || 0;
+    }
+
+    // achievement perms
+    vps *= (S._permViewMult  || 1);
+    sps *= (S._permSubMult   || 1);
+    mps *= (S._permMoneyMult || 1);
+
+    // prestige
+    const pMult = prestigeMult();
+    vps *= pMult; sps *= pMult; mps *= pMult; subToMoney *= pMult; viewToSubs *= pMult;
+
+    // events
     const ev = getActiveMults();
-    const perClickEvent = perClick * (ev.click || 1);
+    vps *= ev.v; sps *= ev.s; mps *= ev.money;
+
+    // boost
+    const boosted = now() < (S.boostUntil || 0);
+    const boostMult = boosted ? 2 : 1;
+
+    // daily streak boost mult
+    const dailyMult = S._dailyBoostMult || 1;
+
+    return {
+      vps: vps * boostMult * dailyMult,
+      sps: sps * boostMult * dailyMult,
+      mps: mps * boostMult * dailyMult,
+      subToMoney: subToMoney * boostMult * dailyMult,
+      viewToSubs: viewToSubs * boostMult * dailyMult,
+      boosted
+    };
+  }
+
+  function click(){
+    const r = calcRates();
+    const overlayLvl = S.upgrades.overlay || 0;
+    const clickBonus = overlayLvl * 0.4;
+    const baseClick = (S.clickPower || 1) + clickBonus;
+
+    const ev = getActiveMults();
+    const perClick = baseClick * (ev.click || 1);
 
     if(!S.runStart) S.runStart = Date.now();
 
-
-    // boost doesn't change per click by default (holder det fair), men vi lar det påvirke litt:
-    const mult = rates.boosted ? 1.25 : 1; // click feels better during boost
-    S.views += perClickEvent * mult;
-
-    // tiny conversion from views to subs on click (feel-good)
-    S.subs += (perClick * 0.01) * mult;
-
-    // and a tiny money drip on click (so money starts early)
+    const mult = r.boosted ? 1.25 : 1;
+    S.views += perClick * mult;
+    S.subs  += (perClick * 0.01) * mult;
     S.money += (perClick * 0.02) * mult;
 
     render();
   }
 
-  // ---------- Offline & Ticking ----------
+  // ---------- Offline & Tick ----------
   function applyOffline(){
     const tNow = now();
     const elapsedMs = Math.max(0, tNow - (S.lastTick || tNow));
-    const elapsedSec = Math.min(12 * 3600, Math.floor(elapsedMs / 1000)); // cap 12 hours
+    const elapsedSec = Math.min(12 * 3600, Math.floor(elapsedMs / 1000));
     if(elapsedSec <= 2) return;
 
     const r = calcRates();
-    // income over offline time
     const gainedViews = r.vps * elapsedSec;
     const gainedSubs  = r.sps * elapsedSec;
     const gainedMoney = r.mps * elapsedSec;
 
-    // passive conversions
-    const extraSubsFromViews = r.viewToSubs * S.views * (elapsedSec/60); // scaled per minute-ish
+    const extraSubsFromViews = r.viewToSubs * S.views * (elapsedSec/60);
     const extraMoneyFromSubs = r.subToMoney * S.subs  * (elapsedSec/60);
 
     S.views += gainedViews;
@@ -1709,14 +1349,10 @@ viewToSubs *= pMult;
 
   function tick(dt){
     const r = calcRates();
-
-    // base rates
     S.views += r.vps * dt;
     S.subs  += r.sps * dt;
     S.money += r.mps * dt;
 
-    // soft conversions based on current totals (feel like growth)
-    // keep these small so it doesn't explode too fast
     S.subs  += r.viewToSubs * S.views * (dt/60);
     S.money += r.subToMoney * S.subs  * (dt/60);
 
@@ -1726,23 +1362,23 @@ viewToSubs *= pMult;
   let lastFrame = now();
   function loop(){
     const t = now();
-    const dt = Math.min(0.2, (t - lastFrame) / 1000); // cap dt for stability
+    const dt = Math.min(0.2, (t - lastFrame) / 1000);
     lastFrame = t;
 
     tick(dt);
     render(false);
 
-    // autosave every ~20s
     if (t - (S.lastSave || 0) > 20000){
       localStorage.setItem(STORAGE_KEY, JSON.stringify(S));
       S.lastSave = t;
     }
 
-if (S._dailyBoostMult && Date.now() > (S.boostUntil || 0)) {
-  delete S._dailyBoostMult;
-}
+    // expire daily mult when boost ends
+    if (S._dailyBoostMult && Date.now() > (S.boostUntil || 0)) delete S._dailyBoostMult;
+
     clearTimedEventIfEnded();
     maybeTriggerEvent();
+
     requestAnimationFrame(loop);
   }
 
@@ -1765,7 +1401,6 @@ if (S._dailyBoostMult && Date.now() > (S.boostUntil || 0)) {
       if (S.achievements[a.id]) continue;
       if (a.check(S)){
         S.achievements[a.id] = true;
-        // apply reward
         try{ a.apply(S); }catch(e){}
         changed = true;
         toast(`Achievement: ${a.title}`);
@@ -1827,7 +1462,6 @@ if (S._dailyBoostMult && Date.now() > (S.boostUntil || 0)) {
   }
 
   function render(force){
-    // numbers
     $("views").textContent = fmt(S.views);
     $("subs").textContent  = fmt(S.subs);
     $("money").textContent = fmt(S.money);
@@ -1836,52 +1470,42 @@ if (S._dailyBoostMult && Date.now() > (S.boostUntil || 0)) {
     $("vps").textContent = `+${fmt(r.vps)} per second`;
     $("sps").textContent = `+${fmt(r.sps)} per second`;
     $("mps").textContent = `+${fmt(r.mps)} per second`;
-    const di = dailyStreakInfo();
-$("btnDaily").textContent = di.canClaim ? `🎁 Daily (Streak ${di.streak || 0})` : `⏳ Daily claimed (Streak ${di.streak || 0})`;
-$("btnDaily").disabled = !di.canClaim;
-
-    $("btnPrestige").textContent = canPrestige()
-  ? `✨ Prestige (+${calcPrestigeGain()} SP)`
-  : `✨ Prestige (${fmt(PRESTIGE_UNLOCK_VIEWS)} views)`;
-
-$("btnPrestige").disabled = !canPrestige();
-
-
-
 
     $("pillRate").textContent = `V ${fmt(r.vps)}/s · S ${fmt(r.sps)}/s · $ ${fmt(r.mps)}/s`;
 
     const overlayLvl = S.upgrades.overlay || 0;
-    $("pillClick").textContent = `Click: +${( (S.clickPower||1) + overlayLvl*0.4 ).toFixed(1).replace(/\.0$/,"")}`;
+    $("pillClick").textContent = `Click: +${(((S.clickPower||1) + overlayLvl*0.4)).toFixed(1).replace(/\.0$/,"")}`;
 
-// boost / daily pill
-const left = Math.max(0, Math.ceil(((S.boostUntil || 0) - now()) / 1000));
-const hasDaily = !!S._dailyBoostMult;
-const hasRewarded = r.boosted && !hasDaily;
+    // daily button
+    updateDailyButtonUI();
 
-if (left > 0) {
-  if (hasDaily && hasRewarded) {
-    $("pillBoost").textContent = `Boost + Daily (${left}s)`;
-  } else if (hasDaily) {
-    $("pillBoost").textContent = `Daily active (${left}s)`;
-  } else {
-    $("pillBoost").textContent = `x2 active (${left}s)`;
-  }
-} else {
-  $("pillBoost").textContent = "No boost";
-}
+    // prestige button
+    $("btnPrestige").textContent = canPrestige()
+      ? `✨ Prestige (+${calcPrestigeGain()} SP)`
+      : `✨ Prestige (${fmt(PRESTIGE_UNLOCK_VIEWS)} views)`;
+    $("btnPrestige").disabled = !canPrestige();
 
+    // boost pill
+    const left = Math.max(0, Math.ceil(((S.boostUntil || 0) - now()) / 1000));
+    const hasDaily = !!S._dailyBoostMult;
+    const hasRewarded = r.boosted && !hasDaily;
+
+    if (left > 0) {
+      if (hasDaily && hasRewarded) $("pillBoost").textContent = `Boost + Daily (${left}s)`;
+      else if (hasDaily) $("pillBoost").textContent = `Daily active (${left}s)`;
+      else $("pillBoost").textContent = `x2 active (${left}s)`;
+    } else {
+      $("pillBoost").textContent = "No boost";
+    }
 
     // shop costs + levels
     for (const def of UPGRADE_DEFS){
       const cost = upgradeCost(def);
       $("price_"+def.id).textContent = `Price: ${fmt(cost)}`;
       $("lvl_"+def.id).textContent = `lvl ${S.upgrades[def.id] || 0}`;
-      const can = canAfford(cost);
-      // disable buy if can't afford
       const row = $("row_"+def.id);
       const btn = row.querySelector("button");
-      btn.disabled = !can;
+      btn.disabled = !canAfford(cost);
     }
 
     // achievements visual
@@ -1903,17 +1527,15 @@ if (left > 0) {
     }
     $("pillAch").textContent = `${unlocked} / ${ACH.length}`;
 
-    // lastTick update for offline
+    // lastTick for offline
     S.lastTick = now();
     if(force) localStorage.setItem(STORAGE_KEY, JSON.stringify(S));
   }
 
-  // ---------- Rewarded Ad (Placeholder) ----------
+  // ---------- Rewarded Boost ----------
   function rewardBoost(){
-    // MVP: we simulate a rewarded ad
-    // Later: replace with real rewarded ad SDK if/when you use one.
     if (now() < (S.boostUntil || 0)){
-      toast("Boost er allerede aktiv.");
+      toast("Boost is already active.");
       return;
     }
     S._usedBoost = true;
@@ -1923,136 +1545,185 @@ if (left > 0) {
     render();
   }
 
-  // ---------- Ads Help ----------
-function showAdsHelp(){
-  openAdsOverlay();
-}
+  // ---------- Modals ----------
+  function openAdsOverlay(){
+    const o = $("adsOverlay");
+    if(!o) return;
+    o.classList.add("show");
+    requestAnimationFrame(() => o.classList.add("open"));
+  }
+  function closeAdsOverlay(){
+    const o = $("adsOverlay");
+    if(!o) return;
+    o.classList.remove("open");
+    setTimeout(() => o.classList.remove("show"), 180);
+  }
 
+  function openLBOverlay(){
+    const o = $("lbOverlay");
+    if(!o) return;
+    o.classList.add("show");
+    requestAnimationFrame(() => o.classList.add("open"));
+    refreshLBMyScores();
+    lbStartCooldownTicker();
+    setRankLine("views","");
+    setRankLine("prestige","");
+    setRankLine("speedrun","");
+    updateLBModeButtons();
+  }
+  function closeLBOverlay(){
+    lbStopCooldownTicker();
+    const o = $("lbOverlay");
+    if(!o) return;
+    o.classList.remove("open");
+    setTimeout(() => o.classList.remove("show"), 180);
+  }
 
-  // ---------- Events ----------
+  function refreshLBMyScores(){
+    const v = $("lbMyViews");
+    if(v) v.textContent = fmt(S.views || 0);
+    const p = loadPrestige();
+    const sp = $("lbMyPrestige");
+    if(sp) sp.textContent = fmt(p.sp || 0);
+  }
+
+  // ---------- Help ----------
+  function openHelp(){
+    const o = $("helpOverlay");
+    if(!o) return;
+    o.style.display = "grid";
+  }
+  function closeHelp(){
+    const o = $("helpOverlay");
+    if(!o) return;
+    o.style.display = "none";
+    localStorage.setItem(HELP_KEY, "1");
+  }
+
+  function giveStartBonus(){
+    if (localStorage.getItem(START_BONUS_KEY)) return;
+    S.views += 100;
+    S.money += 10;
+    localStorage.setItem(START_BONUS_KEY, "1");
+    toast("🎁 Starter bonus: +100 views, +10 money!");
+    log("🎁 <strong>Starter bonus</strong> — +100 views, +10 money");
+    render(true);
+  }
+
+  // ---------- Events wiring ----------
   $("btnClick").addEventListener("click", click);
   $("btnPrestige")?.addEventListener("click", doPrestige);
 
-  $("btnDaily")?.addEventListener("click", claimDailyBonus);
-  
+  $("btnDaily")?.addEventListener("click", claimDailyStreak);
+
   $("btnSave").addEventListener("click", () => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(S));
-    toast("Lagret ✅");
+    toast("Saved ✅");
   });
+
   $("btnReset").addEventListener("click", () => {
     const ok = confirm("Reset everything? (This cannot be undone)");
     if(ok) hardReset();
   });
+
   $("btnReward").addEventListener("click", rewardBoost);
-  $("btnHowAds").addEventListener("click", showAdsHelp);
+  $("btnHowAds").addEventListener("click", openAdsOverlay);
 
+  // Help modal
+  $("btnHelp")?.addEventListener("click", openHelp);
+  $("btnCloseHelp")?.addEventListener("click", closeHelp);
+  $("btnHelpPlay")?.addEventListener("click", () => { giveStartBonus(); closeHelp(); });
 
-// Åpne LB modal fra toppknappen
-document.getElementById("btnLB")?.addEventListener("click", openLBOverlay);
+  // Ads modal
+  $("btnCloseAds")?.addEventListener("click", closeAdsOverlay);
+  $("adsOverlay")?.addEventListener("click", (e) => { if(e.target && e.target.id==="adsOverlay") closeAdsOverlay(); });
 
-// Lukk
-document.getElementById("btnCloseLB")?.addEventListener("click", closeLBOverlay);
-document.getElementById("lbOverlay")?.addEventListener("click", (e) => {
-  if (e.target && e.target.id === "lbOverlay") closeLBOverlay();
-});
+  $("btnCopyBanner")?.addEventListener("click", async () => {
+    const code = $("bannerSnippet")?.textContent || "";
+    try{ await navigator.clipboard.writeText(code); toast("Copied ✅"); }
+    catch{ toast("Could not copy (browser restriction)"); }
+  });
+  $("btnCopyAdsense")?.addEventListener("click", async () => {
+    const code = $("adsenseSnippet")?.textContent || "";
+    try{ await navigator.clipboard.writeText(code); toast("Copied ✅"); }
+    catch{ toast("Could not copy (browser restriction)"); }
+  });
 
-window.addEventListener("keydown", (e) => {
-  if (e.key !== "Escape") return;
-  closeAdsOverlay();
-  closeLBOverlay();
-});
+  // Leaderboard modal
+  $("btnLB")?.addEventListener("click", openLBOverlay);
+  $("btnCloseLB")?.addEventListener("click", closeLBOverlay);
+  $("lbOverlay")?.addEventListener("click", (e) => { if(e.target && e.target.id==="lbOverlay") closeLBOverlay(); });
 
+  // LB mode
+  $("btnLBAllTime")?.addEventListener("click", () => { LB_WEEKLY_MODE=false; toast("Leaderboard: All-time"); updateLBModeButtons(); });
+  $("btnLBWeekly")?.addEventListener("click", () => { LB_WEEKLY_MODE=true; toast("Leaderboard: Weekly"); updateLBModeButtons(); });
 
-// Views
-document.getElementById("btnLBSubmitViews")?.addEventListener("click", async () => {
-  if(!lbCanSend()){ toast("Wait a bit before submitting again 🙂"); return; }
+  // Rank buttons
+  $("btnLBMyRankViews")?.addEventListener("click", () => showMyRank("views"));
+  $("btnLBMyRankPrestige")?.addEventListener("click", () => showMyRank("prestige"));
+  $("btnLBMyRankSpeedrun")?.addEventListener("click", () => showMyRank("speedrun"));
 
-  try{
-    await submitViews();
-    lbSetCooldown();
-    lbUpdateCooldownUI();
-    refreshLBMyScores();
-  }catch(err){
-    toast(String(err?.message || err));
-  }
-});
+  // Submit buttons
+  $("btnLBSubmitViews")?.addEventListener("click", async () => {
+    if(!lbCanSend()){ toast("Wait a bit before submitting again 🙂"); return; }
+    try{ await submitViews(); lbSetCooldown(); lbUpdateCooldownUI(); refreshLBMyScores(); }catch(err){ toast(String(err?.message||err)); }
+  });
+  $("btnLBSubmitPrestige")?.addEventListener("click", async () => {
+    if(!lbCanSend()){ toast("Wait a bit before submitting again 🙂"); return; }
+    try{ await submitPrestige(); lbSetCooldown(); lbUpdateCooldownUI(); refreshLBMyScores(); }catch(err){ toast(String(err?.message||err)); }
+  });
+  $("btnLBSubmitSpeedrun")?.addEventListener("click", async () => {
+    if(!lbCanSend()){ toast("Wait a bit before submitting again 🙂"); return; }
+    try{ await submitSpeedrun(); lbSetCooldown(); lbUpdateCooldownUI(); }catch(err){ toast(String(err?.message||err)); }
+  });
 
+  // Top 10 buttons
+  $("btnLBTopViews")?.addEventListener("click", () => toggleTop("views"));
+  $("btnLBTopPrestige")?.addEventListener("click", () => toggleTop("prestige"));
+  $("btnLBTopSpeedrun")?.addEventListener("click", () => toggleTop("speedrun"));
 
-// Prestige
-document.getElementById("btnLBSubmitPrestige")?.addEventListener("click", async () => {
-  if(!lbCanSend()){ toast("Wait a bit before submitting again 🙂"); return; }
+  // Season modal hooks
+  $("btnSeason")?.addEventListener("click", openSeasonOverlay);
+  $("btnCloseSeason")?.addEventListener("click", closeSeasonOverlay);
+  $("seasonOverlay")?.addEventListener("click", (e) => { if(e.target && e.target.id==="seasonOverlay") closeSeasonOverlay(); });
+  $("btnSeasonClaimDaily")?.addEventListener("click", claimDailyStreak);
+  $("btnSeasonClaimComeback")?.addEventListener("click", claimComeback);
 
-  try{
-    await submitPrestige();
-    lbSetCooldown();
-    lbUpdateCooldownUI();
-    refreshLBMyScores();
-  }catch(err){
-    toast(String(err?.message || err));
-  }
-});
+  // ESC closes modals
+  window.addEventListener("keydown", (e) => {
+    if (e.key !== "Escape") return;
+    closeAdsOverlay();
+    closeLBOverlay();
+    closeSeasonOverlay();
+  });
 
-
-// Speedrun
-document.getElementById("btnLBSubmitSpeedrun")?.addEventListener("click", async () => {
-  if(!lbCanSend()){ toast("Wait a bit before submitting again 🙂"); return; }
-
-  try{
-    await submitSpeedrun();
-    lbSetCooldown();
-    lbUpdateCooldownUI();
-  }catch(err){
-    toast(String(err?.message || err));
-  }
-});
-
-
-// Top 10 buttons
-document.getElementById("btnLBTopViews")?.addEventListener("click", () => toggleTop("views"));
-document.getElementById("btnLBTopPrestige")?.addEventListener("click", () => toggleTop("prestige"));
-document.getElementById("btnLBTopSpeedrun")?.addEventListener("click", () => toggleTop("speedrun"));
-document.getElementById("btnLBTopViewsWeekly")?.addEventListener("click", () => toggleTop("views_weekly"));
-document.getElementById("btnLBTopPrestigeWeekly")?.addEventListener("click", () => toggleTop("prestige_weekly"));
-document.getElementById("btnLBTopSpeedrunWeekly")?.addEventListener("click", () => toggleTop("speedrun_weekly"));
-
-
-
-
-
-let lastSpaceClick = 0;
-const SPACE_COOLDOWN = 160;
-
-window.addEventListener("keydown", (e) => {
-  if (e.code !== "Space") return;
-
-  const tag = document.activeElement?.tagName;
-  if (tag === "INPUT" || tag === "TEXTAREA") return;
-
-  e.preventDefault();
-
-  const t = Date.now();
-  if (t - lastSpaceClick < SPACE_COOLDOWN) return;
-
-  lastSpaceClick = t;
-  click();
-});
-
-
+  // Space = click (limited)
+  let lastSpaceClick = 0;
+  const SPACE_COOLDOWN = 160;
+  window.addEventListener("keydown", (e) => {
+    if (e.code !== "Space") return;
+    const tag = document.activeElement?.tagName;
+    if (tag === "INPUT" || tag === "TEXTAREA") return;
+    e.preventDefault();
+    const t = Date.now();
+    if (t - lastSpaceClick < SPACE_COOLDOWN) return;
+    lastSpaceClick = t;
+    click();
+  });
 
   // ---------- Init ----------
   buildShop();
   buildAchievements();
   applyOffline();
-  applyComebackBonus();
   render(true);
   checkAchievements();
+  updateDailyButtonUI();
+
+  // show help first time
+  if(!localStorage.getItem(HELP_KEY)) openHelp();
+
   loop();
 
-
-  // Save on tab close
-  window.addEventListener("beforeunload", ()=>{
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(S));
-  });
 })();
 </script>
 </body>
