@@ -355,6 +355,9 @@
   opacity:1;
 }
 
+/* --- Streamer Era Update: Event Toast --- */
+#eventToast.show{ display:flex !important; }
+
 
     .toast{
       position: fixed;
@@ -606,6 +609,8 @@
             <button id="btnLBSubmitViews" class="btn-primary" style="border-radius:14px;">Submit score</button>
             <button id="btnLBMyRankViews" style="border-radius:14px;">Check rank</button>
             <button id="btnLBTopViews" style="border-radius:14px;">Top 10</button>
+            <button id="btnLBTopViewsWeekly" style="border-radius:14px;">Weekly Top 10</button>
+
           </div>
         </div>
           <div style="margin-top:10px; display:none;" id="lbTopViewsWrap">
@@ -628,6 +633,7 @@
             <button id="btnLBSubmitPrestige" class="btn-primary" style="border-radius:14px;">Submit score</button>
             <button id="btnLBMyRankPrestige" style="border-radius:14px;">Check rank</button>
             <button id="btnLBTopPrestige" style="border-radius:14px;">Top 10</button>
+            <button id="btnLBTopPrestigeWeekly" style="border-radius:14px;">Weekly Top 10</button>
           </div>
         </div>
         <div style="margin-top:10px; display:none;" id="lbTopPrestigeWrap">
@@ -650,6 +656,7 @@
             <button id="btnLBSubmitSpeedrun" class="btn-primary" style="border-radius:14px;">Submit score</button>
             <button id="btnLBMyRankSpeedrun" style="border-radius:14px;">Check rank</button>
             <button id="btnLBTopSpeedrun" style="border-radius:14px;">Top 10</button>
+            <button id="btnLBTopSpeedrunWeekly" style="border-radius:14px;">Weekly Top 10</button>
           </div>
         </div>
         <!-- LIM INN DENNE BLOKKEN HER -->
@@ -662,6 +669,31 @@
 
     <div style="text-align:right; font-size:11px; color:var(--muted); margin-top:10px;">
       Press ESC to close
+    </div>
+  </div>
+</div>
+
+<!-- Event Popup -->
+<div id="eventToast" style="
+  position:fixed; left:50%; top:18px; transform:translateX(-50%);
+  display:none; align-items:flex-start; gap:10px;
+  background: rgba(15,23,51,.92);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius: 18px;
+  padding: 12px 14px;
+  box-shadow: 0 18px 50px rgba(0,0,0,.45);
+  color: var(--text);
+  max-width:min(720px, calc(100vw - 20px));
+  z-index: 80;
+">
+  <div style="font-size:18px; line-height:1;">📣</div>
+  <div style="min-width:0">
+    <div id="eventTitle" style="font-weight:900; font-size:13px; margin-bottom:2px;">Event</div>
+    <div id="eventBody" style="color:rgba(234,240,255,.75); font-size:12px; line-height:1.35;">
+      Event text...
+    </div>
+    <div id="eventFooter" style="margin-top:6px; font-size:11px; color:rgba(234,240,255,.55);">
+      Active...
     </div>
   </div>
 </div>
@@ -741,6 +773,198 @@ const PRESTIGE_UNLOCK_VIEWS = 50_000; // når knappen låses opp
 
 const DAILY_BONUS_MULT = 1.2;
 const DAILY_BONUS_TIME = 10 * 60 * 1000; // 10 min
+
+// ===== Daily Streak =====
+const DAILY_STREAK_KEY = "streamer_idle_daily_streak_v1"; // { streak:number, lastClaim:"YYYY-MM-DD" }
+
+function ymd(d = new Date()){
+  const y = d.getFullYear();
+  const m = String(d.getMonth()+1).padStart(2,"0");
+  const da = String(d.getDate()).padStart(2,"0");
+  return `${y}-${m}-${da}`;
+}
+
+function ymdToDate(s){
+  const [y,m,d] = s.split("-").map(Number);
+  return new Date(y, (m||1)-1, d||1);
+}
+
+function addDays(date, n){
+  const d = new Date(date);
+  d.setDate(d.getDate()+n);
+  return d;
+}
+
+function loadDailyStreak(){
+  try{
+    return JSON.parse(localStorage.getItem(DAILY_STREAK_KEY) || '{"streak":0,"lastClaim":""}');
+  }catch{
+    return { streak:0, lastClaim:"" };
+  }
+}
+function saveDailyStreak(v){
+  localStorage.setItem(DAILY_STREAK_KEY, JSON.stringify(v));
+}
+
+function dailyStreakInfo(){
+  const st = loadDailyStreak();
+  const today = ymd();
+  if(!st.lastClaim) return { streak: st.streak || 0, canClaim: true, status: "Ready" };
+
+  const last = ymdToDate(st.lastClaim);
+  const yesterday = ymd(addDays(new Date(), -1));
+
+  if(st.lastClaim === today) return { streak: st.streak, canClaim:false, status:"Claimed" };
+  if(st.lastClaim === yesterday) return { streak: st.streak, canClaim:true, status:"Continue" };
+
+  // missed a day -> streak breaks
+  return { streak: 0, canClaim:true, status:"Reset" };
+}
+
+// Reward scaling (enkelt men effektivt)
+function dailyStreakMult(streak){
+  // 1: 1.20x, 2: 1.22x ... cap på 1.50x
+  const mult = 1.20 + Math.min(0.30, (Math.max(0, streak-1) * 0.02));
+  return Number(mult.toFixed(2));
+}
+
+function dailyStreakMinutes(streak){
+  // 10 min base + litt mer, cap 20 min
+  return Math.min(20, 10 + Math.floor(Math.max(0, streak-1) / 2));
+}
+
+
+// ===============================
+// Streamer Era Update (v1.1)
+// Random Events + Comeback bonus
+// ===============================
+
+const EVENT_KEY = "streamer_idle_event_state_v1";
+const COMEBACK_KEY = "streamer_idle_last_seen_v1";
+
+function getEventToastEls(){
+  return {
+    box: document.getElementById("eventToast"),
+    title: document.getElementById("eventTitle"),
+    body: document.getElementById("eventBody"),
+    footer: document.getElementById("eventFooter"),
+  };
+}
+
+function showEventToast(title, body, footer){
+  const els = getEventToastEls();
+  if(!els.box) return;
+  els.title.textContent = title;
+  els.body.textContent = body;
+  els.footer.textContent = footer || "";
+  els.box.classList.add("show");
+  clearTimeout(showEventToast._t);
+  showEventToast._t = setTimeout(()=> els.box.classList.remove("show"), 5200);
+}
+
+// Active timed modifiers stored in S
+function getActiveMults(){
+  const t = Date.now();
+  const m = {
+    v: 1,
+    s: 1,
+    money: 1,
+    click: 1,
+  };
+
+  if(S._eventUntil && t < S._eventUntil){
+    m.v *= (S._eventVMult || 1);
+    m.s *= (S._eventSMult || 1);
+    m.money *= (S._eventMMult || 1);
+    m.click *= (S._eventClickMult || 1);
+  }
+  return m;
+}
+
+function setTimedEvent(mods, ms, title, body){
+  S._eventUntil = Date.now() + ms;
+  S._eventVMult = mods.v ?? 1;
+  S._eventSMult = mods.s ?? 1;
+  S._eventMMult = mods.money ?? 1;
+  S._eventClickMult = mods.click ?? 1;
+
+  const secs = Math.ceil(ms/1000);
+  showEventToast(title, body, `Active for ${secs}s`);
+  log(`📣 <strong>${title}</strong> — ${body} <span style="color:rgba(234,240,255,.55)">(for ${secs}s)</span>`);
+}
+
+function clearTimedEventIfEnded(){
+  if(S._eventUntil && Date.now() > S._eventUntil){
+    delete S._eventUntil;
+    delete S._eventVMult;
+    delete S._eventSMult;
+    delete S._eventMMult;
+    delete S._eventClickMult;
+  }
+}
+
+// Random Event Pool (positive + negative)
+const EVENTS = [
+  // Positive
+  () => setTimedEvent({v: 2.2}, 20_000, "Raid Incoming!", "A big streamer raids you. Views go wild!"),
+  () => setTimedEvent({click: 1.6}, 25_000, "Chat Hype!", "Chat spams W. Your clicks are stronger."),
+  () => { S.money += 120; toast("💸 Sponsor Tip: +$120"); log("💸 <strong>Sponsor Tip</strong> — +$120"); },
+  () => setTimedEvent({money: 2.0}, 18_000, "Sponsored Segment", "Money gain is doubled for a bit."),
+  () => { S.views += 3500; toast("🔥 Viral Clip: +3.5K views"); log("🔥 <strong>Viral Clip</strong> — +3.5K views"); },
+
+  // Negative / Mixed
+  () => setTimedEvent({v: 0.7}, 22_000, "Stream Lag", "Dropped frames... views per second reduced."),
+  () => { S.subs = Math.max(0, S.subs - 12); toast("😬 Chat Drama: -12 subs"); log("😬 <strong>Chat Drama</strong> — -12 subs"); },
+  () => setTimedEvent({money: 0.6}, 25_000, "Chargeback Wave", "Refunds hit. Money gain reduced."),
+  () => { S.money = Math.max(0, S.money - 80); toast("🧾 Unexpected Bill: -$80"); log("🧾 <strong>Unexpected Bill</strong> — -$80"); },
+  () => setTimedEvent({s: 1.8, v: 0.85}, 20_000, "Community Night", "More subs, slightly fewer views."),
+];
+
+// When to trigger next event
+function scheduleNextEvent(){
+  const min = 2 * 60 * 1000; // 2 min
+  const max = 6 * 60 * 1000; // 6 min
+  const nextIn = Math.floor(min + Math.random() * (max - min));
+  S._nextEventAt = Date.now() + nextIn;
+}
+
+function maybeTriggerEvent(){
+  if(!S._nextEventAt) scheduleNextEvent();
+  if(Date.now() < S._nextEventAt) return;
+
+  // 75% chance to trigger, else delay (keeps it unpredictable)
+  if(Math.random() < 0.75){
+    const pick = EVENTS[Math.floor(Math.random() * EVENTS.length)];
+    try{ pick(); }catch(e){}
+  }
+
+  scheduleNextEvent();
+}
+
+// Comeback bonus if away for a while
+function applyComebackBonus(){
+  const lastSeen = Number(localStorage.getItem(COMEBACK_KEY) || "0");
+  const now = Date.now();
+  localStorage.setItem(COMEBACK_KEY, String(now));
+
+  if(!lastSeen) return;
+
+  const awayMs = now - lastSeen;
+  if(awayMs < 15 * 60 * 1000) return; // only if away 15+ min
+
+const awayMin = awayMs / 60000;
+
+let duration = 60_000;
+if(awayMin >= 60) duration = 90_000;
+if(awayMin >= 360) duration = 120_000;
+
+S.boostUntil = Math.max(S.boostUntil || 0, now) + duration;
+
+toast(`👋 Welcome back! x2 income for ${Math.round(duration/1000)}s`);
+log(`👋 <strong>Welcome back</strong> — x2 income for ${Math.round(duration/1000)}s`);
+
+}
+
 
 
 function openHelp(){
@@ -1071,7 +1295,7 @@ function renderTopList(containerId, rows, type){
     // plukk riktig tall uansett feltnavn
     let val = 0;
 
-    if(type === "speedrun"){
+    if(type === "speedrun" || type === "speedrun_weekly"){
       const t = Number(r.timeMs ?? r.time_ms_bigint ?? r.time_ms ?? r.times ?? r.ms ?? 0);
       val = t;
       div.innerHTML = `<strong>#${i+1} ${r.name || "?"}</strong><br/><span style="color:var(--muted)">${fmtTime(val)}</span>`;
@@ -1091,6 +1315,10 @@ async function toggleTop(type){
     views:   { wrap:"lbTopViewsWrap",   list:"lbTopViews",   mode:"score" },
     prestige:{ wrap:"lbTopPrestigeWrap",list:"lbTopPrestige",mode:"score" },
     speedrun:{ wrap:"lbTopSpeedrunWrap",list:"lbTopSpeedrun",mode:"speedrun" },
+    views_weekly:   { wrap:"lbTopViewsWrap",   list:"lbTopViews",   mode:"score" },
+    prestige_weekly:{ wrap:"lbTopPrestigeWrap",list:"lbTopPrestige",mode:"score" },
+    speedrun_weekly:{ wrap:"lbTopSpeedrunWrap",list:"lbTopSpeedrun",mode:"speedrun" },
+
   };
 
   const m = map[type];
@@ -1207,20 +1435,40 @@ function giveStartBonus(){
 
 
 function claimDailyBonus(){
-  if (!canClaimDailyBonus()) {
+  const info = dailyStreakInfo();
+  if(!info.canClaim){
     toast("You already claimed today’s bonus 🎁");
     return;
   }
 
-  S.boostUntil = Math.max(S.boostUntil || 0, Date.now()) + DAILY_BONUS_TIME;
-  S._dailyBoostMult = DAILY_BONUS_MULT;
+  // oppdater streak
+  const st = loadDailyStreak();
+  const today = ymd();
+  const yesterday = ymd(addDays(new Date(), -1));
 
-  localStorage.setItem(DAILY_BONUS_KEY, getTodayKey());
+  let newStreak = 1;
+  if(st.lastClaim === yesterday) newStreak = (st.streak || 0) + 1;
+  else newStreak = 1;
 
-  toast("🎁 Daily bonus! +20% income for 10 minutes");
-  log("🎁 <strong>Daily bonus</strong> — +20% income for 10 minutes");
+  st.streak = newStreak;
+  st.lastClaim = today;
+  saveDailyStreak(st);
+
+  // reward basert på streak
+  const mult = dailyStreakMult(newStreak);
+  const minutes = dailyStreakMinutes(newStreak);
+  const ms = minutes * 60 * 1000;
+
+  S.boostUntil = Math.max(S.boostUntil || 0, Date.now()) + ms;
+  S._dailyBoostMult = mult;
+
+  localStorage.setItem(DAILY_BONUS_KEY, today);
+
+  toast(`🎁 Daily Streak ${newStreak}x! +${Math.round((mult-1)*100)}% income for ${minutes} min`);
+  log(`🎁 <strong>Daily Streak</strong> — Streak ${newStreak}x, +${Math.round((mult-1)*100)}% for ${minutes} min`);
   render();
 }
+
 
 
 
@@ -1370,6 +1618,12 @@ subToMoney *= pMult;
 viewToSubs *= pMult;
   
 
+  const ev = getActiveMults();
+  vps *= ev.v;
+  sps *= ev.s;
+  mps *= ev.money;
+
+
   return {
     vps: vps * boostMult * dailyMult,
     sps: sps * boostMult * dailyMult,
@@ -1409,12 +1663,15 @@ viewToSubs *= pMult;
     const overlayLvl = S.upgrades.overlay || 0;
     const clickBonus = overlayLvl * 0.4; // from upgrade def (also shown in pill)
     const perClick = (S.clickPower || 1) + clickBonus;
+    const ev = getActiveMults();
+    const perClickEvent = perClick * (ev.click || 1);
+
     if(!S.runStart) S.runStart = Date.now();
 
 
     // boost doesn't change per click by default (holder det fair), men vi lar det påvirke litt:
     const mult = rates.boosted ? 1.25 : 1; // click feels better during boost
-    S.views += perClick * mult;
+    S.views += perClickEvent * mult;
 
     // tiny conversion from views to subs on click (feel-good)
     S.subs += (perClick * 0.01) * mult;
@@ -1484,8 +1741,8 @@ viewToSubs *= pMult;
 if (S._dailyBoostMult && Date.now() > (S.boostUntil || 0)) {
   delete S._dailyBoostMult;
 }
-
-
+    clearTimedEventIfEnded();
+    maybeTriggerEvent();
     requestAnimationFrame(loop);
   }
 
@@ -1579,8 +1836,10 @@ if (S._dailyBoostMult && Date.now() > (S.boostUntil || 0)) {
     $("vps").textContent = `+${fmt(r.vps)} per second`;
     $("sps").textContent = `+${fmt(r.sps)} per second`;
     $("mps").textContent = `+${fmt(r.mps)} per second`;
-    $("btnDaily").textContent = canClaimDailyBonus() ? "🎁 Daily" : "⏳ Daily claimed";
-    $("btnDaily").disabled = !canClaimDailyBonus();
+    const di = dailyStreakInfo();
+$("btnDaily").textContent = di.canClaim ? `🎁 Daily (Streak ${di.streak || 0})` : `⏳ Daily claimed (Streak ${di.streak || 0})`;
+$("btnDaily").disabled = !di.canClaim;
+
     $("btnPrestige").textContent = canPrestige()
   ? `✨ Prestige (+${calcPrestigeGain()} SP)`
   : `✨ Prestige (${fmt(PRESTIGE_UNLOCK_VIEWS)} views)`;
@@ -1752,6 +2011,10 @@ document.getElementById("btnLBSubmitSpeedrun")?.addEventListener("click", async 
 document.getElementById("btnLBTopViews")?.addEventListener("click", () => toggleTop("views"));
 document.getElementById("btnLBTopPrestige")?.addEventListener("click", () => toggleTop("prestige"));
 document.getElementById("btnLBTopSpeedrun")?.addEventListener("click", () => toggleTop("speedrun"));
+document.getElementById("btnLBTopViewsWeekly")?.addEventListener("click", () => toggleTop("views_weekly"));
+document.getElementById("btnLBTopPrestigeWeekly")?.addEventListener("click", () => toggleTop("prestige_weekly"));
+document.getElementById("btnLBTopSpeedrunWeekly")?.addEventListener("click", () => toggleTop("speedrun_weekly"));
+
 
 
 
@@ -1780,9 +2043,11 @@ window.addEventListener("keydown", (e) => {
   buildShop();
   buildAchievements();
   applyOffline();
+  applyComebackBonus();
   render(true);
   checkAchievements();
   loop();
+
 
   // Save on tab close
   window.addEventListener("beforeunload", ()=>{
@@ -1792,4 +2057,3 @@ window.addEventListener("keydown", (e) => {
 </script>
 </body>
 </html>
-
