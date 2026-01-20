@@ -36,30 +36,60 @@
         linear-gradient(180deg, var(--bg1), var(--bg2));
     }
 
-    .wrap{ max-width: 1100px; margin: 0 auto; padding: 22px 18px 40px; }
-
-    header{
-      display:flex; gap:14px; align-items:center; justify-content:space-between;
-      flex-wrap:wrap; margin-bottom:16px;
+    .wrap{
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 22px 18px 40px;
     }
 
-    .brand{ display:flex; align-items:center; gap:12px; }
+    header{
+      display:flex;
+      gap:14px;
+      align-items:center;
+      justify-content:space-between;
+      flex-wrap:wrap;
+      margin-bottom:16px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
     .logo{
-      width:42px; height:42px; border-radius:14px;
+      width:42px;
+      height:42px;
+      border-radius: 14px;
       background:
         radial-gradient(circle at 30% 30%, rgba(255,255,255,.22), transparent 55%),
         linear-gradient(135deg, var(--accent), var(--accent2));
       box-shadow: 0 14px 30px rgba(122,167,255,.18);
       border:1px solid rgba(255,255,255,.10);
     }
-    h1{ font-size:18px; margin:0; letter-spacing:.2px; }
-    .sub{ margin:2px 0 0; color:var(--muted); font-size:12px; }
+    h1{
+      font-size:18px;
+      margin:0;
+      letter-spacing:.2px;
+    }
+    .sub{
+      margin:2px 0 0;
+      color:var(--muted);
+      font-size:12px;
+    }
 
-    .top-actions{ display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
+    .top-actions{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
 
     button{
-      border:0; cursor:pointer; color:var(--text);
-      font-weight:650; letter-spacing:.2px;
+      border:0;
+      cursor:pointer;
+      color:var(--text);
+      font-weight:650;
+      letter-spacing:.2px;
       background: rgba(255,255,255,.08);
       border:1px solid rgba(255,255,255,.12);
       border-radius: 14px;
@@ -87,11 +117,14 @@
     }
 
     .grid{
-      display:grid; gap:14px;
+      display:grid;
+      gap:14px;
       grid-template-columns: 1.2fr .9fr;
       align-items:start;
     }
-    @media (max-width: 900px){ .grid{ grid-template-columns: 1fr; } }
+    @media (max-width: 900px){
+      .grid{ grid-template-columns: 1fr; }
+    }
 
     .card{
       background: linear-gradient(180deg, var(--card), var(--card2));
@@ -111,77 +144,157 @@
     }
 
     .section-title{
-      display:flex; align-items:center; justify-content:space-between;
-      gap:12px; margin-bottom:10px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom:10px;
     }
-    .section-title h2{ margin:0; font-size:14px; color:var(--text); letter-spacing:.3px; }
+    .section-title h2{
+      margin:0;
+      font-size:14px;
+      color:var(--text);
+      letter-spacing:.3px;
+    }
     .pill{
-      font-size:12px; color:var(--muted);
+      font-size:12px;
+      color:var(--muted);
       border:1px solid rgba(255,255,255,.12);
       background: rgba(255,255,255,.06);
-      padding: 6px 10px; border-radius: 999px;
-      display:flex; gap:8px; align-items:center; white-space:nowrap;
+      padding: 6px 10px;
+      border-radius: 999px;
+      display:flex;
+      gap:8px;
+      align-items:center;
+      white-space:nowrap;
     }
 
-    .stats{ display:grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap:10px; margin-bottom:10px; }
-    @media (max-width: 520px){ .stats{ grid-template-columns: 1fr; } }
+    .stats{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap:10px;
+      margin-bottom:10px;
+    }
+    @media (max-width: 520px){
+      .stats{ grid-template-columns: 1fr; }
+    }
 
     .stat{
-      padding: 12px; border-radius: 16px;
+      padding: 12px;
+      border-radius: 16px;
       border:1px solid rgba(255,255,255,.10);
       background: rgba(10,16,34,.35);
-      position:relative; overflow:hidden;
+      position:relative;
+      overflow:hidden;
     }
     .stat .label{ font-size:12px; color:var(--muted); }
     .stat .value{ font-size:22px; font-weight:800; margin-top:4px; letter-spacing:.2px; }
     .stat .subline{ font-size:12px; color:var(--muted); margin-top:6px; }
 
-    .big-action{ display:grid; grid-template-columns: 1fr; gap:10px; margin-top:8px; }
+    .big-action{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:10px;
+      margin-top:8px;
+    }
 
     .clicker{
-      padding: 14px; border-radius: 18px;
+      padding: 14px;
+      border-radius: 18px;
       border:1px solid rgba(255,255,255,.14);
       background:
         radial-gradient(600px 200px at 30% 30%, rgba(255,255,255,.10), transparent 60%),
         linear-gradient(135deg, rgba(122,167,255,.20), rgba(169,124,255,.14));
       box-shadow: 0 18px 40px rgba(0,0,0,.25);
-      display:flex; align-items:center; justify-content:space-between; gap:14px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
     }
-    .clicker .left{ display:flex; flex-direction:column; gap:4px; }
+    .clicker .left{
+      display:flex;
+      flex-direction:column;
+      gap:4px;
+    }
     .clicker .title{ font-weight:850; font-size:15px; }
     .clicker .desc{ color:var(--muted); font-size:12px; line-height:1.25; }
-    .clicker .right{ display:flex; align-items:center; gap:10px; flex-wrap:wrap; justify-content:flex-end; }
+    .clicker .right{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
 
-    .shop{ display:flex; flex-direction:column; gap:10px; }
+    .shop{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
     .shop-item{
-      padding: 12px; border-radius: 16px;
+      padding: 12px;
+      border-radius: 16px;
       border:1px solid rgba(255,255,255,.10);
       background: rgba(10,16,34,.35);
-      display:flex; justify-content:space-between; gap:10px; align-items:center;
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      align-items:center;
     }
-    .shop-item .meta{ display:flex; flex-direction:column; gap:4px; min-width:0; }
-    .shop-item .name{ font-weight:850; font-size:13px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-    .shop-item .note{ color:var(--muted); font-size:12px; line-height:1.25; }
-    .shop-item .right{ display:flex; gap:8px; align-items:center; flex-wrap:wrap; justify-content:flex-end; }
+    .shop-item .meta{
+      display:flex;
+      flex-direction:column;
+      gap:4px;
+      min-width:0;
+    }
+    .shop-item .name{
+      font-weight:850;
+      font-size:13px;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .shop-item .note{
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.25;
+    }
+    .shop-item .right{
+      display:flex;
+      gap:8px;
+      align-items:center;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
     .price{
-      font-size:12px; color:var(--muted);
+      font-size:12px;
+      color:var(--muted);
       border:1px solid rgba(255,255,255,.12);
       background: rgba(255,255,255,.06);
-      padding: 6px 10px; border-radius: 999px;
+      padding: 6px 10px;
+      border-radius: 999px;
       white-space:nowrap;
     }
 
-    .two-col{ display:grid; grid-template-columns: 1fr; gap:14px; }
+    .two-col{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:14px;
+    }
 
     .log{
       max-height: 240px;
       overflow:auto;
-      display:flex; flex-direction:column; gap:8px;
+      display:flex;
+      flex-direction:column;
+      gap:8px;
       padding-right:4px;
     }
     .log .entry{
-      font-size:12px; color:var(--muted);
-      padding: 10px 10px; border-radius: 14px;
+      font-size:12px;
+      color:var(--muted);
+      padding: 10px 10px;
+      border-radius: 14px;
       border:1px solid rgba(255,255,255,.08);
       background: rgba(10,16,34,.28);
     }
@@ -194,13 +307,16 @@
       padding: 12px;
       color: var(--muted);
       font-size: 12px;
-      display:flex; align-items:center; justify-content:space-between;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
       gap:10px;
     }
 
     /* --- Modal (fade + scale) --- */
     .modal-overlay{
-      position:fixed; inset:0;
+      position:fixed;
+      inset:0;
       display:none;
       place-items:center;
       padding:16px;
@@ -220,7 +336,6 @@
       background:rgba(15,23,51,.92);
       box-shadow:0 18px 50px rgba(0,0,0,.45);
       position:relative;
-
       transform: translateY(8px) scale(.98);
       opacity:0;
       transition: transform .18s ease, opacity .18s ease;
@@ -254,7 +369,6 @@
     .toast.show{ display:flex; }
 
     /* Event toast */
-    #eventToast{ display:none; }
     #eventToast.show{ display:flex !important; }
 
     a{ color: var(--accent); text-decoration:none; }
@@ -371,7 +485,7 @@
     </div>
   </div>
 
-  <!-- Help Modal -->
+  <!-- Help modal -->
   <div id="helpOverlay" style="position:fixed; inset:0; display:none; place-items:center; padding:16px; background:rgba(0,0,0,.55); z-index:60;">
     <div style="width:min(560px, calc(100vw - 24px)); border-radius:22px; padding:16px; border:1px solid rgba(255,255,255,.12); background:rgba(15,23,51,.92); box-shadow:0 18px 50px rgba(0,0,0,.45); position:relative;">
       <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:12px;">
@@ -396,8 +510,8 @@
         </div>
 
         <div style="border:1px solid rgba(255,255,255,.10); background:rgba(10,16,34,.35); border-radius:18px; padding:12px;">
-          <div style="font-weight:850; font-size:13px;">3) Boost (optional) ⚡</div>
-          <div style="color:rgba(234,240,255,.70); font-size:12px; margin-top:4px;">“Watch Ad → x2” gives x2 income for 30 seconds. (Your choice.)</div>
+          <div style="font-weight:850; font-size:13px;">3) Daily Streak + Season 📅</div>
+          <div style="color:rgba(234,240,255,.70); font-size:12px; margin-top:4px;">Claim daily rewards, keep your streak, and compete in weekly leaderboards.</div>
         </div>
 
         <div style="display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end; margin-top:4px;">
@@ -415,7 +529,7 @@
     </div>
   </div>
 
-  <!-- Ads Help Modal -->
+  <!-- Ads modal -->
   <div id="adsOverlay" class="modal-overlay">
     <div class="modal-card">
       <div style="display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:10px;">
@@ -429,7 +543,7 @@
 
       <div style="margin-top:12px; display:grid; gap:10px;">
         <div style="border:1px solid rgba(255,255,255,.10); background:rgba(10,16,34,.35); border-radius:18px; padding:12px;">
-          <div style="font-weight:850; font-size:13px;">1) Banner spot (placeholder)</div>
+          <div style="font-weight:850; font-size:13px;">1) Banner-spot (placeholder)</div>
           <pre style="margin:10px 0 0; padding:10px; border-radius:14px; border:1px solid rgba(255,255,255,.10); background:rgba(0,0,0,.25); overflow:auto; font-size:12px; color:rgba(234,240,255,.85);"><code id="bannerSnippet">&lt;div id="banner-ad"&gt;Banner placeholder&lt;/div&gt;</code></pre>
           <div style="display:flex; gap:10px; justify-content:flex-end; margin-top:10px;">
             <button id="btnCopyBanner" class="btn-primary" style="border-radius:14px; padding:10px 12px;">Copy snippet</button>
@@ -447,7 +561,7 @@
     </div>
   </div>
 
-  <!-- Leaderboard Modal -->
+  <!-- Leaderboard modal -->
   <div id="lbOverlay" class="modal-overlay">
     <div class="modal-card">
       <div style="display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:10px;">
@@ -464,6 +578,7 @@
       </div>
 
       <div style="display:grid; gap:10px;">
+
         <!-- Views -->
         <div style="border:1px solid rgba(255,255,255,.10); background:rgba(10,16,34,.35); border-radius:18px; padding:12px;">
           <div style="display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap;">
@@ -478,6 +593,7 @@
               <button id="btnLBSubmitViews" class="btn-primary" style="border-radius:14px;">Submit score</button>
               <button id="btnLBMyRankViews" style="border-radius:14px;">Check rank</button>
               <button id="btnLBTopViews" style="border-radius:14px;">Top 10</button>
+              <button id="btnLBTopViewsWeekly" style="border-radius:14px;">Weekly Top 10</button>
             </div>
           </div>
           <div style="margin-top:10px; display:none;" id="lbTopViewsWrap">
@@ -499,6 +615,7 @@
               <button id="btnLBSubmitPrestige" class="btn-primary" style="border-radius:14px;">Submit score</button>
               <button id="btnLBMyRankPrestige" style="border-radius:14px;">Check rank</button>
               <button id="btnLBTopPrestige" style="border-radius:14px;">Top 10</button>
+              <button id="btnLBTopPrestigeWeekly" style="border-radius:14px;">Weekly Top 10</button>
             </div>
           </div>
           <div style="margin-top:10px; display:none;" id="lbTopPrestigeWrap">
@@ -520,6 +637,7 @@
               <button id="btnLBSubmitSpeedrun" class="btn-primary" style="border-radius:14px;">Submit score</button>
               <button id="btnLBMyRankSpeedrun" style="border-radius:14px;">Check rank</button>
               <button id="btnLBTopSpeedrun" style="border-radius:14px;">Top 10</button>
+              <button id="btnLBTopSpeedrunWeekly" style="border-radius:14px;">Weekly Top 10</button>
             </div>
           </div>
           <div style="margin-top:10px; display:none;" id="lbTopSpeedrunWrap">
@@ -534,7 +652,7 @@
     </div>
   </div>
 
-  <!-- Season Modal -->
+  <!-- Season modal -->
   <div id="seasonOverlay" class="modal-overlay">
     <div class="modal-card">
       <div style="display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:10px;">
@@ -543,12 +661,13 @@
       </div>
 
       <div style="display:grid; gap:10px;">
+
         <!-- Daily streak -->
         <div style="border:1px solid rgba(255,255,255,.10); background:rgba(10,16,34,.35); border-radius:18px; padding:12px;">
           <div style="display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; align-items:center;">
             <div>
               <div style="font-weight:850;">🔥 Daily Streak</div>
-              <div style="color:rgba(234,240,255,.70); font-size:12px; margin-top:2px;" id="seasonDailyText">Streak: 0 days</div>
+              <div style="color:rgba(234,240,255,.70); font-size:12px; margin-top:2px;" id="seasonDailyText">Streak: 0/7</div>
               <div style="color:rgba(234,240,255,.60); font-size:12px; margin-top:4px;" id="seasonDailyNext">Next reward: ...</div>
             </div>
             <div style="display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end;">
@@ -557,7 +676,7 @@
           </div>
 
           <div style="margin-top:10px; color:rgba(234,240,255,.55); font-size:12px;">
-            Tip: Missing a day resets streak back to Day 1.
+            Missing a day resets streak back to Day 1.
           </div>
         </div>
 
@@ -585,6 +704,45 @@
             Open Leaderboard → switch to “Weekly” to compete this week.
           </div>
         </div>
+
+        <!-- Weekly Winners (Top 3) -->
+<div style="margin-top:10px; display:flex; justify-content:space-between; align-items:center; gap:10px;">
+  <div style="font-weight:850;">🏆 Weekly Winners (Top 3)</div>
+  <button id="btnSeasonRefreshWinners" style="border-radius:14px;">Refresh</button>
+</div>
+
+<div style="color:rgba(234,240,255,.60); font-size:12px; margin-top:6px;" id="seasonWinnersWeek">
+  Showing last completed week: —
+</div>
+
+<div style="margin-top:10px; display:grid; gap:10px;">
+  <div style="border:1px solid rgba(255,255,255,.10); background:rgba(10,16,34,.35); border-radius:18px; padding:12px;">
+    <div style="font-weight:850; font-size:13px;">👀 Views</div>
+    <div id="seasonWinViews" style="color:rgba(234,240,255,.75); font-size:12px; margin-top:6px;">No entries yet 🙂</div>
+  </div>
+
+  <div style="border:1px solid rgba(255,255,255,.10); background:rgba(10,16,34,.35); border-radius:18px; padding:12px;">
+    <div style="font-weight:850; font-size:13px;">✨ Prestige</div>
+    <div id="seasonWinPrestige" style="color:rgba(234,240,255,.75); font-size:12px; margin-top:6px;">No entries yet 🙂</div>
+  </div>
+
+  <div style="border:1px solid rgba(255,255,255,.10); background:rgba(255,255,255,.10); background:rgba(10,16,34,.35); border-radius:18px; padding:12px;">
+    <div style="font-weight:850; font-size:13px;">⏱️ Speedrun</div>
+    <div id="seasonWinSpeedrun" style="color:rgba(234,240,255,.75); font-size:12px; margin-top:6px;">No entries yet 🙂</div>
+  </div>
+</div>
+
+
+<!-- Weekly History -->
+<div style="border:1px solid rgba(255,255,255,.10); background:rgba(10,16,34,.35); border-radius:18px; padding:12px;">
+  <div style="font-weight:850;">📚 Weekly History</div>
+  <div style="color:rgba(234,240,255,.55); font-size:12px; margin-top:4px;">
+    Stores the last ~12 weeks on this device.
+  </div>
+  <div id="weeklyHistoryList" class="log" style="max-height:220px; margin-top:10px;"></div>
+</div>
+
+
       </div>
 
       <div style="text-align:right; font-size:11px; color:var(--muted); margin-top:10px;">
@@ -593,10 +751,10 @@
     </div>
   </div>
 
-  <!-- Event Popup -->
+  <!-- Event popup -->
   <div id="eventToast" style="
     position:fixed; left:50%; top:18px; transform:translateX(-50%);
-    align-items:flex-start; gap:10px;
+    display:none; align-items:flex-start; gap:10px;
     background: rgba(15,23,51,.92);
     border:1px solid rgba(255,255,255,.12);
     border-radius: 18px;
@@ -609,8 +767,12 @@
     <div style="font-size:18px; line-height:1;">📣</div>
     <div style="min-width:0">
       <div id="eventTitle" style="font-weight:900; font-size:13px; margin-bottom:2px;">Event</div>
-      <div id="eventBody" style="color:rgba(234,240,255,.75); font-size:12px; line-height:1.35;">Event text...</div>
-      <div id="eventFooter" style="margin-top:6px; font-size:11px; color:rgba(234,240,255,.55);">Active...</div>
+      <div id="eventBody" style="color:rgba(234,240,255,.75); font-size:12px; line-height:1.35;">
+        Event text...
+      </div>
+      <div id="eventFooter" style="margin-top:6px; font-size:11px; color:rgba(234,240,255,.55);">
+        Active...
+      </div>
     </div>
   </div>
 
@@ -621,8 +783,9 @@
   // ---------- Helpers ----------
   const $ = (id) => document.getElementById(id);
   const now = () => Date.now();
+
   const fmt = (n) => {
-    n = Math.floor(n);
+    n = Math.floor(Number(n || 0));
     if (n < 1000) return String(n);
     const units = ["K","M","B","T"];
     let u = -1;
@@ -632,8 +795,16 @@
     return s.replace(/\.0+$/,"") + units[u];
   };
 
+  function fmtTime(ms){
+    const s = Math.floor(ms/1000);
+    const mm = String(Math.floor(s/60)).padStart(2,"0");
+    const ss = String(s%60).padStart(2,"0");
+    return `${mm}:${ss}`;
+  }
+
   function toast(msg){
     const el = $("toast");
+    if(!el) return;
     el.textContent = msg;
     el.classList.add("show");
     clearTimeout(toast._t);
@@ -642,6 +813,7 @@
 
   function log(msg){
     const el = $("log");
+    if(!el) return;
     const div = document.createElement("div");
     div.className = "entry";
     div.innerHTML = msg;
@@ -649,7 +821,7 @@
     while (el.children.length > 25) el.removeChild(el.lastChild);
   }
 
-  // ---------- Storage ----------
+  // ---------- Storage keys ----------
   const STORAGE_KEY = "streamer_idle_v1";
   const HELP_KEY = "streamer_idle_seen_help_v1";
   const START_BONUS_KEY = "streamer_idle_start_bonus_v1";
@@ -658,13 +830,22 @@
   const PRESTIGE_KEY = "streamer_idle_prestige_v1";
   const PRESTIGE_UNLOCK_VIEWS = 50_000;
 
-  // Daily Streak / Comeback
-  const STREAK_KEY = "streamer_idle_daily_streak_v1";
-  const STREAK_LAST_KEY = "streamer_idle_daily_last_utc_v1";
-  const COMEBACK_LAST_SEEN = "streamer_idle_last_seen_v1";
-  const COMEBACK_CLAIM_KEY = "streamer_idle_comeback_claimed_utc_v1";
+  // Leaderboard name + cooldown
+  const LB_NAME_KEY = "streamer_idle_lb_name_v1";
+  const LB_COOLDOWN_MS = 30_000;
+  const LB_CD_KEY = "streamer_idle_lb_global_cd";
+  let _lbCdInterval = null;
 
-  // ---------- Game Data ----------
+  // Daily streak (7-day) + comeback
+  const STREAK_KEY = "streamer_idle_daily_streak_v1";     // number
+  const STREAK_LAST_KEY = "streamer_idle_daily_last_v1";  // YYYY-M-D (UTC)
+  const COMEBACK_LAST_SEEN = "streamer_idle_last_seen_v1";
+  const COMEBACK_CLAIM_KEY = "streamer_idle_comeback_claimed_v1";
+
+  // Random events
+  const EVENT_STATE_KEY = "streamer_idle_event_state_v1";
+
+  // ---------- Defaults ----------
   const DEFAULT = {
     views: 0,
     subs: 0,
@@ -675,244 +856,558 @@
     lastTick: now(),
     lastSave: now(),
     achievements: {},
+    runStart: 0,
+
+    // timed event
+    _eventUntil: 0,
+    _eventVMult: 1,
+    _eventSMult: 1,
+    _eventMMult: 1,
+    _eventClickMult: 1,
+    _nextEventAt: 0,
   };
 
-  // ---------- Leaderboard ----------
-  const LB_BASE = "https://oqgrbukmdzcdtszxcnqr.supabase.co/functions/v1";
-  const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9xZ3JidWttZHpjZHRzenhjbnFyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg2NzUxNTIsImV4cCI6MjA4NDI1MTE1Mn0.WjO-b4GwOCwTSbD-b0Rcvau9vdb2HuBTpuuAIXVm-wc";
-  let LB_WEEKLY_MODE = false; // all-time vs weekly
+  // ===============================
+// WEEKLY WINNERS PODIUM + HISTORY
+// ===============================
+const WEEKLY_HISTORY_KEY = "streamer_idle_weekly_history_v1"; // array of snapshots
+const WEEKLY_HISTORY_MAX = 12;
 
-  async function lbGet(type){
-    const weekly = LB_WEEKLY_MODE ? "&weekly=1" : "";
-    const res = await fetch(`${LB_BASE}/get-leaderboard?type=${encodeURIComponent(type)}${weekly}`, {
-      headers: { apikey: SUPABASE_ANON_KEY, Authorization: `Bearer ${SUPABASE_ANON_KEY}` }
-    });
-    const json = await res.json();
-    if(!json.ok) throw new Error(json.error || "LB error");
-    return json.data;
+function weekStartUTCISO(d = new Date()){
+  const x = new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate()));
+  const day = x.getUTCDay(); // 0=Sun
+  const diff = (day === 0 ? -6 : 1 - day); // back to Monday
+  x.setUTCDate(x.getUTCDate() + diff);
+  return x.toISOString().slice(0,10);
+}
+function prevWeekUTCISO(){
+  const d = new Date();
+  d.setUTCDate(d.getUTCDate() - 7);
+  return weekStartUTCISO(d);
+}
+function isMondayUTC(){
+  return new Date().getUTCDay() === 1;
+}
+
+async function lbGetWeek(type, week_start){
+  // Uses your get-leaderboard endpoint with weekly=1 and explicit week_start
+  const res = await fetch(`${LB_BASE}/get-leaderboard?type=${encodeURIComponent(type)}&weekly=1&week_start=${encodeURIComponent(week_start)}`, {
+    headers: {
+      apikey: SUPABASE_ANON_KEY,
+      Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
+    }
+  });
+  const json = await res.json();
+  if(!res.ok || !json.ok) throw new Error(json.error || `HTTP ${res.status}`);
+  return json.data || [];
+}
+
+function loadWeeklyHistory(){
+  try{
+    return JSON.parse(localStorage.getItem(WEEKLY_HISTORY_KEY) || "[]");
+  }catch{
+    return [];
+  }
+}
+function saveWeeklyHistory(arr){
+  localStorage.setItem(WEEKLY_HISTORY_KEY, JSON.stringify(arr.slice(0, WEEKLY_HISTORY_MAX)));
+}
+
+function podiumLine(rank, name, valueText){
+  const medal = rank === 1 ? "🥇" : rank === 2 ? "🥈" : "🥉";
+  const div = document.createElement("div");
+  div.className = "entry";
+  div.innerHTML = `${medal} <strong>#${rank} ${name || "?"}</strong><br/><span style="color:var(--muted)">${valueText}</span>`;
+  return div;
+}
+
+function renderPodium(elId, rows, type){
+  const el = document.getElementById(elId);
+  if(!el) return;
+  el.innerHTML = "";
+
+  const top3 = (rows || []).slice(0,3);
+  if(top3.length === 0){
+    const empty = document.createElement("div");
+    empty.className = "entry";
+    empty.textContent = "No entries yet 🙂";
+    el.appendChild(empty);
+    return;
   }
 
-  async function lbGetRank(type, name){
-    const res = await fetch(`${LB_BASE}/get-rank`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        apikey: SUPABASE_ANON_KEY,
-        Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
-      },
-      body: JSON.stringify({ type, name, weekly: LB_WEEKLY_MODE }),
-    });
-    const json = await res.json();
-    if(!res.ok || !json.ok) throw new Error(json.error || `HTTP ${res.status}`);
-    return json;
+  top3.forEach((r, i) => {
+    const rank = i + 1;
+    if(type === "speedrun"){
+      const ms = Number(r.time_ms ?? 0);
+      el.appendChild(podiumLine(rank, r.name, fmtTime(ms)));
+    }else if(type === "prestige"){
+      const v = Number(r.score_int ?? 0);
+      el.appendChild(podiumLine(rank, r.name, fmt(v)));
+    }else{
+      const v = Number(r.score_bigint ?? 0);
+      el.appendChild(podiumLine(rank, r.name, fmt(v)));
+    }
+  });
+}
+
+async function fetchWinnersSnapshot(week_start){
+  const [views, prestige, speedrun] = await Promise.all([
+    lbGetWeek("views", week_start),
+    lbGetWeek("prestige", week_start),
+    lbGetWeek("speedrun", week_start),
+  ]);
+
+  return {
+    week_start,
+    createdAt: Date.now(),
+    top3: {
+      views: (views || []).slice(0,3),
+      prestige: (prestige || []).slice(0,3),
+      speedrun: (speedrun || []).slice(0,3),
+    }
+  };
+}
+
+function hasSnapshotForWeek(week_start){
+  const hist = loadWeeklyHistory();
+  return hist.some(x => x.week_start === week_start);
+}
+
+function formatWinnerShort(row, type){
+  if(!row) return "-";
+  const name = row.name || "?";
+  if(type === "speedrun") return `${name} (${fmtTime(Number(row.time_ms||0))})`;
+  if(type === "prestige") return `${name} (${fmt(Number(row.score_int||0))})`;
+  return `${name} (${fmt(Number(row.score_bigint||0))})`;
+}
+
+function renderWeeklyHistory(){
+  const el = document.getElementById("weeklyHistoryList");
+  if(!el) return;
+
+  const hist = loadWeeklyHistory();
+  el.innerHTML = "";
+
+  if(hist.length === 0){
+    const empty = document.createElement("div");
+    empty.className = "entry";
+    empty.textContent = "No history yet. It will appear after Monday reset 🙂";
+    el.appendChild(empty);
+    return;
   }
 
-  async function lbSubmit(type, payload){
-    const res = await fetch(`${LB_BASE}/submit-score`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        apikey: SUPABASE_ANON_KEY,
-        Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
-      },
-      body: JSON.stringify({ type, ...payload }),
-    });
+  hist.slice(0, WEEKLY_HISTORY_MAX).forEach(h => {
+    const div = document.createElement("div");
+    div.className = "entry";
 
-    const json = await res.json();
-    if(!res.ok || !json.ok) throw new Error(json.error || `HTTP ${res.status}`);
-    return true;
-  }
+    const v1 = formatWinnerShort(h.top3?.views?.[0], "views");
+    const p1 = formatWinnerShort(h.top3?.prestige?.[0], "prestige");
+    const s1 = formatWinnerShort(h.top3?.speedrun?.[0], "speedrun");
 
-  // name prompt
-  const LB_NAME_KEY = "streamer_idle_lb_name_v1";
-  async function promptName(){
-    const saved = localStorage.getItem(LB_NAME_KEY) || "";
-    const name = prompt("Name (2-18 chars):", saved);
-    if(!name) return null;
-    const cleaned = name.trim().slice(0,18);
-    if(cleaned.length < 2) return null;
-    localStorage.setItem(LB_NAME_KEY, cleaned);
-    return cleaned;
-  }
+    div.innerHTML =
+      `<strong>Week ${h.week_start}</strong><br/>` +
+      `👀 ${v1}<br/>` +
+      `✨ ${p1}<br/>` +
+      `⏱️ ${s1}`;
 
-  // submit handlers
-  async function submitViews(){
-    const name = await promptName();
-    if(!name) return;
-    await lbSubmit("views", { name, score: Math.floor(S.views || 0) });
-    toast("Submitted to Views leaderboard ✅");
-  }
-  async function submitPrestige(){
-    const name = await promptName();
-    if(!name) return;
-    const p = loadPrestige();
-    await lbSubmit("prestige", { name, score: Math.floor(p.sp || 0) });
-    toast("Submitted to Prestige leaderboard ✅");
-  }
-  function fmtTime(ms){
-    const s = Math.floor(ms/1000);
-    const mm = String(Math.floor(s/60)).padStart(2,"0");
-    const ss = String(s%60).padStart(2,"0");
-    return `${mm}:${ss}`;
-  }
-  async function submitSpeedrun(){
-    const name = await promptName();
-    if(!name) return;
-    if(!S.runStart) { toast("Start a run first (missing runStart)."); return; }
-    if((S.views||0) < 1_000_000){ toast("You must reach 1M views first!"); return; }
-    const timeMs = Date.now() - S.runStart;
-    await lbSubmit("speedrun", { name, timeMs });
-    toast("Submitted to Speedrun leaderboard ✅");
+    el.appendChild(div);
+  });
+}
+
+async function updateWeeklyWinnersUI(){
+  const weekLine = document.getElementById("weeklyWinnersWeekLine");
+  const w = prevWeekUTCISO(); // show last completed week by default
+  if(weekLine) weekLine.textContent = `Showing last completed week: ${w}`;
+
+  try{
+    const snap = await fetchWinnersSnapshot(w);
+    renderPodium("weeklyPodiumViews", snap.top3.views, "views");
+    renderPodium("weeklyPodiumPrestige", snap.top3.prestige, "prestige");
+    renderPodium("weeklyPodiumSpeedrun", snap.top3.speedrun, "speedrun");
+  }catch(err){
+    toast(String(err?.message || err));
   }
 
-  function setRankLine(type, text){
-    const map = { views:"lbRankViews", prestige:"lbRankPrestige", speedrun:"lbRankSpeedrun" };
-    const el = document.getElementById(map[type]);
-    if(el) el.textContent = text || "";
+  renderWeeklyHistory();
+}
+
+async function maybeSnapshotLastWeekOnMonday(){
+  // Only do snapshot on Monday UTC (or later), but just once per week_start
+  if(!isMondayUTC()) return;
+
+  const lastWeek = prevWeekUTCISO();
+  if(hasSnapshotForWeek(lastWeek)) return;
+
+  try{
+    const snap = await fetchWinnersSnapshot(lastWeek);
+
+    const hist = loadWeeklyHistory();
+    hist.unshift(snap);
+    saveWeeklyHistory(hist);
+
+    // little announcement
+    toast("🏆 Weekly winners updated! (Season → Weekly Winners)");
+    log(`🏆 <strong>Weekly Winners</strong> — Snapshot saved for week ${lastWeek}`);
+
+  }catch(err){
+    // don't spam users; just log in console
+    console.log("Weekly snapshot failed:", err);
   }
+}
 
-  async function showMyRank(type){
-    const name = await promptName();
-    if(!name) return;
+// Button hook
+document.getElementById("btnRefreshWeeklyWinners")?.addEventListener("click", updateWeeklyWinnersUI);
 
+
+  // ---------- Load / Save ----------
+  let S = load();
+  window.S = S;
+
+  function load(){
     try{
-      const r = await lbGetRank(type, name);
-      if(!r.found){
-        setRankLine(type, "No score found for you yet (submit first) 🙂");
-        toast("No score found for you yet (submit first) 🙂");
-        return;
-      }
-      const msg = `You are #${r.rank} of ${r.total} (name: ${name}) ✅`;
-      setRankLine(type, msg);
-      toast(msg);
-      toggleTop(type); // auto-open top list
-    }catch(err){
-      const msg = String(err?.message || err);
-      setRankLine(type, "Could not fetch rank: " + msg);
-      toast(msg);
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if(!raw) return structuredClone(DEFAULT);
+      const obj = JSON.parse(raw);
+      const s = structuredClone(DEFAULT);
+      Object.assign(s, obj);
+      s.upgrades = Object.assign(structuredClone(DEFAULT.upgrades), obj.upgrades || {});
+      s.achievements = Object.assign({}, obj.achievements || {});
+      s.lastTick = obj.lastTick || now();
+      return s;
+    }catch{
+      return structuredClone(DEFAULT);
     }
   }
 
-  function renderTopList(containerId, rows, type){
-    const el = document.getElementById(containerId);
-    if(!el) return;
-    el.innerHTML = "";
+// =======================
+// WEEKLY WINNERS + REWARDS
+// =======================
+const WEEKLY_REWARD_CLAIM_KEY = "streamer_idle_weekly_reward_claimed_v1"; // stores weekStart
+const WEEKLY_REWARD_SEEN_KEY  = "streamer_idle_weekly_reward_seen_v1";    // stores weekStart (popup once)
 
-    if(!rows || rows.length === 0){
-      const empty = document.createElement("div");
-      empty.className = "entry";
-      empty.textContent = "No entries yet 🙂";
-      el.appendChild(empty);
+function weekStartUTCISO(d = new Date()){
+  const x = new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate()));
+  const day = x.getUTCDay(); // 0=Sun
+  const diff = (day === 0 ? -6 : 1 - day);
+  x.setUTCDate(x.getUTCDate() + diff);
+  return x.toISOString().slice(0,10); // YYYY-MM-DD
+}
+
+function getCurrentWeekKey(){
+  return weekStartUTCISO(new Date());
+}
+
+function getPrevWeekKey(){
+  const d = new Date();
+  d.setUTCDate(d.getUTCDate() - 7);
+  return weekStartUTCISO(d);
+}
+
+function isMondayUTC(){
+  return new Date().getUTCDay() === 1;
+}
+
+// Reward design:
+// - We reward based on weekly rank TOP 10 in any category
+// - Claim gives money + a timed boost (stacks on boostUntil)
+function rewardForRank(rank, category){
+  if(rank < 1 || rank > 10) return null;
+
+  // simple scaling: higher reward for better rank
+  // money values are intentionally chunky (feels good)
+  const baseMoney = category === "views" ? 1200 : category === "prestige" ? 900 : 900;
+  const money = Math.floor(baseMoney + (11 - rank) * (category === "views" ? 450 : 350));
+
+  // boost: rank 1 bigger
+  const mult = rank === 1 ? 1.60 : rank <= 3 ? 1.45 : rank <= 5 ? 1.35 : 1.25;
+  const minutes = rank === 1 ? 15 : rank <= 3 ? 12 : rank <= 5 ? 10 : 8;
+
+  return { money, mult, timeMs: minutes * 60 * 1000, minutes };
+}
+
+// NOTE: backend currently returns weekly for current week.
+// Weekly rewards should be claimable on Monday for the week that ended.
+// We'll do it like this:
+// - If today is Monday UTC, we allow claim for the *previous week* (prevWeekKey)
+// - Otherwise, show status and wait.
+async function fetchWeeklyRanksForPrevWeek(name){
+  // We can’t query “prev week” via your current endpoints unless you extend them.
+  // So we do a practical approach:
+  // - Rewards are claimable on Monday UTC early, and weekly tables reset.
+  // - On Monday, “current week” is new; previous week data is still in weekly tables but filtered by week_start.
+  //
+  // To support prev-week rewards properly, we'd need endpoints supporting `week_start=YYYY-MM-DD`.
+  // BUT we can still do it client-side by only allowing claim on Monday UTC and using LAST week key
+  // stored at submit-time (best solution is adding week_start param to endpoints later).
+  //
+  // For now: reward for current week key (which on Monday is new) won't find anything.
+  // So we do this: allow claim for the week key stored in localStorage when you last submitted that week.
+  //
+  // We will store `streamer_idle_last_submitted_week_v1` whenever you submit any leaderboard.
+  return await computeWeeklyRewardFromStoredWeek(name);
+}
+
+const LAST_SUBMIT_WEEK_KEY = "streamer_idle_last_submitted_week_v1";
+
+function markSubmittedThisWeek(){
+  localStorage.setItem(LAST_SUBMIT_WEEK_KEY, getCurrentWeekKey());
+}
+
+// Wrap your existing submit handlers to call markSubmittedThisWeek()
+// We'll hook it below after handlers exist.
+
+async function computeWeeklyRewardFromStoredWeek(name){
+  const submittedWeek = localStorage.getItem(LAST_SUBMIT_WEEK_KEY) || "";
+  const currentWeek = getCurrentWeekKey();
+
+  // Only claimable on Monday UTC, for the week you played last week
+  if(!isMondayUTC()){
+    return { ok:true, claimable:false, reason:"Rewards unlock on Monday (UTC).", weekKey: submittedWeek || currentWeek };
+  }
+
+  // If you never submitted last week, no reward
+  if(!submittedWeek){
+    return { ok:true, claimable:false, reason:"No weekly submission found last week.", weekKey: "" };
+  }
+
+  // If submittedWeek == currentWeek on Monday, then you submitted in the new week, not last week.
+  // We expect submittedWeek to be last week's Monday start.
+  if(submittedWeek === currentWeek){
+    return { ok:true, claimable:false, reason:"You didn't submit last week (only this week).", weekKey: submittedWeek };
+  }
+
+  // If already claimed for that submittedWeek, done
+  const claimed = localStorage.getItem(WEEKLY_REWARD_CLAIM_KEY) === submittedWeek;
+  if(claimed){
+    return { ok:true, claimable:false, reason:"Already claimed for last week ✅", weekKey: submittedWeek };
+  }
+
+  // TEMP: We cannot fetch rank for an arbitrary week without endpoint support.
+  // So we approximate by checking Weekly Top 10 list on Monday BEFORE players submit new scores.
+  // If you want perfect correctness, I’ll give you the optional endpoint patch after this.
+  //
+  // We will fetch current weekly lists (which on Monday are new week -> empty) => not good.
+  // Therefore we do a local reward: if you submitted last week, you get a small “participant” reward.
+  // AND if you are in top 10 NOW (rare), extra.
+  //
+  // Participant reward:
+  const participant = {
+    money: 900,
+    mult: 1.20,
+    minutes: 6,
+    timeMs: 6 * 60 * 1000,
+    label: "Weekly Participant",
+    detail: "You played last week and submitted at least once.",
+  };
+
+  return {
+    ok:true,
+    claimable:true,
+    weekKey: submittedWeek,
+    rewards: [participant],
+    note: "For perfect Top 10 rewards for the previous week, enable week_start queries (optional patch available)."
+  };
+}
+
+function applyWeeklyRewards(rewards){
+  let totalMoney = 0;
+  let bestMult = 1;
+  let bestTimeMs = 0;
+
+  for(const r of rewards){
+    totalMoney += r.money || 0;
+    if((r.mult || 1) > bestMult){
+      bestMult = r.mult || 1;
+      bestTimeMs = r.timeMs || 0;
+    }else if((r.mult || 1) === bestMult){
+      bestTimeMs = Math.max(bestTimeMs, r.timeMs || 0);
+    }
+  }
+
+  if(totalMoney > 0) S.money += totalMoney;
+
+  // apply boost (daily style)
+  S.boostUntil = Math.max(S.boostUntil || 0, Date.now()) + bestTimeMs;
+  S._dailyBoostMult = Math.max(S._dailyBoostMult || 1, bestMult);
+
+  toast(`🏅 Weekly rewards claimed! +${totalMoney} money, +${Math.round((bestMult-1)*100)}% for ${Math.round(bestTimeMs/60000)}m`);
+  log(`🏅 <strong>Weekly Rewards</strong> — +${totalMoney} money, +${Math.round((bestMult-1)*100)}% for ${Math.round(bestTimeMs/60000)}m`);
+  render(true);
+}
+
+async function updateWeeklyRewardsUI(){
+  const t = document.getElementById("seasonWeeklyRewardText");
+  const d = document.getElementById("seasonWeeklyRewardDetail");
+  const btn = document.getElementById("btnSeasonClaimWeeklyRewards");
+
+  if(!t || !d || !btn) return;
+
+  const savedName = localStorage.getItem(LB_NAME_KEY) || "";
+
+  // If no name saved, show guidance
+  if(!savedName){
+    t.textContent = "Set your leaderboard name to unlock weekly rewards.";
+    d.textContent = "Open Leaderboard → Submit once → name is saved.";
+    btn.disabled = true;
+    return;
+  }
+
+  const info = await computeWeeklyRewardFromStoredWeek(savedName);
+
+  if(!info.claimable){
+    t.textContent = info.reason || "Not claimable yet.";
+    d.textContent = info.weekKey ? `Week key: ${info.weekKey}` : "";
+    btn.disabled = true;
+    return;
+  }
+
+  const rewards = info.rewards || [];
+  const moneySum = rewards.reduce((a,r)=>a+(r.money||0),0);
+  const bestMult = rewards.reduce((m,r)=>Math.max(m,(r.mult||1)),1);
+  const bestMin = rewards.reduce((m,r)=>Math.max(m, Math.round((r.timeMs||0)/60000)),0);
+
+  t.textContent = `Ready to claim weekly rewards for week: ${info.weekKey}`;
+  d.textContent = `Reward: +${moneySum} money, +${Math.round((bestMult-1)*100)}% for ${bestMin} min`;
+  btn.disabled = false;
+}
+
+async function claimWeeklyRewards(){
+  const savedName = localStorage.getItem(LB_NAME_KEY) || "";
+  if(!savedName){
+    toast("Set your leaderboard name first 🙂");
+    return;
+  }
+
+  const info = await computeWeeklyRewardFromStoredWeek(savedName);
+  if(!info.claimable){
+    toast(info.reason || "Not claimable yet.");
+    return;
+  }
+
+  applyWeeklyRewards(info.rewards || []);
+  localStorage.setItem(WEEKLY_REWARD_CLAIM_KEY, info.weekKey);
+  updateWeeklyRewardsUI();
+  updateSeasonUI();
+  maybeWeeklyPopup();
+}
+
+function maybeWeeklyPopup(){
+  // Show only on Monday UTC, once per week key (prev submitted week)
+  if(!isMondayUTC()) return;
+
+  const submittedWeek = localStorage.getItem(LAST_SUBMIT_WEEK_KEY) || "";
+  if(!submittedWeek) return;
+
+  const seen = localStorage.getItem(WEEKLY_REWARD_SEEN_KEY) === submittedWeek;
+  const claimed = localStorage.getItem(WEEKLY_REWARD_CLAIM_KEY) === submittedWeek;
+
+  if(seen || claimed) return;
+
+  // Show a heads-up toast + open Season to claim
+  toast("🏅 Weekly rewards are ready! Open Season to claim.");
+  try{
+    localStorage.setItem(WEEKLY_REWARD_SEEN_KEY, submittedWeek);
+  }catch{}
+}
+
+// Hook season button
+document.getElementById("btnSeasonClaimWeeklyRewards")?.addEventListener("click", claimWeeklyRewards);
+
+
+  function hardReset(){
+    localStorage.removeItem(STORAGE_KEY);
+    S = structuredClone(DEFAULT);
+    window.S = S;
+    buildShop();
+    buildAchievements();
+    render(true);
+    toast("Reset done.");
+    log("🔁 <strong>Reset</strong> — back to zero. Let’s rebuild.");
+  }
+
+  // ---------- Starter bonus ----------
+  function giveStartBonus(){
+    if (localStorage.getItem(START_BONUS_KEY)) return;
+    S.views += 100;
+    S.money += 10;
+    localStorage.setItem(START_BONUS_KEY, "1");
+    toast("🎁 Starter bonus: +100 views, +10 money!");
+    log("🎁 <strong>Starter bonus</strong> — +100 views, +10 money");
+    render(true);
+  }
+
+  // ---------- Prestige ----------
+  function loadPrestige(){
+    try{
+      return JSON.parse(localStorage.getItem(PRESTIGE_KEY) || '{"sp":0,"totalPrestiges":0}');
+    }catch{
+      return { sp:0, totalPrestiges:0 };
+    }
+  }
+  function savePrestige(p){
+    localStorage.setItem(PRESTIGE_KEY, JSON.stringify(p));
+  }
+  function calcPrestigeGain(){
+    return Math.floor(Math.sqrt((S.views || 0) / 1000));
+  }
+  function prestigeMult(){
+    const p = loadPrestige();
+    return 1 + (p.sp * 0.05);
+  }
+  function canPrestige(){
+    return (S.views || 0) >= PRESTIGE_UNLOCK_VIEWS;
+  }
+  function doPrestige(){
+    if(!canPrestige()){
+      toast(`You need ${fmt(PRESTIGE_UNLOCK_VIEWS)} views to Prestige.`);
       return;
     }
-
-    rows.slice(0,10).forEach((r, i) => {
-      const div = document.createElement("div");
-      div.className = "entry";
-
-      if(type === "speedrun"){
-        const t = Number(r.time_ms ?? r.timeMs ?? 0);
-        div.innerHTML = `<strong>#${i+1} ${r.name || "?"}</strong><br/><span style="color:var(--muted)">${fmtTime(t)}</span>`;
-      }else if(type === "prestige"){
-        const s = Number(r.score_int ?? r.score ?? r.score_bigint ?? 0);
-        div.innerHTML = `<strong>#${i+1} ${r.name || "?"}</strong><br/><span style="color:var(--muted)">${fmt(s)}</span>`;
-      }else{
-        const s = Number(r.score_bigint ?? r.score ?? 0);
-        div.innerHTML = `<strong>#${i+1} ${r.name || "?"}</strong><br/><span style="color:var(--muted)">${fmt(s)}</span>`;
-      }
-      el.appendChild(div);
-    });
-  }
-
-  async function toggleTop(type){
-    const map = {
-      views:   { wrap:"lbTopViewsWrap",   list:"lbTopViews" },
-      prestige:{ wrap:"lbTopPrestigeWrap",list:"lbTopPrestige" },
-      speedrun:{ wrap:"lbTopSpeedrunWrap",list:"lbTopSpeedrun" },
-    };
-
-    const m = map[type];
-    const wrap = document.getElementById(m.wrap);
-    if(!wrap) return;
-
-    const isOpen = wrap.style.display !== "none";
-    if(isOpen){ wrap.style.display = "none"; return; }
-
-    wrap.style.display = "block";
-    try{
-      const data = await lbGet(type);
-      renderTopList(m.list, data, type);
-    }catch(err){
-      toast(String(err?.message || err));
+    const gain = calcPrestigeGain();
+    if(gain <= 0){
+      toast("No SP yet. Play a bit more!");
+      return;
     }
+    const ok = confirm(`Prestige now?\n\nYou get: +${gain} SP\nThis resets views/subs/money and upgrades.`);
+    if(!ok) return;
+
+    const p = loadPrestige();
+    p.sp += gain;
+    p.totalPrestiges += 1;
+    savePrestige(p);
+
+    S.views = 0;
+    S.subs = 0;
+    S.money = 0;
+    S.upgrades = structuredClone(DEFAULT.upgrades);
+    S.boostUntil = 0;
+    delete S._dailyBoostMult;
+
+    toast(`✨ Prestige! +${gain} SP (total ${p.sp})`);
+    log(`✨ <strong>Prestige</strong> — +${gain} SP (total ${p.sp})`);
+    buildShop();
+    render(true);
   }
 
-  function updateLBModeButtons(){
-    const a = document.getElementById("btnLBAllTime");
-    const w = document.getElementById("btnLBWeekly");
-    if(!a || !w) return;
-
-    if(LB_WEEKLY_MODE){
-      w.classList.add("btn-primary");
-      a.classList.remove("btn-primary");
-    }else{
-      a.classList.add("btn-primary");
-      w.classList.remove("btn-primary");
-    }
-  }
-
-  // Cooldown UI (client-side)
-  const LB_COOLDOWN_MS = 30_000;
-  const LB_CD_KEY = "streamer_idle_lb_global_cd";
-  let _lbCdInterval = null;
-  function lbSetCooldown(){ localStorage.setItem(LB_CD_KEY, String(Date.now())); }
-  function lbMsLeft(){
-    const raw = localStorage.getItem(LB_CD_KEY);
-    const last = raw ? Number(raw) : 0;
-    return Math.max(0, (last + LB_COOLDOWN_MS) - Date.now());
-  }
-  function lbCanSend(){ return lbMsLeft() === 0; }
-  function lbUpdateCooldownUI(){
-    const ids = ["btnLBSubmitViews","btnLBSubmitPrestige","btnLBSubmitSpeedrun"];
-    const left = lbMsLeft();
-    for(const id of ids){
-      const btn = document.getElementById(id);
-      if(!btn) continue;
-      if(left > 0){
-        const s = Math.ceil(left/1000);
-        btn.disabled = true;
-        btn.textContent = `Wait ${s}s`;
-      }else{
-        btn.disabled = false;
-        btn.textContent = "Submit score";
-      }
-    }
-  }
-  function lbStartCooldownTicker(){
-    lbStopCooldownTicker();
-    lbUpdateCooldownUI();
-    _lbCdInterval = setInterval(lbUpdateCooldownUI, 250);
-  }
-  function lbStopCooldownTicker(){
-    if(_lbCdInterval){ clearInterval(_lbCdInterval); _lbCdInterval = null; }
-  }
-
-  // ---------- Daily Streak / Comeback ----------
+  // ---------- Daily Streak + Comeback ----------
   const STREAK_REWARDS = [
-    { mult: 1.10, time: 5 * 60 * 1000, money: 0 },     // Day 1
-    { mult: 1.15, time: 5 * 60 * 1000, money: 50 },    // Day 2
-    { mult: 1.20, time: 7 * 60 * 1000, money: 150 },   // Day 3
-    { mult: 1.25, time: 7 * 60 * 1000, money: 250 },   // Day 4
-    { mult: 1.30, time: 10 * 60 * 1000, money: 500 },  // Day 5
-    { mult: 1.35, time: 10 * 60 * 1000, money: 750 },  // Day 6
-    { mult: 1.50, time: 12 * 60 * 1000, money: 1500 }, // Day 7
+    { mult: 1.10, time: 5 * 60 * 1000, money: 0 },      // Day 1
+    { mult: 1.15, time: 5 * 60 * 1000, money: 50 },     // Day 2
+    { mult: 1.20, time: 7 * 60 * 1000, money: 150 },    // Day 3
+    { mult: 1.25, time: 7 * 60 * 1000, money: 250 },    // Day 4
+    { mult: 1.30, time: 10 * 60 * 1000, money: 500 },   // Day 5
+    { mult: 1.35, time: 10 * 60 * 1000, money: 750 },   // Day 6
+    { mult: 1.50, time: 12 * 60 * 1000, money: 1500 },  // Day 7
   ];
 
   function todayKeyUTC(){
     const d = new Date();
-    return `${d.getUTCFullYear()}-${String(d.getUTCMonth()+1).padStart(2,"0")}-${String(d.getUTCDate()).padStart(2,"0")}`;
+    return `${d.getUTCFullYear()}-${d.getUTCMonth()+1}-${d.getUTCDate()}`;
   }
-
+  function yesterdayKeyUTC(){
+    const d = new Date();
+    d.setUTCDate(d.getUTCDate() - 1);
+    return `${d.getUTCFullYear()}-${d.getUTCMonth()+1}-${d.getUTCDate()}`;
+  }
   function loadStreak(){
     const streak = Number(localStorage.getItem(STREAK_KEY) || "0");
     const last = localStorage.getItem(STREAK_LAST_KEY) || "";
@@ -922,33 +1417,26 @@
     localStorage.setItem(STREAK_KEY, String(streak));
     localStorage.setItem(STREAK_LAST_KEY, last);
   }
-  function canClaimDailyStreak(){
+  function canClaimDaily(){
     const { last } = loadStreak();
     return last !== todayKeyUTC();
   }
-
   function applyBoost(mult, timeMs){
-    S.boostUntil = Math.max(S.boostUntil || 0, Date.now()) + timeMs;
+    S.boostUntil = Math.max(S.boostUntil || 0, now()) + timeMs;
     S._dailyBoostMult = mult;
   }
-
-  function claimDailyStreak(){
-    if(!canClaimDailyStreak()){
+  function claimDaily(){
+    if(!canClaimDaily()){
       toast("Daily already claimed today ✅");
       return;
     }
 
     const { streak, last } = loadStreak();
     const today = todayKeyUTC();
-
-    const y = new Date();
-    y.setUTCDate(y.getUTCDate() - 1);
-    const yesterdayKey = `${y.getUTCFullYear()}-${String(y.getUTCMonth()+1).padStart(2,"0")}-${String(y.getUTCDate()).padStart(2,"0")}`;
+    const yKey = yesterdayKeyUTC();
 
     let newStreak = 1;
-    if(last === yesterdayKey){
-      newStreak = Math.min(7, (streak || 0) + 1);
-    }
+    if(last === yKey) newStreak = Math.min(7, streak + 1);
 
     const reward = STREAK_REWARDS[newStreak - 1];
     applyBoost(reward.mult, reward.time);
@@ -958,30 +1446,14 @@
 
     toast(`🔥 Daily claimed! Streak: ${newStreak}/7`);
     log(`🔥 <strong>Daily Streak</strong> — Day ${newStreak}/7 (+${Math.round((reward.mult-1)*100)}% for ${Math.round(reward.time/60000)}m${reward.money?`, +${reward.money} money`:``})`);
-
     render(true);
-    updateDailyButtonUI();
     updateSeasonUI();
   }
 
-  function updateDailyButtonUI(){
-    const btn = document.getElementById("btnDaily");
-    if(!btn) return;
-    const { streak } = loadStreak();
-    if(canClaimDailyStreak()){
-      btn.disabled = false;
-      btn.textContent = `🎁 Daily (Streak ${streak || 0})`;
-    }else{
-      btn.disabled = true;
-      btn.textContent = `⏳ Daily used (Streak ${streak || 0})`;
-    }
-  }
-
-  // Comeback rules
-  const COMEBACK_MIN_HOURS = 18;         // away >= 18h
-  const COMEBACK_MULT = 1.35;            // +35%
-  const COMEBACK_TIME = 12 * 60 * 1000;  // 12 min
-  const COMEBACK_MONEY = 500;            // extra money
+  // comeback rules
+  const COMEBACK_MIN_HOURS = 18;
+  const COMEBACK_MULT = 1.35;
+  const COMEBACK_TIME = 12 * 60 * 1000;
 
   function msToPretty(ms){
     const s = Math.floor(ms/1000);
@@ -992,83 +1464,92 @@
     if(h>0) return `${h}h ${m}m`;
     return `${m}m`;
   }
-
   function getAwayMs(){
     const lastSeen = Number(localStorage.getItem(COMEBACK_LAST_SEEN) || "0");
     if(!lastSeen) return 0;
-    return Math.max(0, Date.now() - lastSeen);
+    return Math.max(0, now() - lastSeen);
   }
-
   function canClaimComeback(){
     const awayMs = getAwayMs();
     const minMs = COMEBACK_MIN_HOURS * 3600 * 1000;
     const claimedToday = localStorage.getItem(COMEBACK_CLAIM_KEY) === todayKeyUTC();
     return awayMs >= minMs && !claimedToday;
   }
-
   function claimComeback(){
     if(!canClaimComeback()){
       toast("No comeback bonus right now 🙂");
       return;
     }
     applyBoost(COMEBACK_MULT, COMEBACK_TIME);
-    S.money += COMEBACK_MONEY;
+    S.money += 500;
     localStorage.setItem(COMEBACK_CLAIM_KEY, todayKeyUTC());
-
     toast("🎁 Comeback bonus claimed!");
-    log(`🎁 <strong>Comeback Bonus</strong> — +35% for 12m, +${COMEBACK_MONEY} money`);
+    log(`🎁 <strong>Comeback Bonus</strong> — +35% for 12m, +500 money`);
     render(true);
     updateSeasonUI();
   }
 
-  // Mark last seen ONLY on hide/unload (NOT every frame)
-  function markLastSeen(){
-    localStorage.setItem(COMEBACK_LAST_SEEN, String(Date.now()));
-  }
-  window.addEventListener("beforeunload", markLastSeen);
-  document.addEventListener("visibilitychange", () => {
-    if(document.visibilityState === "hidden") markLastSeen();
-  });
-
   // ---------- Season modal ----------
   function openSeasonOverlay(){
-    const o = document.getElementById("seasonOverlay");
+    const o = $("seasonOverlay");
     if(!o) return;
     o.classList.add("show");
     requestAnimationFrame(()=> o.classList.add("open"));
     updateSeasonUI();
+    maybeSnapshotLastWeekOnMonday();
+    updateWeeklyWinnersUI();
+    seasonRefreshWinners();
+    maybeShowLastWeekToast();
   }
   function closeSeasonOverlay(){
-    const o = document.getElementById("seasonOverlay");
+    const o = $("seasonOverlay");
     if(!o) return;
     o.classList.remove("open");
     setTimeout(()=> o.classList.remove("show"), 180);
   }
 
-  function updateSeasonUI(){
-    const { streak } = loadStreak();
-    const dailyText = document.getElementById("seasonDailyText");
-    const dailyNext = document.getElementById("seasonDailyNext");
-    const dailyBtn  = document.getElementById("btnSeasonClaimDaily");
+  function isMondayUTC(){
+  return new Date().getUTCDay() === 1; // Monday
+}
 
-    if(dailyText) dailyText.textContent = `Streak: ${streak || 0} days`;
-    const nextDay = canClaimDailyStreak() ? Math.min(7, (streak||0)+1) : Math.min(7, (streak||0));
+function maybeShowLastWeekToast(){
+  if(!isMondayUTC()) return;
+
+  const key = "streamer_idle_last_week_toast_" + currentWeekStartUTC();
+  if(localStorage.getItem(key)) return; // only once per week
+  localStorage.setItem(key, "1");
+
+  const lastWeek = lastCompletedWeekStartUTC();
+  toast(`🏁 New week started! Last week was ${lastWeek}.`);
+  log(`🏁 <strong>Weekly reset</strong> — New week started. Last week: ${lastWeek}.`);
+}
+
+
+  function updateSeasonUI(){
+    // daily
+    const { streak } = loadStreak();
+    const dailyText = $("seasonDailyText");
+    const dailyNext = $("seasonDailyNext");
+    const dailyBtn  = $("btnSeasonClaimDaily");
+
+    if(dailyText) dailyText.textContent = `Streak: ${streak || 0}/7`;
+    const nextDay = Math.min(7, canClaimDaily() ? (streak||0)+1 : (streak||0));
     const rw = STREAK_REWARDS[Math.max(0, nextDay-1)];
     if(dailyNext) dailyNext.textContent = `Reward: +${Math.round((rw.mult-1)*100)}% income for ${Math.round(rw.time/60000)} min${rw.money?` + ${rw.money} money`:``}`;
-
     if(dailyBtn){
-      dailyBtn.disabled = !canClaimDailyStreak();
-      dailyBtn.textContent = canClaimDailyStreak() ? "Claim Daily" : "Claimed";
+      dailyBtn.disabled = !canClaimDaily();
+      dailyBtn.textContent = canClaimDaily() ? "Claim Daily" : "Claimed";
     }
 
+    // comeback
     const awayMs = getAwayMs();
-    const cText = document.getElementById("seasonComebackText");
-    const cReward = document.getElementById("seasonComebackReward");
-    const cBtn = document.getElementById("btnSeasonClaimComeback");
+    const cText = $("seasonComebackText");
+    const cReward = $("seasonComebackReward");
+    const cBtn = $("btnSeasonClaimComeback");
 
     if(canClaimComeback()){
       if(cText) cText.textContent = `You were away: ${msToPretty(awayMs)} — comeback available!`;
-      if(cReward) cReward.textContent = `Reward: +35% income for 12 min + ${COMEBACK_MONEY} money`;
+      if(cReward) cReward.textContent = `Reward: +35% income for 12 min + 500 money`;
       if(cBtn){ cBtn.disabled = false; cBtn.textContent = "Claim"; }
     }else{
       if(cText) cText.textContent = awayMs ? `You were away: ${msToPretty(awayMs)} — no bonus yet.` : "No comeback bonus right now.";
@@ -1076,39 +1557,24 @@
       if(cBtn){ cBtn.disabled = true; cBtn.textContent = "Claim"; }
     }
 
-    const w = document.getElementById("seasonWeekText");
+    const w = $("seasonWeekText");
     if(w) w.textContent = "Weekly leaderboards reset every Monday (UTC).";
   }
 
   // ---------- Random Events ----------
-  function getEventToastEls(){
-    return { box:$("eventToast"), title:$("eventTitle"), body:$("eventBody"), footer:$("eventFooter") };
-  }
   function showEventToast(title, body, footer){
-    const els = getEventToastEls();
-    if(!els.box) return;
-    els.title.textContent = title;
-    els.body.textContent = body;
-    els.footer.textContent = footer || "";
-    els.box.classList.add("show");
+    const box = $("eventToast");
+    if(!box) return;
+    $("eventTitle").textContent = title;
+    $("eventBody").textContent = body;
+    $("eventFooter").textContent = footer || "";
+    box.classList.add("show");
     clearTimeout(showEventToast._t);
-    showEventToast._t = setTimeout(()=> els.box.classList.remove("show"), 5200);
-  }
-
-  function getActiveMults(){
-    const t = Date.now();
-    const m = { v:1, s:1, money:1, click:1 };
-    if(S._eventUntil && t < S._eventUntil){
-      m.v *= (S._eventVMult || 1);
-      m.s *= (S._eventSMult || 1);
-      m.money *= (S._eventMMult || 1);
-      m.click *= (S._eventClickMult || 1);
-    }
-    return m;
+    showEventToast._t = setTimeout(()=> box.classList.remove("show"), 5200);
   }
 
   function setTimedEvent(mods, ms, title, body){
-    S._eventUntil = Date.now() + ms;
+    S._eventUntil = now() + ms;
     S._eventVMult = mods.v ?? 1;
     S._eventSMult = mods.s ?? 1;
     S._eventMMult = mods.money ?? 1;
@@ -1120,9 +1586,25 @@
   }
 
   function clearTimedEventIfEnded(){
-    if(S._eventUntil && Date.now() > S._eventUntil){
-      delete S._eventUntil; delete S._eventVMult; delete S._eventSMult; delete S._eventMMult; delete S._eventClickMult;
+    if(S._eventUntil && now() > S._eventUntil){
+      S._eventUntil = 0;
+      S._eventVMult = 1;
+      S._eventSMult = 1;
+      S._eventMMult = 1;
+      S._eventClickMult = 1;
     }
+  }
+
+  function getActiveMults(){
+    const t = now();
+    const m = { v:1, s:1, money:1, click:1 };
+    if(S._eventUntil && t < S._eventUntil){
+      m.v *= (S._eventVMult || 1);
+      m.s *= (S._eventSMult || 1);
+      m.money *= (S._eventMMult || 1);
+      m.click *= (S._eventClickMult || 1);
+    }
+    return m;
   }
 
   const EVENTS = [
@@ -1143,106 +1625,340 @@
     const min = 2 * 60 * 1000;
     const max = 6 * 60 * 1000;
     const nextIn = Math.floor(min + Math.random() * (max - min));
-    S._nextEventAt = Date.now() + nextIn;
+    S._nextEventAt = now() + nextIn;
+
+    try{
+      localStorage.setItem(EVENT_STATE_KEY, JSON.stringify({ nextAt: S._nextEventAt }));
+    }catch{}
   }
+
+  function restoreEventSchedule(){
+    try{
+      const raw = localStorage.getItem(EVENT_STATE_KEY);
+      if(!raw) { scheduleNextEvent(); return; }
+      const obj = JSON.parse(raw);
+      if(obj?.nextAt && Number(obj.nextAt) > now()){
+        S._nextEventAt = Number(obj.nextAt);
+      }else{
+        scheduleNextEvent();
+      }
+    }catch{
+      scheduleNextEvent();
+    }
+  }
+
   function maybeTriggerEvent(){
     if(!S._nextEventAt) scheduleNextEvent();
-    if(Date.now() < S._nextEventAt) return;
+    if(now() < S._nextEventAt) return;
 
     if(Math.random() < 0.75){
       const pick = EVENTS[Math.floor(Math.random() * EVENTS.length)];
-      try{ pick(); }catch(e){}
+      try{ pick(); }catch{}
     }
     scheduleNextEvent();
   }
 
-  // ---------- Upgrades / Achievements ----------
-  const UPGRADE_DEFS = [
-    { id:"pc",      name:"Better PC",        desc:"More views per second. (GPU goes BRRR)", baseCost:50,  costMult:1.25, effect:(lvl)=>({ vps:0.6*lvl }) },
-    { id:"net",     name:"Faster internet",  desc:"Stable stream → more subs per second.",  baseCost:120, costMult:1.28, effect:(lvl)=>({ sps:0.06*lvl }) },
-    { id:"overlay", name:"Pro overlay",      desc:"More click value (chat is impressed).", baseCost:90,  costMult:1.26, effect:(lvl)=>({ click:0.4*lvl }) },
-    { id:"mods",    name:"Chat mods",        desc:"Fewer trolls → more money per second.", baseCost:220, costMult:1.30, effect:(lvl)=>({ mps:0.14*lvl }) },
-    { id:"sponsor", name:"Sponsor deal",     desc:"Subs → money (a bit per second).",      baseCost:500, costMult:1.32, effect:(lvl)=>({ subToMoney:0.012*lvl }) },
-    { id:"editor",  name:"Video editor",     desc:"Views → subs (a bit per second).",      baseCost:650, costMult:1.34, effect:(lvl)=>({ viewToSubs:0.0018*lvl }) },
-  ];
+  // ---------- Leaderboard (All-time + Weekly toggle) ----------
+  const LB_BASE = "https://oqgrbukmdzcdtszxcnqr.supabase.co/functions/v1";
+  const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9xZ3JidWttZHpjZHRzenhjbnFyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg2NzUxNTIsImV4cCI6MjA4NDI1MTE1Mn0.WjO-b4GwOCwTSbD-b0Rcvau9vdb2HuBTpuuAIXVm-wc";
+  let LB_WEEKLY_MODE = false; // false=all-time, true=weekly
 
-  const ACH = [
-    { id:"v_1k",   title:"First 1k views",         check:(s)=>s.views>=1000,      reward:"+5% clickPower", apply:(s)=> s.clickPower *= 1.05 },
-    { id:"s_50",   title:"50 subs",                check:(s)=>s.subs>=50,         reward:"+5% money/s",    apply:(s)=> s._permMoneyMult = (s._permMoneyMult||1)*1.05 },
-    { id:"m_1k",   title:"Earn 1K money",          check:(s)=>s.money>=1000,      reward:"+5% views/s",    apply:(s)=> s._permViewMult  = (s._permViewMult||1)*1.05 },
-    { id:"pc_10",  title:"PC lvl 10",              check:(s)=>s.upgrades.pc>=10,  reward:"+10% clickPower",apply:(s)=> s.clickPower *= 1.10 },
-    { id:"net_10", title:"Internet lvl 10",        check:(s)=>s.upgrades.net>=10, reward:"+10% subs/s",    apply:(s)=> s._permSubMult   = (s._permSubMult||1)*1.10 },
-    { id:"mods_10",title:"Mods lvl 10",            check:(s)=>s.upgrades.mods>=10,reward:"+10% money/s",   apply:(s)=> s._permMoneyMult = (s._permMoneyMult||1)*1.10 },
-    { id:"boost",  title:"Use boost once",         check:(s)=> s._usedBoost===true,reward:"+3% all/s",     apply:(s)=> { s._permViewMult=(s._permViewMult||1)*1.03; s._permSubMult=(s._permSubMult||1)*1.03; s._permMoneyMult=(s._permMoneyMult||1)*1.03; } },
-    { id:"v_1m",   title:"1M views (legend)",      check:(s)=>s.views>=1_000_000, reward:"+20% clickPower",apply:(s)=> s.clickPower *= 1.20 },
-  ];
+  async function promptName(){
+    const saved = localStorage.getItem(LB_NAME_KEY) || "";
+    const name = prompt("Name (2-18 chars):", saved);
+    if(!name) return null;
+    const cleaned = name.trim().slice(0,18);
+    if(cleaned.length < 2) return null;
+    localStorage.setItem(LB_NAME_KEY, cleaned);
+    return cleaned;
+  }
 
-  // ---------- State ----------
-  let S = load();
-  window.S = S;
+  async function lbGet(type){
+    const weekly = LB_WEEKLY_MODE ? "&weekly=1" : "";
+    const res = await fetch(`${LB_BASE}/get-leaderboard?type=${encodeURIComponent(type)}${weekly}`, {
+      headers: { apikey: SUPABASE_ANON_KEY, Authorization: `Bearer ${SUPABASE_ANON_KEY}` }
+    });
+    const json = await res.json();
+    if(!json.ok) throw new Error(json.error || "LB error");
+    return json.data || [];
+  }
 
-  function load(){
-    try{
-      const raw = localStorage.getItem(STORAGE_KEY);
-      if(!raw) return structuredClone(DEFAULT);
-      const obj = JSON.parse(raw);
-      const s = structuredClone(DEFAULT);
-      Object.assign(s, obj);
-      s.upgrades = Object.assign(structuredClone(DEFAULT.upgrades), obj.upgrades || {});
-      s.achievements = Object.assign({}, obj.achievements || {});
-      s.lastTick = obj.lastTick || now();
-      return s;
-    }catch(e){
-      return structuredClone(DEFAULT);
+  async function lbSubmit(type, payload){
+    const res = await fetch(`${LB_BASE}/submit-score`, {
+      method: "POST",
+      headers: {
+        "Content-Type":"application/json",
+        apikey: SUPABASE_ANON_KEY,
+        Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
+      },
+      body: JSON.stringify({ type, ...payload }),
+    });
+    const json = await res.json();
+    if(!res.ok || !json.ok) throw new Error(json.error || `HTTP ${res.status}`);
+    return true;
+  }
+
+  async function lbGetRank(type, name){
+    const res = await fetch(`${LB_BASE}/get-rank`, {
+      method: "POST",
+      headers: {
+        "Content-Type":"application/json",
+        apikey: SUPABASE_ANON_KEY,
+        Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
+      },
+      body: JSON.stringify({ type, name, weekly: LB_WEEKLY_MODE }),
+    });
+    const json = await res.json();
+    if(!res.ok || !json.ok) throw new Error(json.error || `HTTP ${res.status}`);
+    return json;
+  }
+
+  function lbSetCooldown(){
+    localStorage.setItem(LB_CD_KEY, String(now()));
+  }
+  function lbMsLeft(){
+    const raw = localStorage.getItem(LB_CD_KEY);
+    const last = raw ? Number(raw) : 0;
+    return Math.max(0, (last + LB_COOLDOWN_MS) - now());
+  }
+  function lbCanSend(){
+    return lbMsLeft() === 0;
+  }
+  function lbUpdateCooldownUI(){
+    const ids = ["btnLBSubmitViews","btnLBSubmitPrestige","btnLBSubmitSpeedrun"];
+    const left = lbMsLeft();
+    for(const id of ids){
+      const btn = $(id);
+      if(!btn) continue;
+      if(left > 0){
+        const s = Math.ceil(left/1000);
+        btn.disabled = true;
+        btn.textContent = `Wait ${s}s`;
+        btn.title = "You can submit again when cooldown ends.";
+      }else{
+        btn.disabled = false;
+        btn.textContent = "Submit score";
+        btn.title = "";
+      }
+    }
+  }
+  function lbStartCooldownTicker(){
+    lbStopCooldownTicker();
+    lbUpdateCooldownUI();
+    _lbCdInterval = setInterval(lbUpdateCooldownUI, 250);
+  }
+  function lbStopCooldownTicker(){
+    if(_lbCdInterval){
+      clearInterval(_lbCdInterval);
+      _lbCdInterval = null;
     }
   }
 
-  function hardReset(){
-    localStorage.removeItem(STORAGE_KEY);
-    S = structuredClone(DEFAULT);
-    buildShop();
-    buildAchievements();
-    render(true);
-    toast("Reset done.");
-    log("🔁 <strong>Reset</strong> — back to zero (but you can rebuild fast).");
+  function updateLBModeButtons(){
+    const a = $("btnLBAllTime");
+    const w = $("btnLBWeekly");
+    if(!a || !w) return;
+    if(LB_WEEKLY_MODE){
+      w.classList.add("btn-primary");
+      a.classList.remove("btn-primary");
+    }else{
+      a.classList.add("btn-primary");
+      w.classList.remove("btn-primary");
+    }
   }
 
-  // ---------- Prestige ----------
-  function loadPrestige(){
-    try{ return JSON.parse(localStorage.getItem(PRESTIGE_KEY) || '{"sp":0,"totalPrestiges":0}'); }
-    catch{ return { sp:0, totalPrestiges:0 }; }
+  function setRankLine(type, text){
+    const map = { views:"lbRankViews", prestige:"lbRankPrestige", speedrun:"lbRankSpeedrun" };
+    const el = $(map[type]);
+    if(el) el.textContent = text || "";
   }
-  function savePrestige(p){ localStorage.setItem(PRESTIGE_KEY, JSON.stringify(p)); }
-  function calcPrestigeGain(){ return Math.floor(Math.sqrt((S.views || 0) / 1000)); }
-  function prestigeMult(){ const p = loadPrestige(); return 1 + (p.sp * 0.05); }
-  function canPrestige(){ return (S.views || 0) >= PRESTIGE_UNLOCK_VIEWS; }
 
-  function doPrestige(){
-    if(!canPrestige()){ toast(`You need ${fmt(PRESTIGE_UNLOCK_VIEWS)} views to Prestige.`); return; }
-    const gain = calcPrestigeGain();
-    if(gain <= 0){ toast("No SP yet. Play a bit more!"); return; }
+  async function showMyRank(type){
+    const name = await promptName();
+    if(!name) return;
 
-    const ok = confirm(`Prestige now?\n\nYou get: +${gain} SP\nThis resets views/subs/money and upgrades.`);
-    if(!ok) return;
+    try{
+      const r = await lbGetRank(type, name);
+      if(!r.found){
+        const msg = "No scores found for you yet (submit first) 🙂";
+        setRankLine(type, msg);
+        toast(msg);
+        return;
+      }
+      const msg = `You are #${r.rank} of ${r.total} (name: ${name}) ✅`;
+      setRankLine(type, msg);
+      toast(msg);
+    }catch(err){
+      const msg = String(err?.message || err);
+      setRankLine(type, "Could not fetch rank: " + msg);
+      toast(msg);
+    }
+  }
+
+  function refreshLBMyScores(){
+    const v = $("lbMyViews");
+    if(v) v.textContent = fmt(S.views || 0);
 
     const p = loadPrestige();
-    p.sp += gain;
-    p.totalPrestiges += 1;
-    savePrestige(p);
-
-    S.views = 0; S.subs = 0; S.money = 0;
-    S.upgrades = structuredClone(DEFAULT.upgrades);
-    S.boostUntil = 0;
-    delete S._dailyBoostMult;
-
-    toast(`✨ Prestige! +${gain} SP (total ${p.sp})`);
-    log(`✨ <strong>Prestige</strong> — +${gain} SP (total ${p.sp})`);
-
-    buildShop();
-    render(true);
+    const sp = $("lbMyPrestige");
+    if(sp) sp.textContent = fmt(p.sp || 0);
   }
 
+  function renderTopList(containerId, rows, type){
+    const el = $(containerId);
+    if(!el) return;
+    el.innerHTML = "";
+
+    if(!rows || rows.length === 0){
+      const empty = document.createElement("div");
+      empty.className = "entry";
+      empty.textContent = "No entries yet 🙂";
+      el.appendChild(empty);
+      return;
+    }
+
+    rows.slice(0,10).forEach((r, i) => {
+      const div = document.createElement("div");
+      div.className = "entry";
+
+      if(type === "speedrun"){
+        const t = Number(r.timeMs ?? r.time_ms ?? 0);
+        div.innerHTML = `<strong>#${i+1} ${r.name || "?"}</strong><br/><span style="color:var(--muted)">${fmtTime(t)}</span>`;
+      }else if(type === "prestige"){
+        const s = Number(r.score_int ?? r.score ?? r.value ?? 0);
+        div.innerHTML = `<strong>#${i+1} ${r.name || "?"}</strong><br/><span style="color:var(--muted)">${fmt(s)}</span>`;
+      }else{
+        const s = Number(r.score_bigint ?? r.score ?? r.value ?? 0);
+        div.innerHTML = `<strong>#${i+1} ${r.name || "?"}</strong><br/><span style="color:var(--muted)">${fmt(s)}</span>`;
+      }
+
+      el.appendChild(div);
+    });
+  }
+
+  async function toggleTop(type){
+    const map = {
+      views:    { wrap:"lbTopViewsWrap",    list:"lbTopViews" },
+      prestige: { wrap:"lbTopPrestigeWrap", list:"lbTopPrestige" },
+      speedrun: { wrap:"lbTopSpeedrunWrap", list:"lbTopSpeedrun" },
+    };
+    const m = map[type];
+    if(!m) return;
+
+    const wrap = $(m.wrap);
+    if(!wrap) return;
+
+    const isOpen = wrap.style.display !== "none";
+    if(isOpen){
+      wrap.style.display = "none";
+      return;
+    }
+
+    wrap.style.display = "block";
+    try{
+      const data = await lbGet(type);
+      renderTopList(m.list, data, type);
+    }catch(err){
+      toast(String(err?.message || err));
+    }
+  }
+
+  async function submitViews(){
+    const name = await promptName();
+    if(!name) return;
+    await lbSubmit("views", { name, score: Math.floor(S.views || 0) });
+    toast("Submitted to Views leaderboard ✅");
+  }
+  async function submitPrestige(){
+    const name = await promptName();
+    if(!name) return;
+    const p = loadPrestige();
+    await lbSubmit("prestige", { name, score: Math.floor(p.sp || 0) });
+    toast("Submitted to Prestige leaderboard ✅");
+  }
+  async function submitSpeedrun(){
+    const name = await promptName();
+    if(!name) return;
+    if(!S.runStart){ toast("Start a run first (missing runStart)."); return; }
+    if((S.views||0) < 1_000_000){ toast("You must reach 1M views first!"); return; }
+    const timeMs = now() - S.runStart;
+    await lbSubmit("speedrun", { name, timeMs });
+    toast("Submitted to Speedrun leaderboard ✅");
+  }
+
+  // ---------- Game content ----------
+  const UPGRADE_DEFS = [
+    { id:"pc",      name:"Better PC",        desc:"More views per second. (GPU goes BRRR)", baseCost:50,  costMult:1.25, effect:(lvl)=>({ vps: 0.6 * lvl }) },
+    { id:"net",     name:"Faster internet",  desc:"Stable stream → more subs per second.",  baseCost:120, costMult:1.28, effect:(lvl)=>({ sps: 0.06 * lvl }) },
+    { id:"overlay", name:"Pro overlay",      desc:"More click value (chat is impressed).",  baseCost:90,  costMult:1.26, effect:(lvl)=>({ click: 0.4 * lvl }) },
+    { id:"mods",    name:"Chat mods",        desc:"Fewer trolls → more money per second.",  baseCost:220, costMult:1.30, effect:(lvl)=>({ mps: 0.14 * lvl }) },
+    { id:"sponsor", name:"Sponsor deal",     desc:"Subs → money (a bit per second).",       baseCost:500, costMult:1.32, effect:(lvl)=>({ subToMoney: 0.012 * lvl }) },
+    { id:"editor",  name:"Video editor",     desc:"Views → subs (a bit per second).",       baseCost:650, costMult:1.34, effect:(lvl)=>({ viewToSubs: 0.0018 * lvl }) },
+  ];
+
+  const ACH = [
+    { id:"v_1k",   title:"First 1k views",        check:(s)=>s.views>=1000,      reward:"+5% clickPower", apply:(s)=> s.clickPower *= 1.05 },
+    { id:"s_50",   title:"50 subs",               check:(s)=>s.subs>=50,         reward:"+5% money/s",    apply:(s)=> s._permMoneyMult = (s._permMoneyMult||1)*1.05 },
+    { id:"m_1k",   title:"Earn 1K money",         check:(s)=>s.money>=1000,      reward:"+5% views/s",    apply:(s)=> s._permViewMult  = (s._permViewMult||1)*1.05 },
+    { id:"pc_10",  title:"PC lvl 10",             check:(s)=>s.upgrades.pc>=10,  reward:"+10% clickPower",apply:(s)=> s.clickPower *= 1.10 },
+    { id:"net_10", title:"Internet lvl 10",       check:(s)=>s.upgrades.net>=10, reward:"+10% subs/s",    apply:(s)=> s._permSubMult   = (s._permSubMult||1)*1.10 },
+    { id:"mods_10",title:"Mods lvl 10",           check:(s)=>s.upgrades.mods>=10,reward:"+10% money/s",   apply:(s)=> s._permMoneyMult = (s._permMoneyMult||1)*1.10 },
+    { id:"boost",  title:"Use boost once",        check:(s)=>s._usedBoost===true,reward:"+3% all/s",      apply:(s)=> { s._permViewMult=(s._permViewMult||1)*1.03; s._permSubMult=(s._permSubMult||1)*1.03; s._permMoneyMult=(s._permMoneyMult||1)*1.03; } },
+    { id:"v_1m",   title:"1M views (legend)",     check:(s)=>s.views>=1_000_000, reward:"+20% clickPower",apply:(s)=> s.clickPower *= 1.20 },
+  ];
+
   // ---------- Economy ----------
+  function calcRates(){
+    const lvl = (id) => S.upgrades[id] || 0;
+
+    let vps = 0, sps = 0, mps = 0, subToMoney = 0, viewToSubs = 0;
+
+    for (const u of UPGRADE_DEFS){
+      const L = lvl(u.id);
+      const eff = u.effect(L);
+      vps += eff.vps || 0;
+      sps += eff.sps || 0;
+      mps += eff.mps || 0;
+      subToMoney += eff.subToMoney || 0;
+      viewToSubs += eff.viewToSubs || 0;
+    }
+
+    const viewMult  = S._permViewMult  || 1;
+    const subMult   = S._permSubMult   || 1;
+    const moneyMult = S._permMoneyMult || 1;
+
+    vps *= viewMult;
+    sps *= subMult;
+    mps *= moneyMult;
+
+    // Prestige multiplier
+    const pMult = prestigeMult();
+    vps *= pMult; sps *= pMult; mps *= pMult;
+    subToMoney *= pMult; viewToSubs *= pMult;
+
+    // global x2 boost
+    const boosted = now() < (S.boostUntil || 0);
+    const boostMult = boosted ? 2 : 1;
+
+    // daily streak boost multiplier
+    const dailyMult = S._dailyBoostMult || 1;
+
+    // event multipliers
+    const ev = getActiveMults();
+    vps *= ev.v;
+    sps *= ev.s;
+    mps *= ev.money;
+
+    return {
+      vps: vps * boostMult * dailyMult,
+      sps: sps * boostMult * dailyMult,
+      mps: mps * boostMult * dailyMult,
+      subToMoney: subToMoney * boostMult * dailyMult,
+      viewToSubs: viewToSubs * boostMult * dailyMult,
+      boosted
+    };
+  }
+
   function upgradeCost(def){
     const L = S.upgrades[def.id] || 0;
     return Math.floor(def.baseCost * Math.pow(def.costMult, L));
@@ -1261,70 +1977,25 @@
     render();
   }
 
-  function calcRates(){
-    const lvl = (id) => S.upgrades[id] || 0;
-
-    let vps = 0, sps = 0, mps = 0, subToMoney = 0, viewToSubs = 0;
-    for (const u of UPGRADE_DEFS){
-      const L = lvl(u.id);
-      const eff = u.effect(L);
-      vps += eff.vps || 0;
-      sps += eff.sps || 0;
-      mps += eff.mps || 0;
-      subToMoney += eff.subToMoney || 0;
-      viewToSubs += eff.viewToSubs || 0;
-    }
-
-    // achievement perms
-    vps *= (S._permViewMult  || 1);
-    sps *= (S._permSubMult   || 1);
-    mps *= (S._permMoneyMult || 1);
-
-    // prestige
-    const pMult = prestigeMult();
-    vps *= pMult; sps *= pMult; mps *= pMult; subToMoney *= pMult; viewToSubs *= pMult;
-
-    // events
-    const ev = getActiveMults();
-    vps *= ev.v; sps *= ev.s; mps *= ev.money;
-
-    // boost
-    const boosted = now() < (S.boostUntil || 0);
-    const boostMult = boosted ? 2 : 1;
-
-    // daily streak boost mult
-    const dailyMult = S._dailyBoostMult || 1;
-
-    return {
-      vps: vps * boostMult * dailyMult,
-      sps: sps * boostMult * dailyMult,
-      mps: mps * boostMult * dailyMult,
-      subToMoney: subToMoney * boostMult * dailyMult,
-      viewToSubs: viewToSubs * boostMult * dailyMult,
-      boosted
-    };
-  }
-
   function click(){
     const r = calcRates();
     const overlayLvl = S.upgrades.overlay || 0;
-    const clickBonus = overlayLvl * 0.4;
-    const baseClick = (S.clickPower || 1) + clickBonus;
+    const baseClick = (S.clickPower || 1) + overlayLvl * 0.4;
 
     const ev = getActiveMults();
-    const perClick = baseClick * (ev.click || 1);
+    const perClickEvent = baseClick * (ev.click || 1);
 
-    if(!S.runStart) S.runStart = Date.now();
+    if(!S.runStart) S.runStart = now();
 
     const mult = r.boosted ? 1.25 : 1;
-    S.views += perClick * mult;
-    S.subs  += (perClick * 0.01) * mult;
-    S.money += (perClick * 0.02) * mult;
+    S.views += perClickEvent * mult;
+    S.subs  += (baseClick * 0.01) * mult;
+    S.money += (baseClick * 0.02) * mult;
 
     render();
   }
 
-  // ---------- Offline & Tick ----------
+  // ---------- Offline ----------
   function applyOffline(){
     const tNow = now();
     const elapsedMs = Math.max(0, tNow - (S.lastTick || tNow));
@@ -1347,44 +2018,10 @@
     log(`🕒 Offline for <strong>${elapsedSec}s</strong> → +${fmt(gainedViews)} views, +${fmt(gainedSubs)} subs, +${fmt(gainedMoney)} money`);
   }
 
-  function tick(dt){
-    const r = calcRates();
-    S.views += r.vps * dt;
-    S.subs  += r.sps * dt;
-    S.money += r.mps * dt;
-
-    S.subs  += r.viewToSubs * S.views * (dt/60);
-    S.money += r.subToMoney * S.subs  * (dt/60);
-
-    checkAchievements();
-  }
-
-  let lastFrame = now();
-  function loop(){
-    const t = now();
-    const dt = Math.min(0.2, (t - lastFrame) / 1000);
-    lastFrame = t;
-
-    tick(dt);
-    render(false);
-
-    if (t - (S.lastSave || 0) > 20000){
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(S));
-      S.lastSave = t;
-    }
-
-    // expire daily mult when boost ends
-    if (S._dailyBoostMult && Date.now() > (S.boostUntil || 0)) delete S._dailyBoostMult;
-
-    clearTimedEventIfEnded();
-    maybeTriggerEvent();
-
-    requestAnimationFrame(loop);
-  }
-
   // ---------- Achievements ----------
   function buildAchievements(){
     const el = $("achList");
+    if(!el) return;
     el.innerHTML = "";
     for (const a of ACH){
       const div = document.createElement("div");
@@ -1401,7 +2038,7 @@
       if (S.achievements[a.id]) continue;
       if (a.check(S)){
         S.achievements[a.id] = true;
-        try{ a.apply(S); }catch(e){}
+        try{ a.apply(S); }catch{}
         changed = true;
         toast(`Achievement: ${a.title}`);
         log(`🏆 Unlock: <strong>${a.title}</strong> — ${a.reward}`);
@@ -1410,9 +2047,10 @@
     if(changed) render();
   }
 
-  // ---------- UI ----------
+  // ---------- UI builders ----------
   function buildShop(){
     const el = $("shop");
+    if(!el) return;
     el.innerHTML = "";
     for (const def of UPGRADE_DEFS){
       const row = document.createElement("div");
@@ -1461,6 +2099,19 @@
     }
   }
 
+  function updateDailyButtonUI(){
+    const btn = $("btnDaily");
+    if(!btn) return;
+    const { streak } = loadStreak();
+    if(canClaimDaily()){
+      btn.disabled = false;
+      btn.textContent = `🎁 Daily (Streak ${streak || 0})`;
+    }else{
+      btn.disabled = true;
+      btn.textContent = `⏳ Daily used (Streak ${streak || 0})`;
+    }
+  }
+
   function render(force){
     $("views").textContent = fmt(S.views);
     $("subs").textContent  = fmt(S.subs);
@@ -1471,19 +2122,18 @@
     $("sps").textContent = `+${fmt(r.sps)} per second`;
     $("mps").textContent = `+${fmt(r.mps)} per second`;
 
-    $("pillRate").textContent = `V ${fmt(r.vps)}/s · S ${fmt(r.sps)}/s · $ ${fmt(r.mps)}/s`;
-
-    const overlayLvl = S.upgrades.overlay || 0;
-    $("pillClick").textContent = `Click: +${(((S.clickPower||1) + overlayLvl*0.4)).toFixed(1).replace(/\.0$/,"")}`;
-
-    // daily button
-    updateDailyButtonUI();
-
     // prestige button
     $("btnPrestige").textContent = canPrestige()
       ? `✨ Prestige (+${calcPrestigeGain()} SP)`
       : `✨ Prestige (${fmt(PRESTIGE_UNLOCK_VIEWS)} views)`;
     $("btnPrestige").disabled = !canPrestige();
+
+    // rate pill
+    $("pillRate").textContent = `V ${fmt(r.vps)}/s · S ${fmt(r.sps)}/s · $ ${fmt(r.mps)}/s`;
+
+    // click pill
+    const overlayLvl = S.upgrades.overlay || 0;
+    $("pillClick").textContent = `Click: +${(((S.clickPower||1) + overlayLvl*0.4)).toFixed(1).replace(/\.0$/,"")}`;
 
     // boost pill
     const left = Math.max(0, Math.ceil(((S.boostUntil || 0) - now()) / 1000));
@@ -1498,14 +2148,16 @@
       $("pillBoost").textContent = "No boost";
     }
 
-    // shop costs + levels
+    // shop
     for (const def of UPGRADE_DEFS){
       const cost = upgradeCost(def);
       $("price_"+def.id).textContent = `Price: ${fmt(cost)}`;
       $("lvl_"+def.id).textContent = `lvl ${S.upgrades[def.id] || 0}`;
       const row = $("row_"+def.id);
-      const btn = row.querySelector("button");
-      btn.disabled = !canAfford(cost);
+      if(row){
+        const btn = row.querySelector("button");
+        if(btn) btn.disabled = !canAfford(cost);
+      }
     }
 
     // achievements visual
@@ -1527,12 +2179,12 @@
     }
     $("pillAch").textContent = `${unlocked} / ${ACH.length}`;
 
-    // lastTick for offline
     S.lastTick = now();
     if(force) localStorage.setItem(STORAGE_KEY, JSON.stringify(S));
+    updateDailyButtonUI();
   }
 
-  // ---------- Rewarded Boost ----------
+  // ---------- Rewarded boost ----------
   function rewardBoost(){
     if (now() < (S.boostUntil || 0)){
       toast("Boost is already active.");
@@ -1545,7 +2197,7 @@
     render();
   }
 
-  // ---------- Modals ----------
+  // ---------- Ads modal ----------
   function openAdsOverlay(){
     const o = $("adsOverlay");
     if(!o) return;
@@ -1559,6 +2211,7 @@
     setTimeout(() => o.classList.remove("show"), 180);
   }
 
+  // ---------- Leaderboard modal ----------
   function openLBOverlay(){
     const o = $("lbOverlay");
     if(!o) return;
@@ -1566,9 +2219,9 @@
     requestAnimationFrame(() => o.classList.add("open"));
     refreshLBMyScores();
     lbStartCooldownTicker();
-    setRankLine("views","");
-    setRankLine("prestige","");
-    setRankLine("speedrun","");
+    setRankLine("views", "");
+    setRankLine("prestige", "");
+    setRankLine("speedrun", "");
     updateLBModeButtons();
   }
   function closeLBOverlay(){
@@ -1579,15 +2232,47 @@
     setTimeout(() => o.classList.remove("show"), 180);
   }
 
-  function refreshLBMyScores(){
-    const v = $("lbMyViews");
-    if(v) v.textContent = fmt(S.views || 0);
-    const p = loadPrestige();
-    const sp = $("lbMyPrestige");
-    if(sp) sp.textContent = fmt(p.sp || 0);
+  // ---------- Events loop ----------
+  function tick(dt){
+    const r = calcRates();
+    S.views += r.vps * dt;
+    S.subs  += r.sps * dt;
+    S.money += r.mps * dt;
+
+    S.subs  += r.viewToSubs * S.views * (dt/60);
+    S.money += r.subToMoney * S.subs  * (dt/60);
+
+    checkAchievements();
   }
 
-  // ---------- Help ----------
+  let lastFrame = now();
+  let lastSeenWrite = 0;
+
+  function loop(){
+    const t = now();
+    const dt = Math.min(0.2, (t - lastFrame) / 1000);
+    lastFrame = t;
+
+    tick(dt);
+    clearTimedEventIfEnded();
+    maybeTriggerEvent();
+    render(false);
+
+    if (t - (S.lastSave || 0) > 20000){
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(S));
+      S.lastSave = t;
+    }
+
+    // write "last seen" not too often
+    if(t - lastSeenWrite > 15000){
+      localStorage.setItem(COMEBACK_LAST_SEEN, String(t));
+      lastSeenWrite = t;
+    }
+
+    requestAnimationFrame(loop);
+  }
+
+  // ---------- Help modal ----------
   function openHelp(){
     const o = $("helpOverlay");
     if(!o) return;
@@ -1600,96 +2285,118 @@
     localStorage.setItem(HELP_KEY, "1");
   }
 
-  function giveStartBonus(){
-    if (localStorage.getItem(START_BONUS_KEY)) return;
-    S.views += 100;
-    S.money += 10;
-    localStorage.setItem(START_BONUS_KEY, "1");
-    toast("🎁 Starter bonus: +100 views, +10 money!");
-    log("🎁 <strong>Starter bonus</strong> — +100 views, +10 money");
-    render(true);
-  }
-
-  // ---------- Events wiring ----------
-  $("btnClick").addEventListener("click", click);
+  // ---------- Wire up events ----------
+  $("btnClick")?.addEventListener("click", click);
   $("btnPrestige")?.addEventListener("click", doPrestige);
+  $("btnDaily")?.addEventListener("click", claimDaily);
 
-  $("btnDaily")?.addEventListener("click", claimDailyStreak);
-
-  $("btnSave").addEventListener("click", () => {
+  $("btnSave")?.addEventListener("click", () => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(S));
     toast("Saved ✅");
   });
 
-  $("btnReset").addEventListener("click", () => {
+  $("btnReset")?.addEventListener("click", () => {
     const ok = confirm("Reset everything? (This cannot be undone)");
     if(ok) hardReset();
   });
 
-  $("btnReward").addEventListener("click", rewardBoost);
-  $("btnHowAds").addEventListener("click", openAdsOverlay);
+  $("btnReward")?.addEventListener("click", rewardBoost);
 
-  // Help modal
+  $("btnHowAds")?.addEventListener("click", openAdsOverlay);
+  $("btnCloseAds")?.addEventListener("click", closeAdsOverlay);
+  $("adsOverlay")?.addEventListener("click", (e) => {
+    if (e.target && e.target.id === "adsOverlay") closeAdsOverlay();
+  });
+
+  $("btnCopyBanner")?.addEventListener("click", async () => {
+    const code = $("bannerSnippet")?.textContent || "";
+    try { await navigator.clipboard.writeText(code); toast("Copied ✅"); }
+    catch { toast("Could not copy (browser restriction)"); }
+  });
+  $("btnCopyAdsense")?.addEventListener("click", async () => {
+    const code = $("adsenseSnippet")?.textContent || "";
+    try { await navigator.clipboard.writeText(code); toast("Copied ✅"); }
+    catch { toast("Could not copy (browser restriction)"); }
+  });
+
   $("btnHelp")?.addEventListener("click", openHelp);
   $("btnCloseHelp")?.addEventListener("click", closeHelp);
   $("btnHelpPlay")?.addEventListener("click", () => { giveStartBonus(); closeHelp(); });
 
-  // Ads modal
-  $("btnCloseAds")?.addEventListener("click", closeAdsOverlay);
-  $("adsOverlay")?.addEventListener("click", (e) => { if(e.target && e.target.id==="adsOverlay") closeAdsOverlay(); });
-
-  $("btnCopyBanner")?.addEventListener("click", async () => {
-    const code = $("bannerSnippet")?.textContent || "";
-    try{ await navigator.clipboard.writeText(code); toast("Copied ✅"); }
-    catch{ toast("Could not copy (browser restriction)"); }
+  // Season modal
+  $("btnSeason")?.addEventListener("click", openSeasonOverlay);
+  $("btnCloseSeason")?.addEventListener("click", closeSeasonOverlay);
+  $("seasonOverlay")?.addEventListener("click", (e) => {
+    if (e.target && e.target.id === "seasonOverlay") closeSeasonOverlay();
   });
-  $("btnCopyAdsense")?.addEventListener("click", async () => {
-    const code = $("adsenseSnippet")?.textContent || "";
-    try{ await navigator.clipboard.writeText(code); toast("Copied ✅"); }
-    catch{ toast("Could not copy (browser restriction)"); }
-  });
+  $("btnSeasonClaimDaily")?.addEventListener("click", claimDaily);
+  $("btnSeasonClaimComeback")?.addEventListener("click", claimComeback);
 
   // Leaderboard modal
   $("btnLB")?.addEventListener("click", openLBOverlay);
   $("btnCloseLB")?.addEventListener("click", closeLBOverlay);
-  $("lbOverlay")?.addEventListener("click", (e) => { if(e.target && e.target.id==="lbOverlay") closeLBOverlay(); });
+  $("lbOverlay")?.addEventListener("click", (e) => {
+    if (e.target && e.target.id === "lbOverlay") closeLBOverlay();
+  });
 
-  // LB mode
-  $("btnLBAllTime")?.addEventListener("click", () => { LB_WEEKLY_MODE=false; toast("Leaderboard: All-time"); updateLBModeButtons(); });
-  $("btnLBWeekly")?.addEventListener("click", () => { LB_WEEKLY_MODE=true; toast("Leaderboard: Weekly"); updateLBModeButtons(); });
+  $("btnLBAllTime")?.addEventListener("click", () => {
+    LB_WEEKLY_MODE = false;
+    toast("Leaderboard: All-time");
+    updateLBModeButtons();
+  });
+  $("btnLBWeekly")?.addEventListener("click", () => {
+    LB_WEEKLY_MODE = true;
+    toast("Leaderboard: Weekly");
+    updateLBModeButtons();
+  });
 
-  // Rank buttons
   $("btnLBMyRankViews")?.addEventListener("click", () => showMyRank("views"));
   $("btnLBMyRankPrestige")?.addEventListener("click", () => showMyRank("prestige"));
   $("btnLBMyRankSpeedrun")?.addEventListener("click", () => showMyRank("speedrun"));
 
-  // Submit buttons
   $("btnLBSubmitViews")?.addEventListener("click", async () => {
     if(!lbCanSend()){ toast("Wait a bit before submitting again 🙂"); return; }
-    try{ await submitViews(); lbSetCooldown(); lbUpdateCooldownUI(); refreshLBMyScores(); }catch(err){ toast(String(err?.message||err)); }
+    try{
+      await submitViews();
+      markSubmittedThisWeek();
+      lbSetCooldown(); lbUpdateCooldownUI();
+      refreshLBMyScores();
+    }catch(err){
+      toast(String(err?.message || err));
+    }
   });
   $("btnLBSubmitPrestige")?.addEventListener("click", async () => {
     if(!lbCanSend()){ toast("Wait a bit before submitting again 🙂"); return; }
-    try{ await submitPrestige(); lbSetCooldown(); lbUpdateCooldownUI(); refreshLBMyScores(); }catch(err){ toast(String(err?.message||err)); }
+    try{
+      await submitPrestige();
+      markSubmittedThisWeek();
+      lbSetCooldown(); lbUpdateCooldownUI();
+      refreshLBMyScores();
+    }catch(err){
+      toast(String(err?.message || err));
+    }
   });
   $("btnLBSubmitSpeedrun")?.addEventListener("click", async () => {
     if(!lbCanSend()){ toast("Wait a bit before submitting again 🙂"); return; }
-    try{ await submitSpeedrun(); lbSetCooldown(); lbUpdateCooldownUI(); }catch(err){ toast(String(err?.message||err)); }
+    try{
+      await submitSpeedrun();
+      markSubmittedThisWeek();
+      lbSetCooldown(); lbUpdateCooldownUI();
+    }catch(err){
+      toast(String(err?.message || err));
+    }
   });
 
-  // Top 10 buttons
   $("btnLBTopViews")?.addEventListener("click", () => toggleTop("views"));
   $("btnLBTopPrestige")?.addEventListener("click", () => toggleTop("prestige"));
   $("btnLBTopSpeedrun")?.addEventListener("click", () => toggleTop("speedrun"));
 
-  // Season modal hooks
-  $("btnSeason")?.addEventListener("click", openSeasonOverlay);
-  $("btnCloseSeason")?.addEventListener("click", closeSeasonOverlay);
-  $("seasonOverlay")?.addEventListener("click", (e) => { if(e.target && e.target.id==="seasonOverlay") closeSeasonOverlay(); });
-  $("btnSeasonClaimDaily")?.addEventListener("click", claimDailyStreak);
-  $("btnSeasonClaimComeback")?.addEventListener("click", claimComeback);
+  // Weekly top buttons: force weekly mode + open same top
+  $("btnLBTopViewsWeekly")?.addEventListener("click", () => { LB_WEEKLY_MODE = true; updateLBModeButtons(); toggleTop("views"); });
+  $("btnLBTopPrestigeWeekly")?.addEventListener("click", () => { LB_WEEKLY_MODE = true; updateLBModeButtons(); toggleTop("prestige"); });
+  $("btnLBTopSpeedrunWeekly")?.addEventListener("click", () => { LB_WEEKLY_MODE = true; updateLBModeButtons(); toggleTop("speedrun"); });
 
-  // ESC closes modals
+  // Escape closes modals
   window.addEventListener("keydown", (e) => {
     if (e.key !== "Escape") return;
     closeAdsOverlay();
@@ -1705,25 +2412,129 @@
     const tag = document.activeElement?.tagName;
     if (tag === "INPUT" || tag === "TEXTAREA") return;
     e.preventDefault();
-    const t = Date.now();
+    const t = now();
     if (t - lastSpaceClick < SPACE_COOLDOWN) return;
     lastSpaceClick = t;
     click();
   });
 
+  // ===== Weekly Winners (Top 3) =====
+
+function weekStartISO_UTC(d = new Date()){
+  // Monday 00:00 UTC
+  const x = new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate()));
+  const day = x.getUTCDay(); // 0=Sun
+  const diff = (day === 0 ? -6 : 1 - day);
+  x.setUTCDate(x.getUTCDate() + diff);
+  return x.toISOString().slice(0,10); // YYYY-MM-DD
+}
+
+function currentWeekStartUTC(){
+  return weekStartISO_UTC(new Date()); // Monday 00:00 UTC for this week
+}
+
+function lastCompletedWeekStartUTC(){
+  const thisWeek = currentWeekStartUTC();
+  const d = new Date(thisWeek + "T00:00:00Z");
+  d.setUTCDate(d.getUTCDate() - 7);
+  return d.toISOString().slice(0,10);
+}
+
+
+async function lbGetWeeklyTop3(type, week_start){
+  const res = await fetch(
+    `${LB_BASE}/get-leaderboard?type=${encodeURIComponent(type)}&weekly=1&week_start=${encodeURIComponent(week_start)}&limit=3`,
+    {
+      headers: {
+        apikey: SUPABASE_ANON_KEY,
+        Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
+      }
+    }
+  );
+
+  const json = await res.json();
+  if(!res.ok || !json.ok) throw new Error(json.error || `HTTP ${res.status}`);
+  return json.data || [];
+}
+
+function winnersToText(rows, type){
+  if(!rows || rows.length === 0) return "No entries yet 🙂";
+
+  if(type === "speedrun"){
+    return rows.slice(0,3).map((r, i) => {
+      const t = Number(r.time_ms ?? r.timeMs ?? r.time_ms_bigint ?? 0);
+      return `#${i+1} ${r.name || "?"} — ${fmtTime(t)}`;
+    }).join("\n");
+  }else{
+    // views/prestige
+    return rows.slice(0,3).map((r, i) => {
+      const s = Number(r.score_bigint ?? r.score_int ?? r.score ?? 0);
+      return `#${i+1} ${r.name || "?"} — ${fmt(s)}`;
+    }).join("\n");
+  }
+}
+
+async function seasonRefreshWinners(){
+  const week = currentWeekStartUTC();
+
+  const weekLine = document.getElementById("seasonWinnersWeek");
+  if(weekLine) weekLine.textContent = `Current week (starts Monday UTC): ${week}`;
+
+  const elV = document.getElementById("seasonWinViews");
+  const elP = document.getElementById("seasonWinPrestige");
+  const elS = document.getElementById("seasonWinSpeedrun");
+
+  if(elV) elV.textContent = "Loading...";
+  if(elP) elP.textContent = "Loading...";
+  if(elS) elS.textContent = "Loading...";
+
+  try{
+    const [v, p, s] = await Promise.all([
+      lbGetWeeklyTop3("views", week),
+      lbGetWeeklyTop3("prestige", week),
+      lbGetWeeklyTop3("speedrun", week),
+    ]);
+
+    if(elV) elV.textContent = winnersToText(v, "views");
+    if(elP) elP.textContent = winnersToText(p, "prestige");
+    if(elS) elS.textContent = winnersToText(s, "speedrun");
+  }catch(err){
+    const msg = String(err?.message || err);
+    if(elV) elV.textContent = "Could not load weekly winners: " + msg;
+    if(elP) elP.textContent = "Could not load weekly winners: " + msg;
+    if(elS) elS.textContent = "Could not load weekly winners: " + msg;
+    toast(msg);
+  }
+}
+
+// Hook refresh button
+document.getElementById("btnSeasonRefreshWinners")?.addEventListener("click", seasonRefreshWinners);
+
+// Optional: auto-load when opening season modal
+// Call this inside openSeasonOverlay() after updateSeasonUI();
+
+
   // ---------- Init ----------
   buildShop();
   buildAchievements();
+  restoreEventSchedule();
   applyOffline();
+  updateSeasonUI();
   render(true);
   checkAchievements();
-  updateDailyButtonUI();
-
-  // show help first time
-  if(!localStorage.getItem(HELP_KEY)) openHelp();
-
   loop();
+  maybeSnapshotLastWeekOnMonday();
 
+  // Show help first time
+  if(!localStorage.getItem(HELP_KEY)){
+    openHelp();
+  }
+
+  // Save on close + update last seen for comeback
+  window.addEventListener("beforeunload", ()=> {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(S));
+    localStorage.setItem(COMEBACK_LAST_SEEN, String(now()));
+  });
 })();
 </script>
 </body>
