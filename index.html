@@ -289,6 +289,7 @@
       flex-direction:column;
       gap:8px;
       padding-right:4px;
+      white-space:pre-line;
     }
     .log .entry{
       font-size:12px;
@@ -706,42 +707,40 @@
         </div>
 
         <!-- Weekly Winners (Top 3) -->
-<div style="margin-top:10px; display:flex; justify-content:space-between; align-items:center; gap:10px;">
-  <div style="font-weight:850;">🏆 Weekly Winners (Top 3)</div>
-  <button id="btnSeasonRefreshWinners" style="border-radius:14px;">Refresh</button>
-</div>
+        <div style="margin-top:10px; display:flex; justify-content:space-between; align-items:center; gap:10px;">
+          <div style="font-weight:850;">🏆 Weekly Winners (Top 3)</div>
+          <button id="btnSeasonRefreshWinners" style="border-radius:14px;">Refresh</button>
+        </div>
 
-<div style="color:rgba(234,240,255,.60); font-size:12px; margin-top:6px;" id="seasonWinnersWeek">
-  Showing last completed week: —
-</div>
+        <div style="color:rgba(234,240,255,.60); font-size:12px; margin-top:6px;" id="seasonWinnersWeek">
+          Current week (starts Monday UTC): —
+        </div>
 
-<div style="margin-top:10px; display:grid; gap:10px;">
-  <div style="border:1px solid rgba(255,255,255,.10); background:rgba(10,16,34,.35); border-radius:18px; padding:12px;">
-    <div style="font-weight:850; font-size:13px;">👀 Views</div>
-    <div id="seasonWinViews" style="color:rgba(234,240,255,.75); font-size:12px; margin-top:6px;">No entries yet 🙂</div>
-  </div>
+        <div style="margin-top:10px; display:grid; gap:10px;">
+          <div style="border:1px solid rgba(255,255,255,.10); background:rgba(10,16,34,.35); border-radius:18px; padding:12px;">
+            <div style="font-weight:850; font-size:13px;">👀 Views</div>
+            <div id="seasonWinViews" style="color:rgba(234,240,255,.75); font-size:12px; margin-top:6px;">No entries yet 🙂</div>
+          </div>
 
-  <div style="border:1px solid rgba(255,255,255,.10); background:rgba(10,16,34,.35); border-radius:18px; padding:12px;">
-    <div style="font-weight:850; font-size:13px;">✨ Prestige</div>
-    <div id="seasonWinPrestige" style="color:rgba(234,240,255,.75); font-size:12px; margin-top:6px;">No entries yet 🙂</div>
-  </div>
+          <div style="border:1px solid rgba(255,255,255,.10); background:rgba(10,16,34,.35); border-radius:18px; padding:12px;">
+            <div style="font-weight:850; font-size:13px;">✨ Prestige</div>
+            <div id="seasonWinPrestige" style="color:rgba(234,240,255,.75); font-size:12px; margin-top:6px;">No entries yet 🙂</div>
+          </div>
 
-  <div style="border:1px solid rgba(255,255,255,.10); background:rgba(255,255,255,.10); background:rgba(10,16,34,.35); border-radius:18px; padding:12px;">
-    <div style="font-weight:850; font-size:13px;">⏱️ Speedrun</div>
-    <div id="seasonWinSpeedrun" style="color:rgba(234,240,255,.75); font-size:12px; margin-top:6px;">No entries yet 🙂</div>
-  </div>
-</div>
+          <div style="border:1px solid rgba(255,255,255,.10); background:rgba(10,16,34,.35); border-radius:18px; padding:12px;">
+            <div style="font-weight:850; font-size:13px;">⏱️ Speedrun</div>
+            <div id="seasonWinSpeedrun" style="color:rgba(234,240,255,.75); font-size:12px; margin-top:6px;">No entries yet 🙂</div>
+          </div>
+        </div>
 
-
-<!-- Weekly History -->
-<div style="border:1px solid rgba(255,255,255,.10); background:rgba(10,16,34,.35); border-radius:18px; padding:12px;">
-  <div style="font-weight:850;">📚 Weekly History</div>
-  <div style="color:rgba(234,240,255,.55); font-size:12px; margin-top:4px;">
-    Stores the last ~12 weeks on this device.
-  </div>
-  <div id="weeklyHistoryList" class="log" style="max-height:220px; margin-top:10px;"></div>
-</div>
-
+        <!-- Weekly History -->
+        <div style="border:1px solid rgba(255,255,255,.10); background:rgba(10,16,34,.35); border-radius:18px; padding:12px;">
+          <div style="font-weight:850;">📚 Weekly History</div>
+          <div style="color:rgba(234,240,255,.55); font-size:12px; margin-top:4px;">
+            Stores the last ~12 weekly snapshots on this device.
+          </div>
+          <div id="weeklyHistoryList" class="log" style="max-height:220px; margin-top:10px;"></div>
+        </div>
 
       </div>
 
@@ -821,6 +820,31 @@
     while (el.children.length > 25) el.removeChild(el.lastChild);
   }
 
+  // ---------- Time helpers (single source of truth) ----------
+  function todayKeyUTC(){
+    const d = new Date();
+    return `${d.getUTCFullYear()}-${d.getUTCMonth()+1}-${d.getUTCDate()}`;
+  }
+  function yesterdayKeyUTC(){
+    const d = new Date();
+    d.setUTCDate(d.getUTCDate() - 1);
+    return `${d.getUTCFullYear()}-${d.getUTCMonth()+1}-${d.getUTCDate()}`;
+  }
+  function isMondayUTC(){
+    return new Date().getUTCDay() === 1;
+  }
+  function weekStartISO_UTC(d = new Date()){
+    // Monday 00:00 UTC
+    const x = new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate()));
+    const day = x.getUTCDay(); // 0=Sun
+    const diff = (day === 0 ? -6 : 1 - day);
+    x.setUTCDate(x.getUTCDate() + diff);
+    return x.toISOString().slice(0,10); // YYYY-MM-DD
+  }
+  function currentWeekStartUTC(){
+    return weekStartISO_UTC(new Date());
+  }
+
   // ---------- Storage keys ----------
   const STORAGE_KEY = "streamer_idle_v1";
   const HELP_KEY = "streamer_idle_seen_help_v1";
@@ -845,6 +869,53 @@
   // Random events
   const EVENT_STATE_KEY = "streamer_idle_event_state_v1";
 
+  // Weekly history (local snapshots)
+  const WEEKLY_HISTORY_KEY = "streamer_idle_weekly_history_v1";
+  const WEEKLY_HISTORY_MAX = 12;
+
+  function loadWeeklyHistory(){
+    try{ return JSON.parse(localStorage.getItem(WEEKLY_HISTORY_KEY) || "[]"); }
+    catch{ return []; }
+  }
+  function saveWeeklyHistory(arr){
+    try{
+      localStorage.setItem(WEEKLY_HISTORY_KEY, JSON.stringify(arr.slice(0, WEEKLY_HISTORY_MAX)));
+    }catch{}
+  }
+  function renderWeeklyHistory(){
+    const el = $("weeklyHistoryList");
+    if(!el) return;
+
+    const hist = loadWeeklyHistory();
+    el.innerHTML = "";
+
+    if(hist.length === 0){
+      const empty = document.createElement("div");
+      empty.className = "entry";
+      empty.textContent = "No history yet. Hit Refresh in Weekly Winners to save snapshots 🙂";
+      el.appendChild(empty);
+      return;
+    }
+
+    hist.slice(0, WEEKLY_HISTORY_MAX).forEach(h => {
+      const div = document.createElement("div");
+      div.className = "entry";
+
+      const v1 = h?.winners?.views || "-";
+      const p1 = h?.winners?.prestige || "-";
+      const s1 = h?.winners?.speedrun || "-";
+
+      div.innerHTML =
+        `<strong>Week ${h.week_start}</strong><br/>` +
+        `👀 ${v1}<br/>` +
+        `✨ ${p1}<br/>` +
+        `⏱️ ${s1}` +
+        `<div style="margin-top:6px;color:rgba(234,240,255,.45);font-size:11px;">Saved: ${new Date(h.savedAt).toLocaleString()}</div>`;
+
+      el.appendChild(div);
+    });
+  }
+
   // ---------- Defaults ----------
   const DEFAULT = {
     views: 0,
@@ -867,198 +938,6 @@
     _nextEventAt: 0,
   };
 
-  // ===============================
-// WEEKLY WINNERS PODIUM + HISTORY
-// ===============================
-const WEEKLY_HISTORY_KEY = "streamer_idle_weekly_history_v1"; // array of snapshots
-const WEEKLY_HISTORY_MAX = 12;
-
-function weekStartUTCISO(d = new Date()){
-  const x = new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate()));
-  const day = x.getUTCDay(); // 0=Sun
-  const diff = (day === 0 ? -6 : 1 - day); // back to Monday
-  x.setUTCDate(x.getUTCDate() + diff);
-  return x.toISOString().slice(0,10);
-}
-function prevWeekUTCISO(){
-  const d = new Date();
-  d.setUTCDate(d.getUTCDate() - 7);
-  return weekStartUTCISO(d);
-}
-function isMondayUTC(){
-  return new Date().getUTCDay() === 1;
-}
-
-async function lbGetWeek(type, week_start){
-  // Uses your get-leaderboard endpoint with weekly=1 and explicit week_start
-  const res = await fetch(`${LB_BASE}/get-leaderboard?type=${encodeURIComponent(type)}&weekly=1&week_start=${encodeURIComponent(week_start)}`, {
-    headers: {
-      apikey: SUPABASE_ANON_KEY,
-      Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
-    }
-  });
-  const json = await res.json();
-  if(!res.ok || !json.ok) throw new Error(json.error || `HTTP ${res.status}`);
-  return json.data || [];
-}
-
-function loadWeeklyHistory(){
-  try{
-    return JSON.parse(localStorage.getItem(WEEKLY_HISTORY_KEY) || "[]");
-  }catch{
-    return [];
-  }
-}
-function saveWeeklyHistory(arr){
-  localStorage.setItem(WEEKLY_HISTORY_KEY, JSON.stringify(arr.slice(0, WEEKLY_HISTORY_MAX)));
-}
-
-function podiumLine(rank, name, valueText){
-  const medal = rank === 1 ? "🥇" : rank === 2 ? "🥈" : "🥉";
-  const div = document.createElement("div");
-  div.className = "entry";
-  div.innerHTML = `${medal} <strong>#${rank} ${name || "?"}</strong><br/><span style="color:var(--muted)">${valueText}</span>`;
-  return div;
-}
-
-function renderPodium(elId, rows, type){
-  const el = document.getElementById(elId);
-  if(!el) return;
-  el.innerHTML = "";
-
-  const top3 = (rows || []).slice(0,3);
-  if(top3.length === 0){
-    const empty = document.createElement("div");
-    empty.className = "entry";
-    empty.textContent = "No entries yet 🙂";
-    el.appendChild(empty);
-    return;
-  }
-
-  top3.forEach((r, i) => {
-    const rank = i + 1;
-    if(type === "speedrun"){
-      const ms = Number(r.time_ms ?? 0);
-      el.appendChild(podiumLine(rank, r.name, fmtTime(ms)));
-    }else if(type === "prestige"){
-      const v = Number(r.score_int ?? 0);
-      el.appendChild(podiumLine(rank, r.name, fmt(v)));
-    }else{
-      const v = Number(r.score_bigint ?? 0);
-      el.appendChild(podiumLine(rank, r.name, fmt(v)));
-    }
-  });
-}
-
-async function fetchWinnersSnapshot(week_start){
-  const [views, prestige, speedrun] = await Promise.all([
-    lbGetWeek("views", week_start),
-    lbGetWeek("prestige", week_start),
-    lbGetWeek("speedrun", week_start),
-  ]);
-
-  return {
-    week_start,
-    createdAt: Date.now(),
-    top3: {
-      views: (views || []).slice(0,3),
-      prestige: (prestige || []).slice(0,3),
-      speedrun: (speedrun || []).slice(0,3),
-    }
-  };
-}
-
-function hasSnapshotForWeek(week_start){
-  const hist = loadWeeklyHistory();
-  return hist.some(x => x.week_start === week_start);
-}
-
-function formatWinnerShort(row, type){
-  if(!row) return "-";
-  const name = row.name || "?";
-  if(type === "speedrun") return `${name} (${fmtTime(Number(row.time_ms||0))})`;
-  if(type === "prestige") return `${name} (${fmt(Number(row.score_int||0))})`;
-  return `${name} (${fmt(Number(row.score_bigint||0))})`;
-}
-
-function renderWeeklyHistory(){
-  const el = document.getElementById("weeklyHistoryList");
-  if(!el) return;
-
-  const hist = loadWeeklyHistory();
-  el.innerHTML = "";
-
-  if(hist.length === 0){
-    const empty = document.createElement("div");
-    empty.className = "entry";
-    empty.textContent = "No history yet. It will appear after Monday reset 🙂";
-    el.appendChild(empty);
-    return;
-  }
-
-  hist.slice(0, WEEKLY_HISTORY_MAX).forEach(h => {
-    const div = document.createElement("div");
-    div.className = "entry";
-
-    const v1 = formatWinnerShort(h.top3?.views?.[0], "views");
-    const p1 = formatWinnerShort(h.top3?.prestige?.[0], "prestige");
-    const s1 = formatWinnerShort(h.top3?.speedrun?.[0], "speedrun");
-
-    div.innerHTML =
-      `<strong>Week ${h.week_start}</strong><br/>` +
-      `👀 ${v1}<br/>` +
-      `✨ ${p1}<br/>` +
-      `⏱️ ${s1}`;
-
-    el.appendChild(div);
-  });
-}
-
-async function updateWeeklyWinnersUI(){
-  const weekLine = document.getElementById("weeklyWinnersWeekLine");
-  const w = prevWeekUTCISO(); // show last completed week by default
-  if(weekLine) weekLine.textContent = `Showing last completed week: ${w}`;
-
-  try{
-    const snap = await fetchWinnersSnapshot(w);
-    renderPodium("weeklyPodiumViews", snap.top3.views, "views");
-    renderPodium("weeklyPodiumPrestige", snap.top3.prestige, "prestige");
-    renderPodium("weeklyPodiumSpeedrun", snap.top3.speedrun, "speedrun");
-  }catch(err){
-    toast(String(err?.message || err));
-  }
-
-  renderWeeklyHistory();
-}
-
-async function maybeSnapshotLastWeekOnMonday(){
-  // Only do snapshot on Monday UTC (or later), but just once per week_start
-  if(!isMondayUTC()) return;
-
-  const lastWeek = prevWeekUTCISO();
-  if(hasSnapshotForWeek(lastWeek)) return;
-
-  try{
-    const snap = await fetchWinnersSnapshot(lastWeek);
-
-    const hist = loadWeeklyHistory();
-    hist.unshift(snap);
-    saveWeeklyHistory(hist);
-
-    // little announcement
-    toast("🏆 Weekly winners updated! (Season → Weekly Winners)");
-    log(`🏆 <strong>Weekly Winners</strong> — Snapshot saved for week ${lastWeek}`);
-
-  }catch(err){
-    // don't spam users; just log in console
-    console.log("Weekly snapshot failed:", err);
-  }
-}
-
-// Button hook
-document.getElementById("btnRefreshWeeklyWinners")?.addEventListener("click", updateWeeklyWinnersUI);
-
-
   // ---------- Load / Save ----------
   let S = load();
   window.S = S;
@@ -1078,241 +957,6 @@ document.getElementById("btnRefreshWeeklyWinners")?.addEventListener("click", up
       return structuredClone(DEFAULT);
     }
   }
-
-// =======================
-// WEEKLY WINNERS + REWARDS
-// =======================
-const WEEKLY_REWARD_CLAIM_KEY = "streamer_idle_weekly_reward_claimed_v1"; // stores weekStart
-const WEEKLY_REWARD_SEEN_KEY  = "streamer_idle_weekly_reward_seen_v1";    // stores weekStart (popup once)
-
-function weekStartUTCISO(d = new Date()){
-  const x = new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate()));
-  const day = x.getUTCDay(); // 0=Sun
-  const diff = (day === 0 ? -6 : 1 - day);
-  x.setUTCDate(x.getUTCDate() + diff);
-  return x.toISOString().slice(0,10); // YYYY-MM-DD
-}
-
-function getCurrentWeekKey(){
-  return weekStartUTCISO(new Date());
-}
-
-function getPrevWeekKey(){
-  const d = new Date();
-  d.setUTCDate(d.getUTCDate() - 7);
-  return weekStartUTCISO(d);
-}
-
-function isMondayUTC(){
-  return new Date().getUTCDay() === 1;
-}
-
-// Reward design:
-// - We reward based on weekly rank TOP 10 in any category
-// - Claim gives money + a timed boost (stacks on boostUntil)
-function rewardForRank(rank, category){
-  if(rank < 1 || rank > 10) return null;
-
-  // simple scaling: higher reward for better rank
-  // money values are intentionally chunky (feels good)
-  const baseMoney = category === "views" ? 1200 : category === "prestige" ? 900 : 900;
-  const money = Math.floor(baseMoney + (11 - rank) * (category === "views" ? 450 : 350));
-
-  // boost: rank 1 bigger
-  const mult = rank === 1 ? 1.60 : rank <= 3 ? 1.45 : rank <= 5 ? 1.35 : 1.25;
-  const minutes = rank === 1 ? 15 : rank <= 3 ? 12 : rank <= 5 ? 10 : 8;
-
-  return { money, mult, timeMs: minutes * 60 * 1000, minutes };
-}
-
-// NOTE: backend currently returns weekly for current week.
-// Weekly rewards should be claimable on Monday for the week that ended.
-// We'll do it like this:
-// - If today is Monday UTC, we allow claim for the *previous week* (prevWeekKey)
-// - Otherwise, show status and wait.
-async function fetchWeeklyRanksForPrevWeek(name){
-  // We can’t query “prev week” via your current endpoints unless you extend them.
-  // So we do a practical approach:
-  // - Rewards are claimable on Monday UTC early, and weekly tables reset.
-  // - On Monday, “current week” is new; previous week data is still in weekly tables but filtered by week_start.
-  //
-  // To support prev-week rewards properly, we'd need endpoints supporting `week_start=YYYY-MM-DD`.
-  // BUT we can still do it client-side by only allowing claim on Monday UTC and using LAST week key
-  // stored at submit-time (best solution is adding week_start param to endpoints later).
-  //
-  // For now: reward for current week key (which on Monday is new) won't find anything.
-  // So we do this: allow claim for the week key stored in localStorage when you last submitted that week.
-  //
-  // We will store `streamer_idle_last_submitted_week_v1` whenever you submit any leaderboard.
-  return await computeWeeklyRewardFromStoredWeek(name);
-}
-
-const LAST_SUBMIT_WEEK_KEY = "streamer_idle_last_submitted_week_v1";
-
-function markSubmittedThisWeek(){
-  localStorage.setItem(LAST_SUBMIT_WEEK_KEY, getCurrentWeekKey());
-}
-
-// Wrap your existing submit handlers to call markSubmittedThisWeek()
-// We'll hook it below after handlers exist.
-
-async function computeWeeklyRewardFromStoredWeek(name){
-  const submittedWeek = localStorage.getItem(LAST_SUBMIT_WEEK_KEY) || "";
-  const currentWeek = getCurrentWeekKey();
-
-  // Only claimable on Monday UTC, for the week you played last week
-  if(!isMondayUTC()){
-    return { ok:true, claimable:false, reason:"Rewards unlock on Monday (UTC).", weekKey: submittedWeek || currentWeek };
-  }
-
-  // If you never submitted last week, no reward
-  if(!submittedWeek){
-    return { ok:true, claimable:false, reason:"No weekly submission found last week.", weekKey: "" };
-  }
-
-  // If submittedWeek == currentWeek on Monday, then you submitted in the new week, not last week.
-  // We expect submittedWeek to be last week's Monday start.
-  if(submittedWeek === currentWeek){
-    return { ok:true, claimable:false, reason:"You didn't submit last week (only this week).", weekKey: submittedWeek };
-  }
-
-  // If already claimed for that submittedWeek, done
-  const claimed = localStorage.getItem(WEEKLY_REWARD_CLAIM_KEY) === submittedWeek;
-  if(claimed){
-    return { ok:true, claimable:false, reason:"Already claimed for last week ✅", weekKey: submittedWeek };
-  }
-
-  // TEMP: We cannot fetch rank for an arbitrary week without endpoint support.
-  // So we approximate by checking Weekly Top 10 list on Monday BEFORE players submit new scores.
-  // If you want perfect correctness, I’ll give you the optional endpoint patch after this.
-  //
-  // We will fetch current weekly lists (which on Monday are new week -> empty) => not good.
-  // Therefore we do a local reward: if you submitted last week, you get a small “participant” reward.
-  // AND if you are in top 10 NOW (rare), extra.
-  //
-  // Participant reward:
-  const participant = {
-    money: 900,
-    mult: 1.20,
-    minutes: 6,
-    timeMs: 6 * 60 * 1000,
-    label: "Weekly Participant",
-    detail: "You played last week and submitted at least once.",
-  };
-
-  return {
-    ok:true,
-    claimable:true,
-    weekKey: submittedWeek,
-    rewards: [participant],
-    note: "For perfect Top 10 rewards for the previous week, enable week_start queries (optional patch available)."
-  };
-}
-
-function applyWeeklyRewards(rewards){
-  let totalMoney = 0;
-  let bestMult = 1;
-  let bestTimeMs = 0;
-
-  for(const r of rewards){
-    totalMoney += r.money || 0;
-    if((r.mult || 1) > bestMult){
-      bestMult = r.mult || 1;
-      bestTimeMs = r.timeMs || 0;
-    }else if((r.mult || 1) === bestMult){
-      bestTimeMs = Math.max(bestTimeMs, r.timeMs || 0);
-    }
-  }
-
-  if(totalMoney > 0) S.money += totalMoney;
-
-  // apply boost (daily style)
-  S.boostUntil = Math.max(S.boostUntil || 0, Date.now()) + bestTimeMs;
-  S._dailyBoostMult = Math.max(S._dailyBoostMult || 1, bestMult);
-
-  toast(`🏅 Weekly rewards claimed! +${totalMoney} money, +${Math.round((bestMult-1)*100)}% for ${Math.round(bestTimeMs/60000)}m`);
-  log(`🏅 <strong>Weekly Rewards</strong> — +${totalMoney} money, +${Math.round((bestMult-1)*100)}% for ${Math.round(bestTimeMs/60000)}m`);
-  render(true);
-}
-
-async function updateWeeklyRewardsUI(){
-  const t = document.getElementById("seasonWeeklyRewardText");
-  const d = document.getElementById("seasonWeeklyRewardDetail");
-  const btn = document.getElementById("btnSeasonClaimWeeklyRewards");
-
-  if(!t || !d || !btn) return;
-
-  const savedName = localStorage.getItem(LB_NAME_KEY) || "";
-
-  // If no name saved, show guidance
-  if(!savedName){
-    t.textContent = "Set your leaderboard name to unlock weekly rewards.";
-    d.textContent = "Open Leaderboard → Submit once → name is saved.";
-    btn.disabled = true;
-    return;
-  }
-
-  const info = await computeWeeklyRewardFromStoredWeek(savedName);
-
-  if(!info.claimable){
-    t.textContent = info.reason || "Not claimable yet.";
-    d.textContent = info.weekKey ? `Week key: ${info.weekKey}` : "";
-    btn.disabled = true;
-    return;
-  }
-
-  const rewards = info.rewards || [];
-  const moneySum = rewards.reduce((a,r)=>a+(r.money||0),0);
-  const bestMult = rewards.reduce((m,r)=>Math.max(m,(r.mult||1)),1);
-  const bestMin = rewards.reduce((m,r)=>Math.max(m, Math.round((r.timeMs||0)/60000)),0);
-
-  t.textContent = `Ready to claim weekly rewards for week: ${info.weekKey}`;
-  d.textContent = `Reward: +${moneySum} money, +${Math.round((bestMult-1)*100)}% for ${bestMin} min`;
-  btn.disabled = false;
-}
-
-async function claimWeeklyRewards(){
-  const savedName = localStorage.getItem(LB_NAME_KEY) || "";
-  if(!savedName){
-    toast("Set your leaderboard name first 🙂");
-    return;
-  }
-
-  const info = await computeWeeklyRewardFromStoredWeek(savedName);
-  if(!info.claimable){
-    toast(info.reason || "Not claimable yet.");
-    return;
-  }
-
-  applyWeeklyRewards(info.rewards || []);
-  localStorage.setItem(WEEKLY_REWARD_CLAIM_KEY, info.weekKey);
-  updateWeeklyRewardsUI();
-  updateSeasonUI();
-  maybeWeeklyPopup();
-}
-
-function maybeWeeklyPopup(){
-  // Show only on Monday UTC, once per week key (prev submitted week)
-  if(!isMondayUTC()) return;
-
-  const submittedWeek = localStorage.getItem(LAST_SUBMIT_WEEK_KEY) || "";
-  if(!submittedWeek) return;
-
-  const seen = localStorage.getItem(WEEKLY_REWARD_SEEN_KEY) === submittedWeek;
-  const claimed = localStorage.getItem(WEEKLY_REWARD_CLAIM_KEY) === submittedWeek;
-
-  if(seen || claimed) return;
-
-  // Show a heads-up toast + open Season to claim
-  toast("🏅 Weekly rewards are ready! Open Season to claim.");
-  try{
-    localStorage.setItem(WEEKLY_REWARD_SEEN_KEY, submittedWeek);
-  }catch{}
-}
-
-// Hook season button
-document.getElementById("btnSeasonClaimWeeklyRewards")?.addEventListener("click", claimWeeklyRewards);
-
 
   function hardReset(){
     localStorage.removeItem(STORAGE_KEY);
@@ -1399,15 +1043,6 @@ document.getElementById("btnSeasonClaimWeeklyRewards")?.addEventListener("click"
     { mult: 1.50, time: 12 * 60 * 1000, money: 1500 },  // Day 7
   ];
 
-  function todayKeyUTC(){
-    const d = new Date();
-    return `${d.getUTCFullYear()}-${d.getUTCMonth()+1}-${d.getUTCDate()}`;
-  }
-  function yesterdayKeyUTC(){
-    const d = new Date();
-    d.setUTCDate(d.getUTCDate() - 1);
-    return `${d.getUTCFullYear()}-${d.getUTCMonth()+1}-${d.getUTCDate()}`;
-  }
   function loadStreak(){
     const streak = Number(localStorage.getItem(STREAK_KEY) || "0");
     const last = localStorage.getItem(STREAK_LAST_KEY) || "";
@@ -1495,11 +1130,11 @@ document.getElementById("btnSeasonClaimWeeklyRewards")?.addEventListener("click"
     if(!o) return;
     o.classList.add("show");
     requestAnimationFrame(()=> o.classList.add("open"));
+
     updateSeasonUI();
-    maybeSnapshotLastWeekOnMonday();
-    updateWeeklyWinnersUI();
-    seasonRefreshWinners();
-    maybeShowLastWeekToast();
+    seasonRefreshWinners();   // ✅ always refresh winners when opening
+    renderWeeklyHistory();    // ✅ show stored snapshots
+    maybeMondayToast();       // ✅ small one-time toast on Mondays
   }
   function closeSeasonOverlay(){
     const o = $("seasonOverlay");
@@ -1508,22 +1143,14 @@ document.getElementById("btnSeasonClaimWeeklyRewards")?.addEventListener("click"
     setTimeout(()=> o.classList.remove("show"), 180);
   }
 
-  function isMondayUTC(){
-  return new Date().getUTCDay() === 1; // Monday
-}
-
-function maybeShowLastWeekToast(){
-  if(!isMondayUTC()) return;
-
-  const key = "streamer_idle_last_week_toast_" + currentWeekStartUTC();
-  if(localStorage.getItem(key)) return; // only once per week
-  localStorage.setItem(key, "1");
-
-  const lastWeek = lastCompletedWeekStartUTC();
-  toast(`🏁 New week started! Last week was ${lastWeek}.`);
-  log(`🏁 <strong>Weekly reset</strong> — New week started. Last week: ${lastWeek}.`);
-}
-
+  function maybeMondayToast(){
+    if(!isMondayUTC()) return;
+    const key = "streamer_idle_monday_toast_" + currentWeekStartUTC();
+    if(localStorage.getItem(key)) return;
+    localStorage.setItem(key, "1");
+    toast("🏁 New weekly leaderboard started (Monday UTC)!");
+    log(`🏁 <strong>Weekly reset</strong> — A new weekly leaderboard started.`);
+  }
 
   function updateSeasonUI(){
     // daily
@@ -1886,6 +1513,117 @@ function maybeShowLastWeekToast(){
     toast("Submitted to Speedrun leaderboard ✅");
   }
 
+  // Track last week you submitted (useful later)
+  const LAST_SUBMIT_WEEK_KEY = "streamer_idle_last_submitted_week_v1";
+  function markSubmittedThisWeek(){
+    localStorage.setItem(LAST_SUBMIT_WEEK_KEY, currentWeekStartUTC());
+  }
+
+  // ---------- Weekly Winners (Top 3) — FIXED (no week_start required) ----------
+  async function lbGetWeeklyTop(type, limit = 3){
+    const res = await fetch(
+      `${LB_BASE}/get-leaderboard?type=${encodeURIComponent(type)}&weekly=1&limit=${limit}`,
+      {
+        headers: {
+          apikey: SUPABASE_ANON_KEY,
+          Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
+        }
+      }
+    );
+
+    const json = await res.json();
+    if(!res.ok || !json.ok) throw new Error(json.error || `HTTP ${res.status}`);
+    return json.data || [];
+  }
+
+  function winnersToText(rows, type){
+    if(!rows || rows.length === 0) return "No entries yet 🙂";
+
+    if(type === "speedrun"){
+      return rows.slice(0,3).map((r, i) => {
+        const t = Number(r.time_ms ?? r.timeMs ?? 0);
+        return `#${i+1} ${r.name || "?"} — ${fmtTime(t)}`;
+      }).join("\n");
+    }else if(type === "prestige"){
+      return rows.slice(0,3).map((r, i) => {
+        const s = Number(r.score_int ?? r.score ?? 0);
+        return `#${i+1} ${r.name || "?"} — ${fmt(s)}`;
+      }).join("\n");
+    }else{
+      return rows.slice(0,3).map((r, i) => {
+        const s = Number(r.score_bigint ?? r.score ?? 0);
+        return `#${i+1} ${r.name || "?"} — ${fmt(s)}`;
+      }).join("\n");
+    }
+  }
+
+  function saveWeeklySnapshot(week, vRows, pRows, sRows){
+    const hist = loadWeeklyHistory();
+
+    const best = (rows, type) => {
+      if(!rows || rows.length === 0) return "No entries";
+      const r = rows[0];
+      const name = r?.name || "?";
+      if(type === "speedrun") return `${name} (${fmtTime(Number(r.time_ms ?? r.timeMs ?? 0))})`;
+      if(type === "prestige") return `${name} (${fmt(Number(r.score_int ?? r.score ?? 0))})`;
+      return `${name} (${fmt(Number(r.score_bigint ?? r.score ?? 0))})`;
+    };
+
+    const snapshot = {
+      week_start: week,
+      savedAt: Date.now(),
+      winners: {
+        views: best(vRows, "views"),
+        prestige: best(pRows, "prestige"),
+        speedrun: best(sRows, "speedrun"),
+      }
+    };
+
+    // Keep one snapshot per week (replace older one for same week)
+    const idx = hist.findIndex(x => x.week_start === week);
+    if(idx >= 0) hist.splice(idx, 1);
+    hist.unshift(snapshot);
+    saveWeeklyHistory(hist);
+  }
+
+  async function seasonRefreshWinners(){
+    const week = currentWeekStartUTC();
+
+    const weekLine = $("seasonWinnersWeek");
+    if(weekLine) weekLine.textContent = `Current week (starts Monday UTC): ${week}`;
+
+    const elV = $("seasonWinViews");
+    const elP = $("seasonWinPrestige");
+    const elS = $("seasonWinSpeedrun");
+
+    if(elV) elV.textContent = "Loading...";
+    if(elP) elP.textContent = "Loading...";
+    if(elS) elS.textContent = "Loading...";
+
+    try{
+      const [v, p, s] = await Promise.all([
+        lbGetWeeklyTop("views", 3),
+        lbGetWeeklyTop("prestige", 3),
+        lbGetWeeklyTop("speedrun", 3),
+      ]);
+
+      if(elV) elV.textContent = winnersToText(v, "views");
+      if(elP) elP.textContent = winnersToText(p, "prestige");
+      if(elS) elS.textContent = winnersToText(s, "speedrun");
+
+      // save local snapshot + render history
+      saveWeeklySnapshot(week, v, p, s);
+      renderWeeklyHistory();
+
+    }catch(err){
+      const msg = String(err?.message || err);
+      if(elV) elV.textContent = "Could not load weekly winners: " + msg;
+      if(elP) elP.textContent = "Could not load weekly winners: " + msg;
+      if(elS) elS.textContent = "Could not load weekly winners: " + msg;
+      toast(msg);
+    }
+  }
+
   // ---------- Game content ----------
   const UPGRADE_DEFS = [
     { id:"pc",      name:"Better PC",        desc:"More views per second. (GPU goes BRRR)", baseCost:50,  costMult:1.25, effect:(lvl)=>({ vps: 0.6 * lvl }) },
@@ -2138,11 +1876,9 @@ function maybeShowLastWeekToast(){
     // boost pill
     const left = Math.max(0, Math.ceil(((S.boostUntil || 0) - now()) / 1000));
     const hasDaily = !!S._dailyBoostMult;
-    const hasRewarded = r.boosted && !hasDaily;
 
     if (left > 0) {
-      if (hasDaily && hasRewarded) $("pillBoost").textContent = `Boost + Daily (${left}s)`;
-      else if (hasDaily) $("pillBoost").textContent = `Daily active (${left}s)`;
+      if (hasDaily) $("pillBoost").textContent = `Daily active (${left}s)`;
       else $("pillBoost").textContent = `x2 active (${left}s)`;
     } else {
       $("pillBoost").textContent = "No boost";
@@ -2331,6 +2067,7 @@ function maybeShowLastWeekToast(){
   });
   $("btnSeasonClaimDaily")?.addEventListener("click", claimDaily);
   $("btnSeasonClaimComeback")?.addEventListener("click", claimComeback);
+  $("btnSeasonRefreshWinners")?.addEventListener("click", seasonRefreshWinners);
 
   // Leaderboard modal
   $("btnLB")?.addEventListener("click", openLBOverlay);
@@ -2418,102 +2155,6 @@ function maybeShowLastWeekToast(){
     click();
   });
 
-  // ===== Weekly Winners (Top 3) =====
-
-function weekStartISO_UTC(d = new Date()){
-  // Monday 00:00 UTC
-  const x = new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate()));
-  const day = x.getUTCDay(); // 0=Sun
-  const diff = (day === 0 ? -6 : 1 - day);
-  x.setUTCDate(x.getUTCDate() + diff);
-  return x.toISOString().slice(0,10); // YYYY-MM-DD
-}
-
-function currentWeekStartUTC(){
-  return weekStartISO_UTC(new Date()); // Monday 00:00 UTC for this week
-}
-
-function lastCompletedWeekStartUTC(){
-  const thisWeek = currentWeekStartUTC();
-  const d = new Date(thisWeek + "T00:00:00Z");
-  d.setUTCDate(d.getUTCDate() - 7);
-  return d.toISOString().slice(0,10);
-}
-
-
-async function lbGetWeeklyTop3(type, week_start){
-  const res = await fetch(
-    `${LB_BASE}/get-leaderboard?type=${encodeURIComponent(type)}&weekly=1&week_start=${encodeURIComponent(week_start)}&limit=3`,
-    {
-      headers: {
-        apikey: SUPABASE_ANON_KEY,
-        Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
-      }
-    }
-  );
-
-  const json = await res.json();
-  if(!res.ok || !json.ok) throw new Error(json.error || `HTTP ${res.status}`);
-  return json.data || [];
-}
-
-function winnersToText(rows, type){
-  if(!rows || rows.length === 0) return "No entries yet 🙂";
-
-  if(type === "speedrun"){
-    return rows.slice(0,3).map((r, i) => {
-      const t = Number(r.time_ms ?? r.timeMs ?? r.time_ms_bigint ?? 0);
-      return `#${i+1} ${r.name || "?"} — ${fmtTime(t)}`;
-    }).join("\n");
-  }else{
-    // views/prestige
-    return rows.slice(0,3).map((r, i) => {
-      const s = Number(r.score_bigint ?? r.score_int ?? r.score ?? 0);
-      return `#${i+1} ${r.name || "?"} — ${fmt(s)}`;
-    }).join("\n");
-  }
-}
-
-async function seasonRefreshWinners(){
-  const week = currentWeekStartUTC();
-
-  const weekLine = document.getElementById("seasonWinnersWeek");
-  if(weekLine) weekLine.textContent = `Current week (starts Monday UTC): ${week}`;
-
-  const elV = document.getElementById("seasonWinViews");
-  const elP = document.getElementById("seasonWinPrestige");
-  const elS = document.getElementById("seasonWinSpeedrun");
-
-  if(elV) elV.textContent = "Loading...";
-  if(elP) elP.textContent = "Loading...";
-  if(elS) elS.textContent = "Loading...";
-
-  try{
-    const [v, p, s] = await Promise.all([
-      lbGetWeeklyTop3("views", week),
-      lbGetWeeklyTop3("prestige", week),
-      lbGetWeeklyTop3("speedrun", week),
-    ]);
-
-    if(elV) elV.textContent = winnersToText(v, "views");
-    if(elP) elP.textContent = winnersToText(p, "prestige");
-    if(elS) elS.textContent = winnersToText(s, "speedrun");
-  }catch(err){
-    const msg = String(err?.message || err);
-    if(elV) elV.textContent = "Could not load weekly winners: " + msg;
-    if(elP) elP.textContent = "Could not load weekly winners: " + msg;
-    if(elS) elS.textContent = "Could not load weekly winners: " + msg;
-    toast(msg);
-  }
-}
-
-// Hook refresh button
-document.getElementById("btnSeasonRefreshWinners")?.addEventListener("click", seasonRefreshWinners);
-
-// Optional: auto-load when opening season modal
-// Call this inside openSeasonOverlay() after updateSeasonUI();
-
-
   // ---------- Init ----------
   buildShop();
   buildAchievements();
@@ -2523,7 +2164,6 @@ document.getElementById("btnSeasonRefreshWinners")?.addEventListener("click", se
   render(true);
   checkAchievements();
   loop();
-  maybeSnapshotLastWeekOnMonday();
 
   // Show help first time
   if(!localStorage.getItem(HELP_KEY)){
